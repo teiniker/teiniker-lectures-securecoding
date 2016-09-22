@@ -1,0 +1,21 @@
+# System under test
+
+target.home = ../StaticAnalysis-Target
+target.src = ${target.home}/src
+target.test = ${target.home}/test
+
+
+# PMD settings
+analysis.reports = reports
+pmd.output.format = html
+pmd.output.file = ${analysis.reports}/pmd-report.html
+#pmd.output.format = xml
+#pmd.output.file = ${analysis.reports}/pmd-report.xml
+
+
+# CPD settings
+cpd.minimumTokenCount = 50
+cpd.output.format = text
+cpd.output.file = ${analysis.reports}/cpd-report.txt
+#cpd.output.format = xml
+#cpd.output.file = ${analysis.reports}/cpd-report.xml

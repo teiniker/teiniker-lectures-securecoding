@@ -1,0 +1,8 @@
+# System under test
+target.home =/home/student/.m2
+target.lib = ${target.home}/repository
+
+
+# JDepend settings
+analysis.reports = reports
+

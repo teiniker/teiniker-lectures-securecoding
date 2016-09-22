@@ -1,0 +1,71 @@
+<project name="FindBugs-Examples" default="all">
+
+	<property file="analysis.properties" />
+	<fail unless="target.home" message="analysis.properties file not found!" />
+
+	<target name="all" depends="clean,init,pmd" />
+
+	<target name="init">
+		<echo message="Analyze ${target.home}" />
+		<mkdir dir="${analysis.reports}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${analysis.reports}" failonerror="false" />
+	</target>
+
+
+	<!--
+		PMD
+	-->
+
+	<property name="pmd.lib" location="vendor/pmd-5.2.3/lib" />
+
+	<path id="pmd.classpath">
+		<fileset dir="${pmd.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath" />
+
+	<target name="pmd">
+		<pmd shortFilenames="true">
+			<sourceLanguage name="java" version="1.8" />
+			<ruleset>rulesets/java/design.xml</ruleset>
+			<ruleset>java-basic</ruleset>
+
+			<formatter type="${pmd.output.format}" toFile="${pmd.output.file}" />
+			
+			<fileset dir="${target.src}">
+				<include name="**/*.java" />
+			</fileset>
+			<fileset dir="${target.test}">
+				<include name="**/*.java" />
+			</fileset>
+		</pmd>
+	</target>
+
+
+	<!--
+		CPD 
+	-->
+
+	<taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask" classpathref="pmd.classpath" />
+
+	<target name="cpd">
+		<cpd minimumTokenCount="${cpd.minimumTokenCount}" language="java" ignoreIdentifiers="true" ignoreLiterals="true" format="${cpd.output.format}" outputFile="${cpd.output.file}">
+			<fileset dir="${target.src}">
+				<include name="**/*.java" />
+			</fileset>
+			<fileset dir="${target.test}">
+				<include name="**/*.java" />
+			</fileset>
+		</cpd>
+	</target>
+
+	<target name="cpd.html">
+		<xslt in="${cpd.output.file}" style="etc/xslt/cpdhtml.xslt" out="${cpd.output.file}.html" />
+	</target>
+
+</project>

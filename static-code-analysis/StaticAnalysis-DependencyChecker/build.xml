@@ -1,0 +1,45 @@
+<project name="DependencyCheck-Example" default="all">
+
+	<!--
+		Global settings
+	-->
+	<property file="analysis.properties" />
+	<fail unless="target.home" message="analysis.properties file not found!" />
+
+
+	<target name="all" depends="clean,init,check" />
+
+	<target name="init">
+		<echo message="Analyze project ${project.home}" />
+		<mkdir dir="${analysis.reports}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${analysis.reports}" failonerror="false" />
+	</target>
+
+
+	<!--
+		Dependency Check
+	-->
+
+	<property name="lib" location="vendor/dependency-check/lib" />
+
+	<taskdef name="dependency-check" classname="org.owasp.dependencycheck.taskdefs.DependencyCheckTask">
+	    <classpath path="${lib}/dependency-check-ant-1.2.8.jar"/>
+	</taskdef>
+	
+	<target name="check" >
+	    <dependency-check applicationname="Simple Example"
+	                      autoupdate="true"
+	                      reportoutputdirectory="${analysis.reports}"
+	                      reportformat="HTML">
+
+	        <fileset dir="${target.lib}">
+	            <include name="**/*.jar"/>
+	        </fileset>
+	    </dependency-check>
+	</target>
+	
+
+</project>

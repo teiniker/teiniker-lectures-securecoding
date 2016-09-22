@@ -1,0 +1,20 @@
+# System under test
+
+target.home = ../StaticAnalysis-Target
+target.src = ${target.home}/src
+target.test = ${target.home}/test
+target.classes = ${target.home}/build
+
+
+# FindBugs settings
+
+findbugs.home=/home/student/install/findbugs-3.0.1
+
+analysis.reports = reports
+
+#findbugs.output.format = text
+#findbugs.output.file = reports/findbugs-report.txt
+#findbugs.output.format = xml
+#findbugs.output.file = reports/findbugs-report.xml
+findbugs.output.format = html
+findbugs.output.file = findbugs-report.html

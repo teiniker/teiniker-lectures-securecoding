@@ -1,0 +1,42 @@
+<project name="FindBugs-Examples" default="all">
+
+	<property file="analysis.properties"/>
+	<fail unless="findbugs.home" message="analysis.properties file not found!"/>
+	
+	<target name="all" depends="clean,init,findbugs"/>
+
+	<target name="init">
+		<echo message="Analyze ${target.classes}" />
+		<mkdir dir="${analysis.reports}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${analysis.reports}" failonerror="false" />
+	</target>
+	
+	
+	<!--
+		FindBugs
+	-->
+	<property name="lib" location="vendor/findbugs-3.0.0/lib" />
+	
+
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" >
+		<classpath path="${lib}/findbugs-ant.jar"/>
+	</taskdef>
+	
+	<target name="findbugs" depends="init">
+		<findbugs 
+			home="${findbugs.home}" 
+			output="${findbugs.output.format}" 
+			outputFile="${analysis.reports}/${findbugs.output.file}" >
+			<!--
+			<auxClasspath path="${basedir}/lib/Regex.jar" />
+			-->
+			<sourcePath path="${target.src}"/>
+			<sourcePath path="${target.test}"/>
+	      	<class location="${target.classes}"/>
+	    </findbugs>
+	</target>
+
+</project>
