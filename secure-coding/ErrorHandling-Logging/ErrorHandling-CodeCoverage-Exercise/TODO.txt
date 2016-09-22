@@ -1,0 +1,39 @@
+Exercise: Error Handling - Code Coverage
+---------------------------------------------------------------------
+
+Code coverage measurement is a dynamic code analysis technique that
+can be used to find out code areas which are not covered by your
+test suite.
+
+In practice, error handling code as a insufficient code coverage 
+because it is hard to test - we need test doubles to simulate error
+conditions for the system under test.
+
+In Eclipse, you can use the EclEmma plugin to measure the code
+coverage of your test suite.
+1. Help/Eclipse Marketplace...
+2. Search for "EclEmma" 
+3. Install this plugin
+4. Right-click on your test class, select "Coverage As / JUnit Test"
+5. Review your code - all lines marked red are not executed during
+	the tests (green lines are executed, yellow lines are partly 
+	executed).
+	
+	
+1. Code Coverage Analysis
+---------------------------------------------------------------------
+Run the given "UserServiceTest" class and analyze the code coverage
+of the class "UserService".
+It should be 65.5%, but more important, you can see that the error
+handling code is not tested.
+
+
+2. Test Error Handling
+---------------------------------------------------------------------
+Extend the given "UserDAOStub" and "UserServiceTest" classes to 
+increase the code coverage of "UserService" to 100%.
+
+
+3. Bugfix 
+---------------------------------------------------------------------
+Fix the problem in the current error handling code.	

@@ -1,0 +1,6 @@
+Exercise: Security Features - MD5 Brute Force Attack
+--------------------------------------------------------------------------------
+
+Implement a test case, which uses the stings stored in "wordlist.txt" to brute
+force attack a given MD5 hash value.
+

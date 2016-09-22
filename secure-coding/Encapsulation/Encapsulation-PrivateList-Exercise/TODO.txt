@@ -1,0 +1,10 @@
+Exercise: Encapsulation - Private List Attack
+---------------------------------------------------------------------
+
+With the given implementation of the "User" class, we can attack the 
+internal (private) list of "EMail" objects very easily - just run
+the "AttackUserTest" class.
+
+Refactor the "User" class to remove these code vulnerabilities, and
+to make the test cases work. 
+  

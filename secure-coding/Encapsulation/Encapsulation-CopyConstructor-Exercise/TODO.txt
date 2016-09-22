@@ -1,0 +1,16 @@
+Exercise: Encapsulation - Copy Constructor
+--------------------------------------------------------------------------
+ 
+A copy constructor is a constructor that creates a deep copy of the 
+passed object.
+	
+Implement the following copy constructors:
+	
+		public Article(Article article)
+	
+		public OrderLine(OrderLine line)
+	
+		public Order(Order order)
+	
+You can test your implementations with the given Test classes.
+	

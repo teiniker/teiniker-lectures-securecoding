@@ -1,0 +1,30 @@
+Exercise: Output Encoding - Base64 Encoder
+---------------------------------------------------------------------
+
+To get an idea of how a base 64 encoder works, you should implement 
+a simple version of it... 
+	
+Encode Bytes to a Base64 String
+---------------------------------------------------------------------
+Within the "Base64" class, implement the following method: 
+
+	public static String toBase64String(byte[] binaryData)
+
+Check your implementation with the "Base64Test".
+
+Note that your input data is always a multiple of 3 and that you
+can skip the padding procedure.
+
+
+Example: 3 Bytes -> 4 Characters
+  
+Bytes:
+ 	0x1A       0xCF       0xD2
+    0001 1010  1100 1111  1101 0010
+     
+6 bit Values:
+    000110  101100  111111  010010
+    0x06    0x2C    0x3F    0x12
+    G       s       /       S
+    
+     

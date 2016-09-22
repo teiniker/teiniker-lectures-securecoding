@@ -1,0 +1,22 @@
+Exercise: Validation Proxy
+--------------------------------------------------------------------------
+
+1. Article Validation
+--------------------------------------------------------------------------
+Implement a proper input validation for the entity class "Article".
+All constraints are described in the getter/setter comments.
+	
+	
+2. Validation Proxy
+--------------------------------------------------------------------------
+
+2.1 Implement a validation proxy for the "ArticleService" interface that
+	validates all parameters (as described in the comments) and delegates
+	the calls to the "ArticleServiceImpl" class.
+	The name of the proxy class is "ArticleServiceValidation".
+	
+2.2 Change the static "createArticleService()" method of the "Factory"
+	class to create a sequence of objects: 
+		ArticleServiceValidation -> ArticleServiceImpl
+		
+ 			

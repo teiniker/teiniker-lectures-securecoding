@@ -1,0 +1,31 @@
+Concurrency: Executor Framework
+---------------------------------------------------------------------
+
+A given task (base64 encoding of a binary file) should be executed in
+parallel. Use the Executor Framework...
+
+	
+Parallel Base64 Encoder
+---------------------------------------------------------------------
+
+1. Implement the task
+Reuse the given test class "BinaryFileEncodingAndDecodingTest" to 
+implement a class called "EncodingTask" that implements the "Runnable"
+interface.
+Provide the following initialization constructor:
+	
+	public EncodingTask(String inputFile, String outputFile)
+
+Implement the run() method with a proper error handling.
+
+
+2. Implement the parallel encoder
+Write a class called "ParallelBase64Encoder" that provides the following
+method:
+
+	public static void encode(List<String> fileNameList, int numberOfThreads)
+
+Within that method use the executor framework to start an EncodingTask
+for every entry in the fileNameList.
+
+Use "ParallelBase64EncoderTest" to check your implementation.	     

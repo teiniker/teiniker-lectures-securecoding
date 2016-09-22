@@ -1,0 +1,9 @@
+Exercise: Input Validation - EMail Address
+--------------------------------------------------------------------------
+
+Implement an immutable class called "EMail" that stores a single email address.
+ Validate the string passed by the constructor to ensure to store a proper 
+ email address.
+
+ Read the test cases in "EMailTest" to get an overview about accepted 
+ and rejected mail addresses.	

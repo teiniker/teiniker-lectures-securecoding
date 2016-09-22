@@ -1,0 +1,30 @@
+TODO: Sockets
+--------------------------------------------------------------------------
+
+Given a simple "Logger" interface and a "LoggerImpl" class that can be 
+tested by the "LoggerImplTest" class.
+
+1. Logger Server
+--------------------------------------------------------------------------
+	Implement a "LoggerServer" class that can be started as a separate 
+	process that listens on port 8080 for incoming strings. These strings 
+	should be logged in a file called "./log/server.log" 
+	
+	Start the server process from the command line:
+		$ java -cp build org.se.lab.server.LoggerServer
+		
+	Example: server.log file content
+	[2012.02.08 20:43:14] Logging server started...
+	[2012.02.08 20:43:26] from /127.0.0.1:50129 | [2012.02.08 20:43:26] DEBUG - This is a debug message.
+	[2012.02.08 20:43:26] from /127.0.0.1:50130 | [2012.02.08 20:43:26] INFO - This is an info message.
+	[2012.02.08 20:43:26] from /127.0.0.1:50131 | [2012.02.08 20:43:26] WARNING - This is a warning message.
+	[2012.02.08 20:43:26] from /127.0.0.1:50132 | [2012.02.08 20:43:26] ERROR - This is error message.
+
+
+2. Logger Proxy
+--------------------------------------------------------------------------
+	Write a "LoggerProxy" class that also implements the "Logger" interface
+	but delegates all the log messages to the server-side via port 8080.
+	Run the "LoggerServerTest" to verify your implementation of both the
+	"LoggerServer" and the "LoggerProxy".
+	
