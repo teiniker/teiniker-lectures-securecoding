@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0-rc (Sun Microsystems Inc.)
+Crypto-Strength: limited
+
+Name: exempt_local.policy
+SHA1-Digest: 1UkwMAnKbHaX2CkqWE5ZOpCbvTo=
+
+Name: default_local.policy
+SHA1-Digest: AcamqLZm8lRSljqbbjP5l8KvKqA=
+

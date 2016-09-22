@@ -1,0 +1,11 @@
+Signature-Version: 1.0
+Created-By: 1.6.0-rc (Sun Microsystems Inc.)
+SHA1-Digest-Manifest-Main-Attributes: NfBAsv3fxw/zTue4x/LZm/7ufRw=
+SHA1-Digest-Manifest: ifeLfBOAEch+fn1XFVycZ8iJmF0=
+
+Name: exempt_local.policy
+SHA1-Digest: rBEcKKIYbAsZ1qKZ8ZFolhWKlnY=
+
+Name: default_local.policy
+SHA1-Digest: W9aqoVoMAop3cCDBro1FTp4yFnM=
+

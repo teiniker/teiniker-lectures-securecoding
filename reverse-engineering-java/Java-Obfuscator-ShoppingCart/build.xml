@@ -1,0 +1,44 @@
+<project name="ShoppingCart" default="obfuscate">
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="jarfile" value="ShoppingCart-1.0.0" />
+	<property name="lib.proguard" location="vendor/proguard5.0/lib" />
+
+
+	<path id="classpath">
+		<pathelement path="${lib.proguard}/proguard.jar" />
+	</path>
+
+
+	<target name="init">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="clean">
+		<delete file="${jarfile}.jar" />
+		<delete file="${jarfile}-out.jar" />
+		<delete dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${build}" 
+			debug="false" 
+			source="1.8" target="1.8" 
+				includeantruntime="false" 
+				classpathref="classpath" />
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${jarfile}.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="org.se.lab.Main" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="obfuscate" depends="jar">
+		<taskdef resource="proguard/ant/task.properties" classpath="${lib.proguard}/proguard.jar" />
+		<proguard configuration="config.pro" />
+	</target>
+
+</project>

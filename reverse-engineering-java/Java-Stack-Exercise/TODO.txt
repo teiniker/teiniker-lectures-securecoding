@@ -1,0 +1,15 @@
+Exercise: Java Objects
+-------------------------------------------------------------------------------
+
+1. Stack of Integer Objects
+----------------------------
+Implement the given interface "Stack" to make the "StackTest" happy.
+
+Use a linked list of Node objects to realize the stack behavior.
+
+
+2. Generic Stack
+----------------
+Refactor your stack implementation to make it a generic data structure.
+
+See "StackTestInteger" and "StackTestString" for the desired behavior.
