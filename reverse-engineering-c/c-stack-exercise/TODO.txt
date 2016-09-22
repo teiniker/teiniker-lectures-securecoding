@@ -1,0 +1,17 @@
+Exercise: Stack
+---------------------------------------------------------------------
+
+Implement the stack (first-in, last-out) operations declared in the 
+stack.h header file.
+
+Use main.c to test your implementation.
+
+$ ./stack 
+stack size = 4
+4
+3
+2
+1
+
+Use valgrind to proof that your implementation does a proper
+memory management.

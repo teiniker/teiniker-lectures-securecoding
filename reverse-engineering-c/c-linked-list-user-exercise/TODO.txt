@@ -1,0 +1,11 @@
+Exercise: Linked List API for Users
+---------------------------------------------------------------------
+
+Implement the linked list functions declared in the linked_list_user.h
+header file.
+
+Use main.c to test your implementation.
+
+Use valgrind to proof that your implementation does a proper
+memory management.
+
