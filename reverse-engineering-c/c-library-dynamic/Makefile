@@ -1,6 +1,6 @@
 
 OBJECTS = 
-CFLAGS = -std=c99 -g -Wall  
+CFLAGS = -std=c99 -g -Wall -fPIC  
 LDLIBS = 
 CC=gcc
 
@@ -11,11 +11,11 @@ linked_list_user.o: linked_list_user.c linked_list_user.h
 	$(CC) $(CFLAGS) $(LDLIBS) -c linked_list_user.c 
 
 lib: linked_list_user.o
-	ar -cvq liblist.a *.o
+	$(CC) -shared -o liblist.so *.o
 
 install: lib
 	mkdir lib
-	mv liblist.a lib/
+	mv liblist.so lib/
 	mkdir include
 	cp linked_list_user.h include/
 

@@ -19,7 +19,7 @@ Second, we install the library to a location in the file system:
     $ mv liblist.a lib/
 
     $ mkdir include
-    $ mv linked_list_user.h include/
+    $ cp linked_list_user.h include/
 
 
 
