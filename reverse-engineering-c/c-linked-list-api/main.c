@@ -19,6 +19,8 @@ int main()
      }
  
      list_remove_all(list_ptr);
+    list_ptr = NULL;  //!!!
+    printf("list.length = %d\n", list_length(list_ptr));
  
      return 0;
 }
