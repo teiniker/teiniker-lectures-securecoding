@@ -33,7 +33,7 @@ void tree_insert(tree **tree_ptr, int value)
     }
 }
 
-int tree_print(tree **tree_ptr)
+void tree_print(tree **tree_ptr)
 {
     if(*tree_ptr != NULL)
     {
@@ -41,8 +41,6 @@ int tree_print(tree **tree_ptr)
         tree_print(&(*tree_ptr)->right_ptr);
         printf("%d ", (*tree_ptr)->value);
     }
-
-    return 0;
 }
 
 

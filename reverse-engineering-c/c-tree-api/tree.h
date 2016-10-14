@@ -13,7 +13,7 @@ typedef struct node
 }tree;
 
 extern void tree_insert(tree **tree_ptr, int value);
-extern int tree_print(tree **tree_ptr);
+extern void tree_print(tree **tree_ptr);
 extern void tree_remove(tree **tree_ptr);
 
 
