@@ -1,0 +1,21 @@
+Exercise: Java Class Loader
+-------------------------------------------------------------------------------
+
+Given a file called "org.se.lab.HelloWorld.hex", extend the custom class loader
+and implement the "findClassBytes()" method which:
+
+a) Reads the hex file and converts the hex string into a byte array.
+
+b) Performs an "XOR 0xcc" operation on every single byte of that array.   
+
+Use the "ClassLoaderTest" to verify your implementations.
+
+
+Tip: Use the commons-codec library which is already included within the project:
+
+	String Hex.encodeHexString(byte[] bytes)
+	byte[] Hex.decodeHex(char[]);
+	
+	char[] aString.toCharArray()
+	
+Tip: Have a look at the "FileIOTest" and "ClassConverterTest" files.	
