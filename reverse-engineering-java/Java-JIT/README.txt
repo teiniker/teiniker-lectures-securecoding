@@ -31,4 +31,63 @@ $ java -XX:+PrintCompilation -cp ./target/classes org.se.lab.Loop
     269   26             java.lang.AbstractStringBuilder::append (62 bytes)
    1625    1 %           org.se.lab.Loop::main @ 8 (31 bytes)
 
-   
+ Output format:
+ 
+ Column	Meaning
+ --------------------------------------------------------------------
+ 1		Time (in ms) since the JVM started
+ 2		Compilation ID  
+ 3		Flags that indicate properties of the compiled method
+ 		n ... wrapper to a native method
+ 		s ... method is synchronized
+ 		b ... compilation occured in blocking mode
+ 		! ... method has an exception handler
+ 		% ... compilation is OSR 
+ 		
+ 4		Qualified name of the method (number of bytes of bytecode
+ 		contained in the method being compiled).
+ 		
+An OSR compilation was triggered because the code was looping over a 
+large loop, and the VM determined that this code is hot. 
+So an OSR compilation was triggered, which would enable the VM to do an 
+On Stack Replacement and move over to the optimized code, once it is ready.
+ 		
+With OSR, you just move to the compiled version right after it gets compiled, 
+unlike with JIT, where the compiled code gets called when the method is 
+called for the second time. 		
+
+
+Using the -XX:+CITime flag outputs various statistics about compilations:
+ 		
+ $ java -XX:+CITime -cp ./target/classes org.se.lab.Loop
+ 		
+ Accumulated compiler times (for compiled methods only)
+------------------------------------------------
+  Total compilation time   :  0.006 s
+    Standard compilation   :  0.006 s, Average : 0.000
+    On stack replacement   :  0.000 s, Average : -nan
+    Detailed C1 Timings
+       Setup time:         0.000 s ( 0.0%)
+       Build IR:           0.002 s (38.0%)
+         Optimize:            0.000 s ( 4.3%)
+         RCE:                 0.000 s ( 1.8%)
+       Emit LIR:           0.003 s (45.6%)
+         LIR Gen:           0.000 s ( 6.5%)
+         Linear Scan:       0.002 s (38.0%)
+       LIR Schedule:       0.000 s ( 0.0%)
+       Code Emission:      0.001 s (11.6%)
+       Code Installation:  0.000 s ( 4.9%)
+       Instruction Nodes:   1743 nodes
+
+  Total compiled methods   :     29 methods
+    Standard compilation   :     29 methods
+    On stack replacement   :      0 methods
+  Total compiled bytecodes :   2805 bytes
+    Standard compilation   :   2805 bytes
+    On stack replacement   :      0 bytes
+  Average compilation speed: 483420 bytes/s
+
+  nmethod code size        :  10592 bytes
+  nmethod total size       :  26792 bytes
+ 		
+ 		

@@ -7,7 +7,7 @@ public class Loop
 	{
 		String s = "";
 		
-		for(int i = 0; i < 1000000; i++)
+		for(int i = 0; i < 10000; i++)
 		{
 			s = add(s,i);
 		}
