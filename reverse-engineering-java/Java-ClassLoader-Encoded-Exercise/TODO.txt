@@ -8,6 +8,7 @@ a) Reads the hex file and converts the hex string into a byte array.
 
 b) Performs an "XOR 0xcc" operation on every single byte of that array.   
 
+Run "ClassConverterTest" to generate "org.se.lab.HelloWorld.hex".
 Use the "ClassLoaderTest" to verify your implementations.
 
 
