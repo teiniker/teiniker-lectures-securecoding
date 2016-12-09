@@ -62,65 +62,6 @@ $ egrep -n "^([0-9]{2}:){2}[0-9]{2}$" InputData.txt
 28:14:57:23
 
 
-Examples: String Literals
--------------------------------------------------------------------------------
-$ egrep -n "Homer" InputData.txt 
-14:Homer
-15:HomerSimpson
-
-$ egrep -n "Homer|homer" InputData.txt 
-13:homer
-14:Homer
-15:HomerSimpson
-24:homer.simpson@power-plant.com
-
-$ egrep -n "[Hh]omer" InputData.txt
-13:homer
-14:Homer
-15:HomerSimpson
-24:homer.simpson@power-plant.com
-
-$ egrep -n "^[Hh]omer$" InputData.txt 
-13:homer
-14:Homer
-
-
-Examples: Username
--------------------------------------------------------------------------------
-$ egrep -n "^[a-zA-Z_-]+$" InputData.txt
-12:hs
-13:homer
-14:Homer
-15:HomerSimpson
-16:bart_simpson
-17:lisa-simpson
-
-$ egrep -n "^[a-zA-Z_-]{8,32}$" InputData.txt
-15:HomerSimpson
-16:bart_simpson
-17:lisa-simpson
-
-
-Examples: Filename
--------------------------------------------------------------------------------
-$ egrep -n "^[a-zA-Z0-9_]{1,255}\.[a-zA-Z0-9]{0,3}$" InputData.txt
-19:readme.txt
-20:TODO.txt
-22:stack.c
-
-
-Examples: Time & Date
--------------------------------------------------------------------------------
-$ egrep -n "^[0-9]{2}:[0-9]{2}$" InputData.txt 
-27:14:57   	# Note: 27: is the line number!!
-
-$ egrep -n "^[0-9]{2}:[0-9]{2}:[0-9]{2}$" InputData.txt 
-28:14:57:23	# Note: 28: is the line number!
-
-$ egrep -n "^([0-9]{2}:){2}[0-9]{2}$" InputData.txt
-28:14:57:23
-
-
 $ egrep -n "^[0-9]{2}.[0-9]{2}.[0-9]{4}$" InputData.txt 
 30:09.12.2016
 31:09-12-2016
@@ -221,3 +162,4 @@ $ egrep -n "^[^<>]" InputData.txt
 33:9.12.16
 35:127.0.0.1
 36:172.217.21.78
+
