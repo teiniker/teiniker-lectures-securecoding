@@ -24,3 +24,13 @@ stack.c
 homer.simpson@power-plant.com
 lisa.simpson@springfield.com
 
+14:57
+14:57:23
+
+09.12.2016
+09-12-2016
+9.12.2016
+9.12.16
+
+127.0.0.1
+172.217.21.78
