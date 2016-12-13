@@ -26,7 +26,7 @@ Second, we install the library to a location in the file system:
 How to use a static library?
 -------------------------------------------------------------------------------
 
-    $ gcc -o main main.c -I./include -L./lib -llist
+    $ gcc -std=c99 -o main main.c -I./include -L./lib -llist
     $ ./main
 
 
