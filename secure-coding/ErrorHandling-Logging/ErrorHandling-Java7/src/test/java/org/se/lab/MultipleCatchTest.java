@@ -43,7 +43,7 @@ public class MultipleCatchTest
 		}
 		catch (ClassNotFoundException | IOException | SQLException e)
 		{
-			throw new RuntimeException("Can't connect to the database", e);
+			throw new IllegalStateException("Can't connect to the database", e);
 		}
 	}
 
