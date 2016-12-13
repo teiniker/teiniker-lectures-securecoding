@@ -37,7 +37,7 @@ public class DecodingClassLoader
 	}
 
 
-	private byte[] findClassBytes(String className)
+	private byte[] findClassBytes(String className) 
 	{
 		try
 		{
@@ -50,7 +50,7 @@ public class DecodingClassLoader
 		}
 		catch(IOException | DecoderException e)
 		{
-			return null;
+			throw new IllegalStateException("Can't read byte array for class " + className, e);
 		}
 	}
 	
@@ -72,6 +72,14 @@ public class DecodingClassLoader
         }
         return result;
     }
+    
+/*    
+ *  A  B   Z = XOR(A,B)  Y= XOR(XOR(A,B),B) = A
+ *  0  0   0  				0
+ *  0  1   1				0
+ *  1  0   1				1
+ *  1  1   0				1
+ */
 
     private byte xorByte(byte a, int key)
     {
