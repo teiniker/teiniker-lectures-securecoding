@@ -1,0 +1,32 @@
+Exercise: Secure Copy via SSL 
+-------------------------------------------------------------------------------
+
+1. Secure Copy Server
+-------------------------------------------------------------------------------
+Implement a class called "ScpServer" that can be started with the following command
+line:
+
+$ java -cp ./target/classes -Djavax.net.ssl.keyStore=./SSLKeyStore  -Djavax.net.ssl.keyStorePassword=student org.se.lab.ScpServer 8010 mytux.jpg
+
+The server listens on port 8010 for an input stream, stores the bytes into a binary 
+file (e.g. "mytux.jpg"), and terminates.
+
+
+2. Secure Copy Client
+-------------------------------------------------------------------------------
+Implement a class called "ScpClient" that can be executed with the commond line:
+
+$ java -cp ./target/classes -Djavax.net.ssl.trustStore=./SSLKeyStore -Djavax.net.ssl.trustStorePassword=student org.se.lab.ScpClient tux.jpg localhost 8010 
+
+The client opens a binary file ("tux.jpg" in that case), connects to the given
+server process (here localhost port 8010), sends the bytes from the file
+to the server, and terminates. 
+
+
+Note that the client / server communication should be implemented in a secure
+way using SSL.
+
+To generate a certificate use the keytool:
+
+$ keytool -genkey -keystore SSLKeyStore -alias SSLCertificateWithRSA -keyalg RSA
+
