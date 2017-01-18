@@ -2,7 +2,7 @@ How to Start the Server?
 -------------------------------------------------------------------------------
 
 $ cd Sockets-Daytime/
-$ java -cp ./build/ org.se.lab.DaytimeServer
+$ java -cp ./target/classes org.se.lab.DaytimeServer
 Starting server....done
 
 
