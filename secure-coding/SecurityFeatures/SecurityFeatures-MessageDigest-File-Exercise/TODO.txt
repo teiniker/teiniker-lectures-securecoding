@@ -1,0 +1,34 @@
+Exercise: Security Features - File Fingerprint
+-------------------------------------------------------------------------------
+
+We can use a command line tool to calculate the fingerprint of a file:
+
+Example:
+	$ sha256sum -b tux.jpg 
+	8d31e130ba8b62c0ac79b6e0eba3ea8b06013cdb9db395f46ad46d15df1bf521 *tux.jpg
+
+The same functionality should be realized in Java.
+Therefore, implement a class called "Fingerprint" with two public static methods:
+
+1) String sha256(byte[] data)
+	- Calculate the SHA-256 hash value for the given byte array.
+	- Convert the hash value (byte[]) into a hex string (use commons.codec)
+	- Wrap the checked "NoSuchAlgorithmException" exception into a 
+	  "IllegalStateException" runtime exception.
+	- Check the input parameter against null pointers.   
+
+2) String sha256(File file)
+	- Read the content of a binary file into a byte array.
+	- Calculate the SHA-256 hash value for the given byte array.
+	- Convert the hash value (byte[]) into a hex string (use commons.codec)
+	- Wrap the checked "NoSuchAlgorithmException" exception into a 
+	  "IllegalStateException" runtime exception.
+	- Check the input parameter against null pointers.   
+	- Check the input parameter for existing files.
+	
+Run the "FingerprintTest" to validate your implementations.
+
+Tip: Review the "SHATest" to find out the usage of message digests.	
+
+Tip: Try to reduce redundant code in these methods.
+
