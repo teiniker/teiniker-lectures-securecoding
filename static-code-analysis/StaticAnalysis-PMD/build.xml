@@ -3,7 +3,7 @@
 	<property file="analysis.properties" />
 	<fail unless="target.home" message="analysis.properties file not found!" />
 
-	<target name="all" depends="clean,init,pmd" />
+	<target name="all" depends="clean,init,pmd,cpd" />
 
 	<target name="init">
 		<echo message="Analyze ${target.home}" />
