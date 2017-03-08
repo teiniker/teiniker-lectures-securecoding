@@ -1,0 +1,53 @@
+<project name="JavaNCSS-Example" default="all">
+
+	<!--
+		Global settings
+	-->	
+	<property file="analysis.properties"/>
+	<fail unless="project.home" message="analysis.properties file not found!"/>
+	
+	
+	<target name="all" depends="clean,init,javancss"/>
+	
+	<target name="init">
+		<echo message="Analyze project ${project.home}" />
+		<mkdir dir="${analysis.reports}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${analysis.reports}" failonerror="false"/>
+	</target>
+
+	
+	<!--
+		JavaNCSS
+	-->
+	
+	<property name="javancss.lib" location="vendor/javancss-32.53/lib" />
+
+	<path id="javancss.classpath">
+        <fileset dir="${javancss.lib}">
+            <include name="*.jar"/>
+        </fileset>		
+	</path>
+
+   	<taskdef name="javancss"
+		classname="javancss.JavancssAntTask"
+   		classpathref="javancss.classpath"/>
+
+	<target name="javancss">
+		<javancss srcdir="${project.src}" 
+			generateReport="true"
+			outputfile="${javancss.output.file}"
+			format="${javancss.output.format}"
+			packageMetrics="false"
+			classMetrics="false"
+			functionMetrics="true"
+			includes="**/*.java"/>
+	</target>
+	
+	<target name="javancss.html">
+		<xslt in="${javancss.output.file}" style="etc/xslt/javancss2html.xsl" out="${javancss.output.file}.html" />
+	</target>
+	
+</project>
