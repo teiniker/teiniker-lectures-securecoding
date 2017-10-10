@@ -95,24 +95,23 @@ $ gdb ./hello
 
 (gdb) disass main
 Dump of assembler code for function main:
-   0x08048430 <+0>:     push   %ebp
-   0x08048431 <+1>:     mov    %esp,%ebp
-   0x08048433 <+3>:     and    $0xfffffff0,%esp
-   0x08048436 <+6>:     sub    $0x20,%esp
-   0x08048439 <+9>:     movl   $0x0,0x1c(%esp)
-   0x08048441 <+17>:    jmp    0x8048454 <main+36>
-   0x08048443 <+19>:    movl   $0x8048504,(%esp)
-   0x0804844a <+26>:    call   0x80482f0 <puts@plt>
-   0x0804844f <+31>:    addl   $0x1,0x1c(%esp)
-   0x08048454 <+36>:    cmpl   $0x9,0x1c(%esp)
-   0x08048459 <+41>:    jle    0x8048443 <main+19>
-   0x0804845b <+43>:    mov    $0x0,%eax
-   0x08048460 <+48>:    leave  
-   0x08048461 <+49>:    ret    
-End of assembler dump.
+   0x00000000004004d7 <+0>:	    push   %rbp
+   0x00000000004004d8 <+1>:	    mov    %rsp,%rbp
+   0x00000000004004db <+4>:	    sub    $0x10,%rsp
+   0x00000000004004df <+8>:	    movl   $0x0,-0x4(%rbp)
+   0x00000000004004e6 <+15>:	jmp    0x4004f6 <main+31>
+   0x00000000004004e8 <+17>:	mov    $0x4005a0,%edi
+   0x00000000004004ed <+22>:	callq  0x4003f0 <puts@plt>
+   0x00000000004004f2 <+27>:	addl   $0x1,-0x4(%rbp)
+   0x00000000004004f6 <+31>:	cmpl   $0x9,-0x4(%rbp)
+   0x00000000004004fa <+35>:	jle    0x4004e8 <main+17>
+   0x00000000004004fc <+37>:	mov    $0x0,%eax
+   0x0000000000400501 <+42>:	leaveq
+   0x0000000000400502 <+43>:	retq
 
 (gdb) break main
-Breakpoint 1 at 0x8048439: file hello.c, line 5.
+Breakpoint 1 at 0x4004df: file hello.c, line 5.
+
 
 (gdb) run
 Starting program: /home/student/workspace-2014ws-ims14-SWSecurity/c-helloworld/hello 
@@ -122,6 +121,7 @@ Starting program: /home/student/workspace-2014ws-ims14-SWSecurity/c-helloworld/h
 
 (gdb) print i
 $1 = 1
+
 
 (gdb) continue
 Continuing.
@@ -140,12 +140,12 @@ Hello world!
 Check for memory leaks
 ----------------------
 
-$ valgrind ./hello 
-==1914== Memcheck, a memory error detector
-==1914== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==1914== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright info
-==1914== Command: ./hello
-==1914== 
+$ valgrind ./hello
+==7728== Memcheck, a memory error detector
+==7728== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7728== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==7728== Command: ./hello
+==7728==
 Hello world!
 Hello world!
 Hello world!
@@ -156,13 +156,13 @@ Hello world!
 Hello world!
 Hello world!
 Hello world!
-==1914== 
-==1914== HEAP SUMMARY:
-==1914==     in use at exit: 0 bytes in 0 blocks
-==1914==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==1914== 
-==1914== All heap blocks were freed -- no leaks are possible
-==1914== 
-==1914== For counts of detected and suppressed errors, rerun with: -v
-==1914== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==7728==
+==7728== HEAP SUMMARY:
+==7728==     in use at exit: 0 bytes in 0 blocks
+==7728==   total heap usage: 1 allocs, 1 frees, 1,024 bytes allocated
+==7728==
+==7728== All heap blocks were freed -- no leaks are possible
+==7728==
+==7728== For counts of detected and suppressed errors, rerun with: -v
+==7728== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
