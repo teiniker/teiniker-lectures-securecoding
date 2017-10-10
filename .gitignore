@@ -1,2 +1,5 @@
 .idea/
+**/*.iml
+.sonar/
+sonar-project.properties
 
