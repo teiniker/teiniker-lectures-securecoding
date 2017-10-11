@@ -10,7 +10,7 @@ void function()
 {
 	int stack_var;
 
-	printf("\tfunction.stack_var at 0x%08x\n",(unsigned int) &stack_var);	
+	printf("\tfunction.stack_var at %p\n", &stack_var);	
 }
 
 
@@ -43,7 +43,7 @@ int main()
 
 	// code segment
 	printf("code segment:\n");
-        printf("\tmain() at %p\n", &main);
+    printf("\tmain() at %p\n", &main);
 	printf("\tfunction() at %p\n", &function);
 
 //    free(heap_var_ptr);
