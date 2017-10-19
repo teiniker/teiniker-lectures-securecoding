@@ -9,6 +9,7 @@
 node *new_node(user *user_ptr)
 {
     node *node_ptr = malloc(sizeof(node));
+    // TODO: check for NULL
     node_ptr->user_ptr = user_ptr;
     node_ptr->next_ptr = NULL;
     return node_ptr;
@@ -17,6 +18,7 @@ node *new_node(user *user_ptr)
 user *new_user(int id, char *username, char *password)
 {
     user *user_ptr = malloc(sizeof(user));
+    // TODO: check for NULL
     user_ptr->id = id;
     user_ptr->username = username;
     user_ptr->password = password;

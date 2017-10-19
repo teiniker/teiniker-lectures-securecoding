@@ -12,6 +12,7 @@
  * which a pointer points.
  */
 
+// void *
 void print_integer(int i)
 {
     int *i_ptr = &i;
@@ -36,6 +37,7 @@ void inc_integer(int *value)
  */
 void print_string(char *s)
 {
+    // s[3] <=> *(s+3)
 	char *ptr_a;
 	char *ptr_b;
 
