@@ -38,8 +38,8 @@ void tree_print(tree **tree_ptr)
     if(*tree_ptr != NULL)
     {
         tree_print(&(*tree_ptr)->left_ptr);
-        tree_print(&(*tree_ptr)->right_ptr);
         printf("%d ", (*tree_ptr)->value);
+        tree_print(&(*tree_ptr)->right_ptr);
     }
 }
 
