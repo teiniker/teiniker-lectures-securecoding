@@ -28,8 +28,9 @@ int main(int argc, char *argv[])
 	}
 	
 	mem_size = atoi(argv[1]);
-    
-    printf("size of %p is %d\n" , int_ptr, sizeof(int_ptr));
+
+    printf("size of char_ptr is %lu\n" , sizeof(char_ptr));
+    printf("size of int_ptr is %lu\n" , sizeof(int_ptr));
 
 	printf("\t[+] allocating %d bytes for char_ptr\n", mem_size);
 	char_ptr = (char *) errorchecked_malloc(mem_size);
@@ -37,7 +38,7 @@ int main(int argc, char *argv[])
 	strcpy(char_ptr, "This is memory allocated on the heap!");
 	printf("char_ptr (%p) --> '%s'\n", char_ptr, char_ptr);
 
-	printf("\t[+] allocating %d bytes for int_ptr\n", 3*sizeof(int));
+	printf("\t[+] allocating %lu bytes for int_ptr\n", 3*sizeof(int));
 	int_ptr = (int *) errorchecked_malloc(3*sizeof(int));
 	*int_ptr = 1234;
 	printf("int_ptr (%p) --> %d\n", int_ptr, *int_ptr);
