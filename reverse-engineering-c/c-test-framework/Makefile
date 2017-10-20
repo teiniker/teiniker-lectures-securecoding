@@ -1,6 +1,6 @@
 
 OBJECTS =
-CFLAGS = -g -Wall -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  
+CFLAGS = -g -Wall -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include
 LDLIBS = -lglib-2.0
 CC=c99
 
