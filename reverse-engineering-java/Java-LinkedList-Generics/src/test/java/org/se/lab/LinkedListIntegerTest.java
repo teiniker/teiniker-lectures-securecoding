@@ -11,7 +11,7 @@ public class LinkedListIntegerTest
 	@Before
 	public void setup()
 	{
-		list = new LinkedListImpl<Integer>();
+		list = new LinkedListImpl<>();
 
 		list.append(1);
 		list.append(2);
