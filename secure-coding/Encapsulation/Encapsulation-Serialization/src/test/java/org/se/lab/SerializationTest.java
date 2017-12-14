@@ -18,7 +18,26 @@ public class SerializationTest
     private final static String FILENAME = "product.bin";
     
     // TODO: Implement List<Product> Test
-    
+
+    @Test
+    public void testWriteSerialization() throws IOException, ClassNotFoundException
+    {
+        Product product = new Product("Applied Cryptography", 0x11223344);
+
+        writeProduct(FILENAME, product);
+    }
+
+
+    @Test
+    public void testReadSerialization() throws IOException, ClassNotFoundException
+    {
+        Product copy = readProduct(FILENAME);
+
+        Assert.assertEquals(0x11223355, copy.getQuantity());
+        Assert.assertEquals("Applied Kryptography", copy.getName());
+    }
+
+
     @Test
     public void testCopyViaSerialization() throws IOException, ClassNotFoundException
     {
