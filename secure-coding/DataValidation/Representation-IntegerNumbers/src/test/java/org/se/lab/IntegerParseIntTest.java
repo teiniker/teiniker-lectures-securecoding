@@ -4,24 +4,32 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class IntegerValueOfTest
+public class IntegerParseIntTest
 {
 
 	@Test
-	public void testValidIntegerValue()
+	public void testParseInt()
 	{
 		String input = "-31415";		
-		int value = Integer.valueOf(input);
+		int value = Integer.parseInt(input);
 		
 		assertEquals(-31415, value);
 	}
-	
-	
+
+	@Test
+	public void testValueOf()
+	{
+		String input = "-31415";
+		Integer value = Integer.valueOf(input);
+
+		assertEquals(-31415, value.intValue());
+	}
+
+
 	@Test(expected=NumberFormatException.class)
 	public void testInvalidIntegerValue()
 	{
 		String input = "3.14";		
-		Integer.valueOf(input);
+		Integer.parseInt(input);
 	}
-
 }
