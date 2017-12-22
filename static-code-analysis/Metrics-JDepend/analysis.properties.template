@@ -1,0 +1,8 @@
+# System under test
+project.home = ../fhj-ws2014-pse
+project.build = ${project.home}/target/classes
+
+
+# JDepend settings
+analysis.reports = reports
+

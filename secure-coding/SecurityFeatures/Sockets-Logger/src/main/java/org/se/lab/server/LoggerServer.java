@@ -48,7 +48,7 @@ public class LoggerServer
 				} 
 				catch (IOException e)
 				{
-					e.printStackTrace();
+					e.printStackTrace(); ///!!!!
 				} 
 				finally
 				{
@@ -59,7 +59,7 @@ public class LoggerServer
 		} 
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(); //!!!!
 		}
 		finally
 		{
@@ -70,7 +70,7 @@ public class LoggerServer
 				}
 				catch (IOException e)
 				{
-					e.printStackTrace();
+					e.printStackTrace(); //!!!
 				}
 		}
 	}

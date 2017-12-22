@@ -50,7 +50,7 @@ public class DaytimeServer
 				} 
 				catch (IOException e)
 				{
-					e.printStackTrace();
+					e.printStackTrace(); // fix that
 				} 
 				finally
 				{

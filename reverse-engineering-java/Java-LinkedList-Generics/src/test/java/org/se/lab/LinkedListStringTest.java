@@ -11,7 +11,7 @@ public class LinkedListStringTest
 	@Before
 	public void setup()
 	{
-		list = new LinkedListImpl<String>();
+		list = new LinkedListImpl<>();
 
 		list.append("one");
 		list.append("two");

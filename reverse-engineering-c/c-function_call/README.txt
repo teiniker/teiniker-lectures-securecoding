@@ -1,6 +1,8 @@
 Stack Usage During a Function Call
 ----------------------------------------------------------------
 
+$ gdb ./function_call
+
 (gdb) list 1
 1	#include<stdio.h>
 2	
@@ -25,41 +27,43 @@ Stack Usage During a Function Call
 
 (gdb) disass main
 Dump of assembler code for function main:
-   0x08048441 <+0>:		lea    ecx,[esp+0x4]
-   0x08048445 <+4>:		and    esp,0xfffffff0
-   0x08048448 <+7>:		push   DWORD PTR [ecx-0x4]
-   0x0804844b <+10>:	push   ebp
-   0x0804844c <+11>:	mov    ebp,esp
-   0x0804844e <+13>:	push   ecx
-   0x0804844f <+14>:	sub    esp,0x14
-   0x08048452 <+17>:	push   0x44444444
-   0x08048457 <+22>:	push   0x22222222
-   0x0804845c <+27>:	call   0x804842b <add>
-   0x08048461 <+32>:	add    esp,0x8
-   0x08048464 <+35>:	mov    DWORD PTR [ebp-0xc],eax
-   0x08048467 <+38>:	sub    esp,0x8
-   0x0804846a <+41>:	push   DWORD PTR [ebp-0xc]
-   0x0804846d <+44>:	push   0x8048514
-   0x08048472 <+49>:	call   0x80482f0 <printf@plt>
-   0x08048477 <+54>:	add    esp,0x10
-   0x0804847a <+57>:	mov    eax,0x0
-   0x0804847f <+62>:	mov    ecx,DWORD PTR [ebp-0x4]
-   0x08048482 <+65>:	leave  
-   0x08048483 <+66>:	lea    esp,[ecx-0x4]
-   0x08048486 <+69>:	ret    
+   0x00000000004004f1 <+0>:		push   rbp
+   0x00000000004004f2 <+1>:		mov    rbp,rsp
+   0x00000000004004f5 <+4>:		sub    rsp,0x20
+   0x00000000004004f9 <+8>:		mov    DWORD PTR [rbp-0x14],edi
+   0x00000000004004fc <+11>:	mov    QWORD PTR [rbp-0x20],rsi
+
+   0x0000000000400500 <+15>:	mov    esi,0x44444444
+   0x0000000000400505 <+20>:	mov    edi,0x22222222
+   0x000000000040050a <+25>:	call   0x4004d7 <add>
+
+   0x000000000040050f <+30>:	mov    DWORD PTR [rbp-0x4],eax
+   0x0000000000400512 <+33>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x0000000000400515 <+36>:	mov    esi,eax
+   0x0000000000400517 <+38>:	mov    edi,0x4005c0
+   0x000000000040051c <+43>:	mov    eax,0x0
+   0x0000000000400521 <+48>:	call   0x4003f0 <printf@plt>
+   0x0000000000400526 <+53>:	mov    eax,0x0
+   0x000000000040052b <+58>:	leave  
+   0x000000000040052c <+59>:	ret  
+   
+Note that Intel disassembly flavor means: mov dest,src 
 
 (gdb) disass add
 Dump of assembler code for function add:
-   0x0804842b <+0>:		push   ebp
-   0x0804842c <+1>:		mov    ebp,esp
-   0x0804842e <+3>:		sub    esp,0x10
-   0x08048431 <+6>:		mov    edx,DWORD PTR [ebp+0x8]
-   0x08048434 <+9>:		mov    eax,DWORD PTR [ebp+0xc]
-   0x08048437 <+12>:	add    eax,edx
-   0x08048439 <+14>:	mov    DWORD PTR [ebp-0x4],eax
-   0x0804843c <+17>:	mov    eax,DWORD PTR [ebp-0x4]
-   0x0804843f <+20>:	leave  
-   0x08048440 <+21>:	ret  
+   0x00000000004004d7 <+0>:		push   rbp
+   0x00000000004004d8 <+1>:		mov    rbp,rsp
+   0x00000000004004db <+4>:		mov    DWORD PTR [rbp-0x14],edi
+   0x00000000004004de <+7>:		mov    DWORD PTR [rbp-0x18],esi
+
+   0x00000000004004e1 <+10>:	mov    edx,DWORD PTR [rbp-0x14]
+   0x00000000004004e4 <+13>:	mov    eax,DWORD PTR [rbp-0x18]
+   0x00000000004004e7 <+16>:	add    eax,edx
+   0x00000000004004e9 <+18>:	mov    DWORD PTR [rbp-0x4],eax
+   
+   0x00000000004004ec <+21>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x00000000004004ef <+24>:	pop    rbp
+   0x00000000004004f0 <+25>:	ret    
    
 
 (gdb) break 7
@@ -72,86 +76,65 @@ Breakpoint 2 at 0x8048452: file function_call.c, line 14.
 
 (gdb) disass
 Dump of assembler code for function main:
-   0x08048441 <+0>:		lea    ecx,[esp+0x4]
-   0x08048445 <+4>:		and    esp,0xfffffff0
-   0x08048448 <+7>:		push   DWORD PTR [ecx-0x4]
-   0x0804844b <+10>:	push   ebp
-   0x0804844c <+11>:	mov    ebp,esp
-   0x0804844e <+13>:	push   ecx
-   0x0804844f <+14>:	sub    esp,0x14
-=> 0x08048452 <+17>:	push   0x44444444
-   0x08048457 <+22>:	push   0x22222222
-   0x0804845c <+27>:	call   0x804842b <add>
-   0x08048461 <+32>:	add    esp,0x8
-   0x08048464 <+35>:	mov    DWORD PTR [ebp-0xc],eax
-   0x08048467 <+38>:	sub    esp,0x8
-   0x0804846a <+41>:	push   DWORD PTR [ebp-0xc]
-   0x0804846d <+44>:	push   0x8048514
-   0x08048472 <+49>:	call   0x80482f0 <printf@plt>
-   0x08048477 <+54>:	add    esp,0x10
-   0x0804847a <+57>:	mov    eax,0x0
-   0x0804847f <+62>:	mov    ecx,DWORD PTR [ebp-0x4]
-   0x08048482 <+65>:	leave  
-   0x08048483 <+66>:	lea    esp,[ecx-0x4]
-   0x08048486 <+69>:	ret    
-End of assembler dump.
+   0x00000000004004f1 <+0>:		push   rbp
+   0x00000000004004f2 <+1>:		mov    rbp,rsp
+   0x00000000004004f5 <+4>:		sub    rsp,0x20
+   0x00000000004004f9 <+8>:		mov    DWORD PTR [rbp-0x14],edi
+   0x00000000004004fc <+11>:	mov    QWORD PTR [rbp-0x20],rsi
 
-(gdb) x/8xw $esp
-0xbfffee30:	0x00000001	0xbfffeef4	0xbfffeefc	0x080484b1
-0xbfffee40:	0xb7fc23dc	0xbfffee60	0x00000000	0xb7e12715
+=> 0x0000000000400500 <+15>:	mov    esi,0x44444444
+   0x0000000000400505 <+20>:	mov    edi,0x22222222
+   0x000000000040050a <+25>:	call   0x4004d7 <add>
 
+   0x000000000040050f <+30>:	mov    DWORD PTR [rbp-0x4],eax
+   0x0000000000400512 <+33>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x0000000000400515 <+36>:	mov    esi,eax
+   0x0000000000400517 <+38>:	mov    edi,0x4005c0
+   0x000000000040051c <+43>:	mov    eax,0x0
+   0x0000000000400521 <+48>:	call   0x4003f0 <printf@plt>
+   0x0000000000400526 <+53>:	mov    eax,0x0
+   0x000000000040052b <+58>:	leave  
+   0x000000000040052c <+59>:	ret      
+   
+   
 (gdb) n
 Breakpoint 1, add (a=572662306, b=1145324612) at function_call.c:7
 7	    s = a+b;
 
+
 (gdb) disass
 Dump of assembler code for function add:
-   0x0804842b <+0>:		push   ebp
-   0x0804842c <+1>:		mov    ebp,esp
-   0x0804842e <+3>:		sub    esp,0x10
-=> 0x08048431 <+6>:		mov    edx,DWORD PTR [ebp+0x8]
-   0x08048434 <+9>:		mov    eax,DWORD PTR [ebp+0xc]
-   0x08048437 <+12>:	add    eax,edx
-   0x08048439 <+14>:	mov    DWORD PTR [ebp-0x4],eax
-   0x0804843c <+17>:	mov    eax,DWORD PTR [ebp-0x4]
-   0x0804843f <+20>:	leave  
-   0x08048440 <+21>:	ret    
+   0x00000000004004d7 <+0>:		push   rbp
+   0x00000000004004d8 <+1>:		mov    rbp,rsp
+   0x00000000004004db <+4>:		mov    DWORD PTR [rbp-0x14],edi
+   0x00000000004004de <+7>:		mov    DWORD PTR [rbp-0x18],esi
 
-(gdb) x/32xw $esp
-0xbfffee10:	0xb7fc2000	0x00000001	0x00002000	0x00000002
-0xbfffee20:	0xbfffee48	0x08048461	0x22222222	0x44444444
-0xbfffee30:	0x00000001	0xbfffeef4	0xbfffeefc	0x080484b1
-0xbfffee40:	0xb7fc23dc	0xbfffee60	0x00000000	0xb7e12715
-0xbfffee50:	0x00000001	0xb7fc2000	0x00000000	0xb7e12715
-0xbfffee60:	0x00000001	0xbfffeef4	0xbfffeefc	0x00000000
-0xbfffee70:	0x00000000	0x00000000	0xb7fc2000	0xb7fffbe4
-0xbfffee80:	0x0804821c	0x00000000	0x00000001	0xb7fc2000
+=> 0x00000000004004e1 <+10>:	mov    edx,DWORD PTR [rbp-0x14]
+   0x00000000004004e4 <+13>:	mov    eax,DWORD PTR [rbp-0x18]
+   0x00000000004004e7 <+16>:	add    eax,edx
+   0x00000000004004e9 <+18>:	mov    DWORD PTR [rbp-0x4],eax
+
+   0x00000000004004ec <+21>:	mov    eax,DWORD PTR [rbp-0x4]   
+   0x00000000004004ef <+24>:	pop    rbp
+   0x00000000004004f0 <+25>:	ret    
 
 
-(gdb) s
+(gdb) n
 8	    return s;
 
+
 (gdb) disass
 Dump of assembler code for function add:
-   0x0804842b <+0>:		push   ebp
-   0x0804842c <+1>:		mov    ebp,esp
-   0x0804842e <+3>:		sub    esp,0x10
-   0x08048431 <+6>:		mov    edx,DWORD PTR [ebp+0x8]
-   0x08048434 <+9>:		mov    eax,DWORD PTR [ebp+0xc]
-   0x08048437 <+12>:	add    eax,edx
-   0x08048439 <+14>:	mov    DWORD PTR [ebp-0x4],eax
-=> 0x0804843c <+17>:	mov    eax,DWORD PTR [ebp-0x4]
-   0x0804843f <+20>:	leave  
-   0x08048440 <+21>:	ret    
+   0x00000000004004d7 <+0>:		push   rbp
+   0x00000000004004d8 <+1>:		mov    rbp,rsp
+   0x00000000004004db <+4>:		mov    DWORD PTR [rbp-0x14],edi
+   0x00000000004004de <+7>:		mov    DWORD PTR [rbp-0x18],esi
 
+   0x00000000004004e1 <+10>:	mov    edx,DWORD PTR [rbp-0x14]
+   0x00000000004004e4 <+13>:	mov    eax,DWORD PTR [rbp-0x18]
+   0x00000000004004e7 <+16>:	add    eax,edx
+   0x00000000004004e9 <+18>:	mov    DWORD PTR [rbp-0x4],eax
 
-(gdb) x/32xw $esp
-0xbfffee10:	0xb7fc2000	0x00000001	0x00002000	0x66666666
-0xbfffee20:	0xbfffee48	0x08048461	0x22222222	0x44444444
-0xbfffee30:	0x00000001	0xbfffeef4	0xbfffeefc	0x080484b1
-0xbfffee40:	0xb7fc23dc	0xbfffee60	0x00000000	0xb7e12715
-0xbfffee50:	0x00000001	0xb7fc2000	0x00000000	0xb7e12715
-0xbfffee60:	0x00000001	0xbfffeef4	0xbfffeefc	0x00000000
-0xbfffee70:	0x00000000	0x00000000	0xb7fc2000	0xb7fffbe4
-0xbfffee80:	0x0804821c	0x00000000	0x00000001	0xb7fc2000
-
+=> 0x00000000004004ec <+21>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x00000000004004ef <+24>:	pop    rbp
+   0x00000000004004f0 <+25>:	ret    

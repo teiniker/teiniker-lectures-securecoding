@@ -1,5 +1,5 @@
 /.settings/
 /.project
-/linked_list
-/linked_list.o
+/linked_queue
+/linked_queue.o
 /main.o

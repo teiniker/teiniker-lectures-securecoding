@@ -14,8 +14,8 @@ main.o: main.c
 	$(CC) $(CFLAGS) $(LDLIBS) -c main.c
 
 main: tree.o main.o
-	$(CC) $(CFLAGS) $(LDLIBS) tree.o main.o -o main
+	$(CC) $(CFLAGS) $(LDLIBS) tree.o main.o -o tree
 
 clean:
-	rm -f main *.o
+	rm -f tree *.o
 

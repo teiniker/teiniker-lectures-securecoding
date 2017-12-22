@@ -41,7 +41,7 @@ How to add a new provider?
 
 1. Download provider JAR file.
 	http://www.bouncycastle.org/latest_releases.html
-	=> bcprov-ext-jdk15on-150.jar
+	=> bcprov-ext-jdk15on-155.jar
   
 2. Install the JAR file into the Java runtime  
   	$ su
