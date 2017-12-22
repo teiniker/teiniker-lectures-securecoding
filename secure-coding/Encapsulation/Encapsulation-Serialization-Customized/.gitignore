@@ -1,0 +1,8 @@
+/target/
+/.settings/
+/.classpath
+/.project
+/product.bin
+/eval.bin
+/data.bin
+/*.iml
