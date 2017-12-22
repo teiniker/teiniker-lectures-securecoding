@@ -33,8 +33,8 @@ public class SerializationTest
     {
         Product copy = readProduct(FILENAME);
 
-        Assert.assertEquals(0x11223355, copy.getQuantity());
-        Assert.assertEquals("Applied Kryptography", copy.getName());
+        Assert.assertEquals(0x11223344, copy.getQuantity());
+        Assert.assertEquals("Applied Cryptography", copy.getName());
     }
 
 
