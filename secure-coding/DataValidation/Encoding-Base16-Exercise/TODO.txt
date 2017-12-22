@@ -1,0 +1,23 @@
+Exercise: Base-16 Encoder
+-------------------------------------------------------------------------------
+
+Related to the "Base-64" encoder example, implement a "toBase16String()" method
+within a "Base16" encoder class which uses the following alphabet: 
+	"0123456789ABCDEF"
+
+Principle: 8 bits -> 2 characters
+a) Take 8 input bits and split them up into two 4 bit values.
+b) Take each of the 4 bit value as an index for the alphabet array "0123456789ABCDEF"
+
+Example: 8 Bits -> 2 Characters
+
+ Bytes:
+  	0x1A       0xCF       0xD2
+    0001 1010  1100 1111  1101 0010
+    
+ 4 bit Values (left to right):
+    0001 1010 1100 1111 1101 0010
+    0x01 0x0A 0xC  0x0F 0x0D 0x02
+    "1"  "A"  "C"  "F"  "D"  "2"
+ 
+Test your implementation with the class "Base16Test".
