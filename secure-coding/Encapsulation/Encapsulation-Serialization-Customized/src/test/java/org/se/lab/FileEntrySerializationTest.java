@@ -1,93 +1,38 @@
 package org.se.lab;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
+import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.*;
 
-public class ProductSerializationTest
+
+public class FileEntrySerializationTest
 {
-    private final static String FILENAME = "product.bin";
+    private final static String FILENAME = "file_entry.bin";
+
+    private byte[] data = HexBin.decode("000102030405060708090a0b0c0d0e0f");
 
     @Test
     public void testWriteSerialization() throws IOException, ClassNotFoundException
     {
-        Product product = new Product("Applied Cryptography", 0x11223344);
+        FileEntry entry = new FileEntry("eval.bin", data);
 
-        writeProduct(FILENAME, product);
+        FileOutputStream out = new FileOutputStream(new File("data.bin"));
+        ObjectOutputStream oos = new ObjectOutputStream(out);
+        oos.writeObject(entry);
+        out.close();
     }
 
 
     @Test
     public void testReadSerialization() throws IOException, ClassNotFoundException
     {
-        Product copy = readProduct(FILENAME);
-
-        Assert.assertEquals(0x11223344, copy.getQuantity());
-        Assert.assertEquals("Applied Cryptography", copy.getName());
-    }
-
-
-    @Test
-    public void testCopyViaSerialization() throws IOException, ClassNotFoundException
-    {
-        Product product = new Product("Applied Cryptography", 0x11223344);
-        
-        writeProduct(FILENAME, product);
-        
-        Product copy = readProduct(FILENAME);
-        copy.setQuantity(7);
-        
-        Assert.assertEquals(0x11223344, product.getQuantity());
-        Assert.assertEquals("Applied Cryptography", product.getName());
-    }
-    
-    public void writeProduct(String filename, Product product) throws IOException
-    {
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bout);
-        oos.writeObject(product);
-        oos.close();
-
-        byte[] bytes = bout.toByteArray();
-        writeBytes(filename, bytes);
-    }
-    
-    public Product readProduct(String filename) throws IOException, ClassNotFoundException
-    {
-        byte[] bytes = readBytes(filename);
-        ByteArrayInputStream bin = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bin);
-        Product product = (Product) ois.readObject();
-        ois.close();
-        return product;
-    }
-
-    public byte[] readBytes(String filename) throws IOException
-    {
-        File file = new File(filename);
-        System.out.println("  load bytes from: " + file.getAbsolutePath());
-        FileInputStream in = new FileInputStream(file);
-        byte[] classBytes = new byte[in.available()];
-        in.read(classBytes);
+        FileInputStream in = new FileInputStream(new File("data.bin"));
+        ObjectInputStream ois = new ObjectInputStream(in);
+        FileEntry entry = (FileEntry) ois.readObject();
         in.close();
-        return classBytes;
-    }
 
-    public void writeBytes(String filename, byte[] bytes) throws IOException
-    {
-        File file = new File(filename);
-        System.out.println("  write bytes to: " + file.getAbsolutePath());
-        FileOutputStream fos = new FileOutputStream(file);
-        fos.write(bytes);
-        fos.close();
+        System.out.println(entry);
     }
 }
