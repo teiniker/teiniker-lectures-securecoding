@@ -1,0 +1,14 @@
+Exercise: Custom Serialization Vulnerability
+-------------------------------------------------------------------------------
+
+Extend the given "FileEntry" class with a customized serialization method:
+
+    void readObject(ObjectInputStream in)
+
+Within this method, load a serialized FileEntry object, create a new instance,
+and write the "content" byte array to the given "path" in the file system.
+
+Use "FileEntrySerializationTest" to validate your implementations.
+
+WARNING:
+Imagine what a vulnerability such a class would add to your application...
