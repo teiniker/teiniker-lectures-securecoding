@@ -13,7 +13,6 @@ void get_input()
 {   
     char buffer[8];
  
-//    strcpy(buffer, "AAAAAAAAAAAA\x60\x84\x04\x08");  
     gets(buffer);
     puts(buffer);
 }

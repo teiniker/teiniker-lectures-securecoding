@@ -13,7 +13,7 @@ To show the principles of Buffer Overflow Attacks, we have to disable
 all OS and compiler preventions:
 
 gcc (>= 4.1)
-    -mpreferred-stack-boundary=2 
+    -mpreferred-stack-boundary=4
     -fno-stack-protector 
     -z execstack
 

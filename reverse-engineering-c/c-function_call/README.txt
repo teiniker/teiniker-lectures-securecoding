@@ -86,7 +86,7 @@ Dump of assembler code for function main:
    0x0000000000400505 <+20>:	mov    edi,0x22222222
    0x000000000040050a <+25>:	call   0x4004d7 <add>
 
-   0x000000000040050f <+30>:	mov    DWORD PTR [rbp-0x4],eax
+!! 0x000000000040050f <+30>:	mov    DWORD PTR [rbp-0x4],eax
    0x0000000000400512 <+33>:	mov    eax,DWORD PTR [rbp-0x4]
    0x0000000000400515 <+36>:	mov    esi,eax
    0x0000000000400517 <+38>:	mov    edi,0x4005c0
@@ -97,7 +97,7 @@ Dump of assembler code for function main:
    0x000000000040052c <+59>:	ret      
    
    
-(gdb) n
+(gdb) s
 Breakpoint 1, add (a=572662306, b=1145324612) at function_call.c:7
 7	    s = a+b;
 

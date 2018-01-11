@@ -1,6 +1,6 @@
 
 OBJECTS = 
-CFLAGS = -ggdb -mpreferred-stack-boundary=2 -fno-stack-protector -z execstack -Wall  
+CFLAGS = -ggdb -fno-stack-protector -z execstack -Wall
 LDLIBS = 
 CC=gcc
 

