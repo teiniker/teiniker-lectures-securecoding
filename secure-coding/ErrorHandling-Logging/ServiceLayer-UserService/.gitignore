@@ -3,5 +3,5 @@
 /.classpath
 /.project
 /src/test/resources/jdbc.properties
-/ClassDiagram.ucls
+/*.ucls
 /*.iml
