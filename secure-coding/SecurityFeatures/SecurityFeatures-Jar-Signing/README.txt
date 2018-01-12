@@ -73,9 +73,9 @@ is valid for less than six months.
 Let's review the jar file's content:
 
 $ jar -tf target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
-META-INF/MANIFEST.MF				<--
-META-INF/FHJ.SF						<--
-META-INF/FHJ.DSA					<--
+META-INF/MANIFEST.MF				<-- Manifest File
+META-INF/FHJ.SF						<-- Signature File
+META-INF/FHJ.DSA					<-- Signature Block
 META-INF/
 org/
 org/se/

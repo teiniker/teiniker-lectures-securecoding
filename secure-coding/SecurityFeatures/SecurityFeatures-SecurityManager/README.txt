@@ -108,7 +108,7 @@ java.security.AccessControlException: access denied ("java.lang.reflect.ReflectP
     at java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:128)
     at org.se.lab.ReflectPermission.main(ReflectPermission.java:18)
 
-Again, to switch of this restriction, uncomment the following line in the local 
+Again, to switch off this restriction, uncomment the following line in the local
 my.policy file:
 
 //permission java.lang.reflect.ReflectPermission "suppressAccessChecks", "";
