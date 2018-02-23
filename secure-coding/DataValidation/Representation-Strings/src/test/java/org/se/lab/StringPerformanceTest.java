@@ -42,21 +42,4 @@ public class StringPerformanceTest
 		System.out.println(timer);
 	}
 
-
-	@Test
-	public void testStringBuffer()
-	{
-		Timer timer = new Timer("JUnit: testStringBuffer()");
-		timer.start();
-		StringBuffer sb = new StringBuffer();
-		for(int i = 0; i < LOOP_COUNT*100; i++)
-		{
-			sb.append("X");
-		}
-		timer.stop();
-
-		String s = sb.toString();
-		System.out.println(s.length());
-		System.out.println(timer);
-	}
 }
