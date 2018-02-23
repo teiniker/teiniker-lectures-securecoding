@@ -29,7 +29,10 @@ public class ParallelStreamTest
 	@Test
 	public void testMapParallel()
 	{
-        List<String> l = list.parallelStream().map((s) -> s.toUpperCase()).collect(Collectors.toList());
+        List<String> l = list
+						.parallelStream()
+						.map((s) -> s.toUpperCase())
+						.collect(Collectors.toList());
 
 		Assert.assertEquals("[EINS, ZWEI, DREI, VIER, FÜNF, SECHS, SIEBEN, ACHT, NEUN]", l.toString());
 	}
