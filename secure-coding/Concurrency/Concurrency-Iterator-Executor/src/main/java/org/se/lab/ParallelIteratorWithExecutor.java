@@ -40,15 +40,15 @@ public class ParallelIteratorWithExecutor
 		}
 		catch(IllegalAccessException e)
 		{
-			throw new RuntimeException("Can't access newInstance()!", e);
+			throw new IllegalStateException("Can't access newInstance()!", e);
 		}
 		catch(InterruptedException e)
 		{
-			throw new RuntimeException("Executor interrupted!", e);
+			throw new IllegalStateException("Executor interrupted!", e);
 		}
 		catch(InstantiationException e)
 		{
-			throw new RuntimeException("Can't create runnable object!", e);
+			throw new IllegalStateException("Can't create runnable object!", e);
 		}
 	}
 }
