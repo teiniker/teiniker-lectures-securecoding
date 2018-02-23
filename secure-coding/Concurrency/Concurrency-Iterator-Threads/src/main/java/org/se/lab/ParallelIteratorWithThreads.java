@@ -57,11 +57,11 @@ public class ParallelIteratorWithThreads
 		} 
 		catch (InstantiationException e)
 		{
-			throw new RuntimeException("Can't create runnable object!", e);
+			throw new IllegalStateException("Can't create runnable object!", e);
 		} 
 		catch (IllegalAccessException e)
 		{
-			throw new RuntimeException("Can't access newInstance()!", e);
+			throw new IllegalStateException("Can't access newInstance()!", e);
 		}
 	}
 }
