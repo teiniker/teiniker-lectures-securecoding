@@ -1,4 +1,4 @@
-Concurrency: Executor Framework
+Exercise: Executor Framework
 ---------------------------------------------------------------------
 
 A given task (base64 encoding of a binary file) should be executed in
