@@ -1,1 +1,1 @@
-# teiniker-lectures-securecoding
+# Secure Coding by Examples
