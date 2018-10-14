@@ -7,14 +7,14 @@ Based on these examples, an inductive learning approach can be used.
   * [C Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-c)
   * [Java Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-java)
   
-2. Secure Coding
+* Secure Coding
   * [Encapsulation](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/Encapsulation)
   * [DataValidation](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation)
   * [ErrorHandling & Logging](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/ErrorHandling-Logging)
   * [SecurityFeatures](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/SecurityFeatures)
   * [Concurrency](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/Concurrency)
 
-3. [Static Code Analysis](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/static-code-analysis)
+* [Static Code Analysis](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/static-code-analysis)
 
 See also: 
 [Secure Design by Exampes](https://github.com/teiniker/teiniker-lectures-securedesign) and 
