@@ -3,7 +3,7 @@
 This project collects examples, exercises and model solutions needed as an introduction to software security.
 Based on these examples, an inductive learning approach can be used.
 
-1. Reverse Engineering
+* Reverse Engineering
   * [C Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-c)
   * [Java Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-java)
   
@@ -13,6 +13,8 @@ Based on these examples, an inductive learning approach can be used.
   * [ErrorHandling & Logging](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/ErrorHandling-Logging)
   * [SecurityFeatures](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/SecurityFeatures)
   * [Concurrency](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/Concurrency)
+
+3. [Static Code Analysis](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/static-code-analysis)
 
 See also: 
 [Secure Design by Exampes](https://github.com/teiniker/teiniker-lectures-securedesign) and 
