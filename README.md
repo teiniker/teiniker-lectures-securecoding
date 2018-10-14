@@ -1,7 +1,7 @@
 # Secure Coding by Examples
 
 This project collects examples, exercises and model solutions needed as an introduction to software security.
-Based on these examples, an inductive learning approach can be used.
+Based on these examples, an inductive learning approach to code review and security testing can be used.
 
 * Reverse Engineering
   * [C Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-c)
