@@ -2,15 +2,15 @@
 #define _STACK_H_
 
 
-struct node
+typedef struct _node
 {   
     int value;
-    struct node *next_ptr;
-};
+    node *next_ptr;
+}node;
 
 
-extern void stack_push(struct node **stack_ptr, int value);
-extern int stack_pop(struct node **stack_ptr);
-extern int stack_size(struct node **stack_ptr);
+extern void stack_push(node **stack_ptr, int value);
+extern int stack_pop(node **stack_ptr);
+extern int stack_size(node **stack_ptr);
 
 #endif /* _STACK_H_ */ 

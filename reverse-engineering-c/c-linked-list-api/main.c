@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "linked_list.h"
 
-int main()
+int main(void)
 {
     // setup linked list
     struct node *list_ptr = NULL;
