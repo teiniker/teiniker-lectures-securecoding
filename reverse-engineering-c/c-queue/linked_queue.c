@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include"linked_queue.h"
 
@@ -13,7 +14,7 @@ queue_node *new_node(int value)
 
 queue *queue_init()
 {
-    queue *queue_ptr = malloc(sizeof(queue));
+    queue *queue_ptr = (queue *)malloc(sizeof(queue));
     queue_ptr->head_ptr = NULL;
     queue_ptr->tail_ptr = NULL;
     return queue_ptr;
@@ -25,19 +26,14 @@ void queue_enqueue(queue *queue_ptr, int value)
         return;
 
     queue_node *new_ptr = new_node(value); 
-    if(queue_ptr->tail_ptr == NULL)
-    {
+    if(queue_ptr->tail_ptr == NULL && queue_ptr->head_ptr == NULL)
+    {   // empty queue
          queue_ptr->tail_ptr = queue_ptr->head_ptr = new_ptr;
     }
     else
     {
-        // queue_ptr->tail_ptr = the same
-        queue_node *tmp_ptr = queue_ptr->tail_ptr;
-        while(tmp_ptr->prev_ptr != NULL)
-        {
-            tmp_ptr = tmp_ptr->prev_ptr;
-        }
-        tmp_ptr->prev_ptr = new_ptr;
+        // insert on the head's side
+        queue_ptr->head_ptr->prev_ptr = new_ptr;
         queue_ptr->head_ptr = new_ptr;
     }
 } 
@@ -48,11 +44,11 @@ int queue_dequeue(queue *queue_ptr)
     int value;
     if(queue_ptr == NULL || queue_ptr->tail_ptr == NULL)
     {
-        value = 0;
+        printf("Can't dequeue an empty queue!");
+        exit(-1);
     }
     else
     {
-        //  queue->head_ptr = the same
         value = queue_ptr->tail_ptr->value;
         queue_node *tmp_ptr = queue_ptr->tail_ptr;
         queue_ptr->tail_ptr = tmp_ptr->prev_ptr;
@@ -65,6 +61,13 @@ void queue_dest(queue *queue_ptr)
 {
     if(queue_ptr == NULL)
         return;
+
+    while(queue_ptr->tail_ptr != NULL)
+    {
+        queue_node *tmp_ptr = queue_ptr->tail_ptr->prev_ptr;
+        free(queue_ptr->tail_ptr);
+        queue_ptr->tail_ptr = tmp_ptr;
+    }
 
     free(queue_ptr);
     queue_ptr = NULL;
