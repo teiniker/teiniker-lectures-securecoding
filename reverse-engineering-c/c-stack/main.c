@@ -2,10 +2,10 @@
 
 #include "stack.h"
 
-int main()
+int main(void)
 {
     // setup stack
-    struct node *stack_ptr = NULL;
+    node *stack_ptr = NULL;
     stack_push(&stack_ptr, 1);
     stack_push(&stack_ptr, 2);
     stack_push(&stack_ptr, 3);
