@@ -1,4 +1,4 @@
-# Secure Coding by Examples
+# Secure Coding by Example
 
 This project collects examples, exercises and model solutions needed as an introduction to software security.
 Based on these examples, an inductive learning approach to code review and security testing can be used.
