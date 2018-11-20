@@ -17,8 +17,8 @@ Based on these examples, an inductive learning approach to code review and secur
 * [Static Code Analysis](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/static-code-analysis)
 
 See also: 
-[Secure Design by Exampes](https://github.com/teiniker/teiniker-lectures-securedesign) and 
-[Secure Services by Examples](https://github.com/teiniker/teiniker-lectures-secureservices) 
+[Secure Design by Exampe](https://github.com/teiniker/teiniker-lectures-securedesign) and 
+[Secure Services by Example](https://github.com/teiniker/teiniker-lectures-secureservices) 
 
 As a development environment, you can use a pre-configured Linux VM image:
 [Virtual Lab](https://drive.google.com/drive/folders/1AzsF4Mvh1HJ8k6OW5W5hQ5CF0HdqA51l)
