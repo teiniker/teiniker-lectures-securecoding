@@ -41,4 +41,22 @@ Hello
 
 $ rm -rf tmp/
 
- 
+
+How to work with JAR files?
+-------------------------------------------------------------------------------
+Extract a JAR file:
+$ mkdir tmp
+$ cd tmp
+$ jar xvf ../Java-Decompiler-SecureWriter.jar
+
+
+Re-create a JAR file:
+$ pwd
+reverse-engineering-java/Java-Decompiler-SecureWriter/tmp
+$ jar cvf Java-Decompiler-SecureWriter.jar .
+
+Execute new JAR file:
+$ pwd
+reverse-engineering-java/Java-Decompiler-SecureWriter/tmp
+$ java -cp Java-Decompiler-SecureWriter.jar org.se.lab.SecureWriter Hello
+6eac915396e268d0441f4b6857aae18d
