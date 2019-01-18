@@ -1,0 +1,45 @@
+Exercise: Input Validation - Value Object
+-------------------------------------------------------------------------------
+
+1. Immutable Class
+-------------------------------------------------------------------------------
+Implement an immutable class "ImmutableDate" which reads a date string like
+"2019-01-18" in the constructor and stores the year, month and day as
+integer values.
+Also implement toString(), hashCode(), and equals().
+
+
+2. Input Validation
+-------------------------------------------------------------------------------
+Implement a proper input validation for the date string.
+	- 1900 <= year <= 2100
+	- 1 <= month <= 12
+	- days between 28 and 31 depending on the month and year.
+
+Examples: Valid dates (for more examples see the "ImmutableDateTest")
+	2018-12-11
+	2018.12.11
+	2018 12 11
+	2018-1-1
+		
+Tip: Use a two step approach: 
+	(i) use a regex to validate the string format
+	(ii) use an integer range check
+	
+Tip: Use the following method to calculate the leap-year:
+
+	private boolean isLeapYear(int y)
+	{
+	    boolean isLeapYear;
+	    
+        // divisible by 4
+        isLeapYear = (y % 4 == 0);
+
+        // divisible by 4 and not 100
+        isLeapYear = isLeapYear && (y % 100 != 0);
+
+        // divisible by 4 and not 100 unless divisible by 400
+        isLeapYear = isLeapYear || (y % 400 == 0);
+
+        return isLeapYear;
+    }
