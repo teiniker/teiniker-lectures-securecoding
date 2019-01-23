@@ -15,15 +15,15 @@ public class LogForgingAttackTest
 	private static final Logger logger = ESAPI.getLogger(LogForgingAttackTest.class); 
 	
 	@Test
-	public void testLogForging()
+	public void testLogForgingAttack()
 	{
-		aMethod("homer");
-		aMethod("bart\n 2099-01-01 00:00:00,000 [main] INFO HACK!!!!"); 
-		aMethod("lisa");
+		operation("homer");
+		operation("bart\n 2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
+		operation("lisa");
 	}
 	
-	protected void aMethod(String name)
+	protected void operation(String name)
 	{
-		logger.info(Logger.SECURITY_AUDIT, "Parameter name = " + name);
+		logger.info(Logger.SECURITY_AUDIT, "Parameter:" + name);
 	}
 }
