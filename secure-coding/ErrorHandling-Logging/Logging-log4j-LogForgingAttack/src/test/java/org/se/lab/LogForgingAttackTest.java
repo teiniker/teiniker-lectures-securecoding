@@ -18,15 +18,23 @@ public class LogForgingAttackTest
 	private final Logger logger = Logger.getLogger(LogForgingAttackTest.class);
 
 	@Test
-	public void testLogForging()
+	public void testLogForgingAttack()
 	{
-		aMethod("homer");
-		aMethod("bart\n 2099-01-01 00:00:00,000 [main] INFO HACK!!!!"); 
-		aMethod("lisa");
+		logger.info("bart\n2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
+        logger.info("2099-01-01 00:00:00,000 [main] \rINFO HACK!!!!");
 	}
-	
-	protected void aMethod(String name)
+
+	@Test
+	public void testLogEncoder()
 	{
-		logger.info("Parameter name = " + name);
+        operation("2099-01-01 00:00:00,000 [main] \rINFO HACK!!!!");
+        operation("bart\n2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
+        operation("lisa");
+	}
+
+
+	protected void operation(String name)
+	{
+		logger.info("Parameter:" + LogEncoder.encode(name));
 	}
 }

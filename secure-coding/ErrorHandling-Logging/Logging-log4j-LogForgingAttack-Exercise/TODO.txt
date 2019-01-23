@@ -1,0 +1,18 @@
+Exercise: Logging - Log Forging Attack
+-------------------------------------------------------------------------------
+
+Whenever user data is written to a log file, caution is required. Attackers can
+inject incorrect log lines to prevent or influence an automated evaluation of
+log files.
+
+
+LogEncoder Class
+----------------
+
+Implement the following static method in the LogEncoder class:
+
+    public static String encode(String message)
+
+This method replaces dangerous characters like '\ n' and '\ r' with '_'.
+
+Use "LogForgingAttackTest" to test your encoder method.
