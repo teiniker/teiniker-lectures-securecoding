@@ -45,7 +45,7 @@ public class WrongUserList
         catch(CloneNotSupportedException e)
         {
             // Cannot happen!
-            throw new InternalError(e.toString());
+            throw new InternalError(e.toString(),e);
         }            
     }
     
