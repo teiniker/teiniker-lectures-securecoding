@@ -49,7 +49,7 @@ public class IntegerCalculator
 	 * methods of this type cannot themselves overflow; instead, they produce the 
 	 * numerically correct result.
 	 * 
-	 * As a consequence, compliant code performs only a single range check�just 
+	 * As a consequence, compliant code performs only a single range check just
 	 * before converting the final result to the original smaller type.
 	 * 
 	 * Note that operations on objects of type BigInteger can be significantly 
