@@ -8,14 +8,16 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 
-public class FileEntry implements Serializable {
+public class FileEntry implements Serializable
+{
     private static final long serialVersionUID = 1L;
 
 
     /*
      * Constructor
      */
-    public FileEntry(String path, byte[] content) {
+    public FileEntry(String path, byte[] content)
+    {
         setPath(path);
         setContent(content);
     }
@@ -40,11 +42,13 @@ public class FileEntry implements Serializable {
      */
     private byte[] content;
 
-    public byte[] getContent() {
+    public byte[] getContent()
+    {
         return content;
     }
 
-    public void setContent(byte[] content) {
+    public void setContent(byte[] content)
+    {
         if (content == null)
             throw new IllegalArgumentException("Content array is null!");
 
@@ -56,11 +60,13 @@ public class FileEntry implements Serializable {
      */
     private String path;
 
-    public String getPath() {
+    public String getPath()
+    {
         return path;
     }
 
-    public void setPath(String path) {
+    public void setPath(String path)
+    {
         if (path == null)
             throw new IllegalArgumentException("Path value is null!");
 
