@@ -1,4 +1,4 @@
-package org.se.lab;
+package org.se.lab.client;
 
 import java.math.BigDecimal;
 

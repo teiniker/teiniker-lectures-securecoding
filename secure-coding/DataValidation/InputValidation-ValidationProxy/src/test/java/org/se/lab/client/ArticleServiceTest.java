@@ -1,11 +1,8 @@
-package org.se.lab;
+package org.se.lab.client;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.se.lab.Article;
-import org.se.lab.Factory;
-import org.se.lab.ServiceException;
-import org.se.lab.ArticleService;
+import org.se.lab.*;
 
 public class ArticleServiceTest
 {
