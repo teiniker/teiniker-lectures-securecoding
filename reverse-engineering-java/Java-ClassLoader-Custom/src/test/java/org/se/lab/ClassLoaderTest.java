@@ -16,6 +16,7 @@ public class ClassLoaderTest
 
 		Class<?> klass = loader.loadClass("org.se.lab.HelloWorld");
 		Assert.assertEquals("org.se.lab.HelloWorld", klass.getName());
+
 		Method m = klass.getDeclaredMethod("sayHello");
 		Object obj = klass.newInstance();
 		m.invoke(obj);		
