@@ -13,7 +13,8 @@ public class Order
 	{
 		setLines(Arrays.asList(lines));
 	}
-	
+
+	// Copy Constructor
 	public Order(Order order)
 	{
 		List<OrderLine> list = new ArrayList<OrderLine>();

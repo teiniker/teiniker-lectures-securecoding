@@ -11,7 +11,7 @@ public class OrderLine
 		setQuantity(quantity);
 	}
 	
-	public OrderLine(OrderLine line)
+	public OrderLine(OrderLine line)  // Copy Constructor
 	{
 		setArticle(new Article(line.article));
 		setQuantity(line.quantity);

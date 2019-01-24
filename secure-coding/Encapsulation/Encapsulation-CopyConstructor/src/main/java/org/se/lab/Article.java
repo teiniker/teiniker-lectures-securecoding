@@ -13,7 +13,8 @@ public class Article
 		setDescription(description);
 		setPrice(price);
 	}
-	
+
+	// Copy Constructor
 	public Article(Article article)
 	{
 		this(article.articleNumber, article.description, article.price);	
