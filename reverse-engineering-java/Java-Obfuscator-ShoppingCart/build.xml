@@ -2,7 +2,7 @@
 	<property name="src" location="src" />
 	<property name="build" location="build" />
 	<property name="jarfile" value="ShoppingCart-1.0.0" />
-	<property name="lib.proguard" location="vendor/proguard5.0/lib" />
+	<property name="lib.proguard" location="vendor/proguard6.0.3/lib" />
 
 
 	<path id="classpath">
@@ -16,7 +16,7 @@
 
 	<target name="clean">
 		<delete file="${jarfile}.jar" />
-		<delete file="${jarfile}-out.jar" />
+		<delete file="${jarfile}-release.jar" />
 		<delete dir="${build}" />
 	</target>
 

@@ -2,13 +2,14 @@ package org.se.lab;
 
 public class Main 
 {
+	private static final String KEY = "VmVyeSBzZWNyZXQga2V5IQ==";
 
 	public static void main(String[] args) 
 	{
 	
 		Entity.setNextId(1);
 		
-		Category book = new Category("Books");		
+		Category book = new Category(KEY);
 		Category english = new Category("English Books");
 		Category german = new Category("German Books");
 		Category programming = new Category("Programming Books");

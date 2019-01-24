@@ -1,5 +1,5 @@
 -injars       ShoppingCart-1.0.0.jar
--outjars      ShoppingCart-1.0.0-out.jar
+-outjars      ShoppingCart-1.0.0-release.jar
 -libraryjars  <java.home>/lib/rt.jar
 -printmapping ShoppingCart.map
 
