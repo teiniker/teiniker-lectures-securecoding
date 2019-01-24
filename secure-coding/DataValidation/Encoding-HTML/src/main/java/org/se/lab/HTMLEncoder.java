@@ -14,6 +14,7 @@ public class HTMLEncoder
 			{
 				case '<': encoding = "&lt;"; break;
 				case '>': encoding = "&gt;"; break;
+				case '\'': encoding = "&apos;"; break;
 				case '&': encoding = "&amp;"; break;
 				case '"': encoding = "&quot;"; break;
 				default: encoding = String.valueOf(c);
