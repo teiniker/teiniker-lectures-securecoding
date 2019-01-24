@@ -11,8 +11,11 @@ int main(void)
 
     // write elements into the queue
     queue_enqueue(queue_ptr, 1);
+
     queue_print(queue_ptr);
+
     queue_enqueue(queue_ptr, 2);
+
     queue_print(queue_ptr);
     queue_enqueue(queue_ptr, 3);
     queue_print(queue_ptr);
