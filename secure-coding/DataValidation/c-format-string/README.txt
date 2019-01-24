@@ -150,7 +150,9 @@ $ ./fmt_string "hello %lx"
 hello 7fffffffdbd8
 
 $ ./fmt_string "hello %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %lx %s"
-hello 7fffffffdba8 7fffffffdbc0 0 4005a0 7fecb0f1a2d0 1 7fffffffdeef 1 aabbccdd0040057d 7fffffffdac0 400528 7fffffffdba8 200400400 7fffffffdba0 X8GX-6S5V-MOI0-PL5F
+hello 7fffffffdba8 7fffffffdbc0 0 4005a0 7fecb0f1a2d0 1 7fffffffdeef 1 aabbccdd0040057d 7fffffffdac0 400528 7fffffffdba8 200400400 
+7fffffffdba0 X8GX-6S5V-MOI0-PL5F
 
 $ ./fmt_string "hello %p %p %p %p %p %p %p %p %p %p %p %p %p %p %s"
-hello 0x7fffffffdbb8 0x7fffffffdbd0 (nil) 0x4005a0 0x7f861f2ca2d0 0x1 0x7fffffffdeff 0x1 0xaabbccdd0040057d 0x7fffffffdad0 0x400528 0x7fffffffdbb8 0x200400400 0x7fffffffdbb0 X8GX-6S5V-MOI0-PL5F[
+hello 0x7fffffffdbb8 0x7fffffffdbd0 (nil) 0x4005a0 0x7f861f2ca2d0 0x1 0x7fffffffdeff 0x1 0xaabbccdd0040057d 0x7fffffffdad0 0x400528 
+0x7fffffffdbb8 0x200400400 0x7fffffffdbb0 X8GX-6S5V-MOI0-PL5F[
