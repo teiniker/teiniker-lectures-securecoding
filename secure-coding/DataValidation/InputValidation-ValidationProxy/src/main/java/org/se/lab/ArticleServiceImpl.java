@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-class ArticleServiceImpl
+class ArticleServiceImpl  // package private
 	implements ArticleService
 {
 	/*

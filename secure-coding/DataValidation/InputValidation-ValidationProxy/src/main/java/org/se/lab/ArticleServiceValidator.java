@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-public class ArticleServiceValidator
+class ArticleServiceValidator // package private
 	implements ArticleService
 {
 	private ArticleService impl;
@@ -19,7 +19,7 @@ public class ArticleServiceValidator
 	
 	
 	@Override
-	public void addArticle(Article a) throws ServiceException
+	public void addArticle(Article a)
 	{
 		// validate parameter
 		// article != null
@@ -34,7 +34,7 @@ public class ArticleServiceValidator
 
 	
 	@Override
-	public void removeArticle(long id) throws ServiceException
+	public void removeArticle(long id)
 	{
 		// validate parameter
 		// id >= 0
