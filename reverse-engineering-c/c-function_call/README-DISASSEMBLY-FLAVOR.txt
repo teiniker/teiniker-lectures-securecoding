@@ -15,11 +15,9 @@ att
 
 intel
 	GDB will use the Intel disassembly style (e.g. mov eax, DWORD PTR [ebp+0xc]).
-	Default mode
 
+Default mode
 The default value for the disassembly-flavor setting is 'att'.
 
 Note that we can use a ".gdbinit" file with the content:
-set disassembly intel
-
-to change the disassembly-flavor permanently. 
+set disassembly intel to change the disassembly-flavor permanently.
