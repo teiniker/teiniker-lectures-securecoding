@@ -2,7 +2,8 @@ Exercise: Error Handling - Crypto API
 -------------------------------------------------------------------------------
 
 Many methods of the Java Crypto API throw Checked Exceptions. To be able to work
-better with these exceptions, they should be converted into Runtime Exceptions.
+better with these exceptions, they should be converted into Runtime Exceptions
+(IllegalStateException).
 
 HashUtility Class
 -----------------
