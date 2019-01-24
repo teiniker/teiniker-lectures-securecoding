@@ -1,7 +1,7 @@
 Example: Tracing System Calls - File Access
 ----------------------------------------------------------------
 
-We try tu guess the right password for the user "student":
+We try to guess the right password for the user "student":
 
 $ ./file_login 
 username> student
