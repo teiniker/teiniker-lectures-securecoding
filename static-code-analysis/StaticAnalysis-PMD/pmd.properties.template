@@ -1,0 +1,22 @@
+##
+# PMD Configuration
+##
+
+pmd.home=vendor/pmd-6.11
+
+project.home = ../StaticAnalysis-Target
+pmd.src = ${project.home}/src/main/java
+pmd.output.format = text
+pmd.output.file = reports/pmd-report.txt
+#pmd.output.format = html
+#pmd.output.file = reports/pmd-report.html
+#pmd.output.format = xml
+#pmd.output.file = reports/pmd-report.xml
+
+##
+# CPD Configuration
+##
+
+cpd.tokens=50
+cpd.output.file=reports/cpd-report.txt
+cpd.output.format=text
