@@ -1,0 +1,19 @@
+##
+# SpotBugs configuration
+#
+##
+
+findbugs.home=/home/student/install/spotbugs-3.1.3
+
+project.home = ../StaticAnalysis-Target
+
+findbugs.src = src
+findbugs.test = test
+findbugs.build = build
+
+findbugs.output.format = text
+findbugs.output.file = reports/findbugs-report.txt
+#findbugs.output.format = xml
+#findbugs.output.file = reports/findbugs-report.xml
+#findbugs.output.format = html
+#findbugs.output.file = reports/findbugs-report.html

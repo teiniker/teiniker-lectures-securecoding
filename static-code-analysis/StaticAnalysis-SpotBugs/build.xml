@@ -1,0 +1,45 @@
+<project name="FindBugs-Examples" default="all">
+
+	<property file="findbugs.properties"/>
+	<fail unless="findbugs.src" message="findbugs.properties file not found!"/>
+
+	<property name="spotbugs.home" value="${findbugs.home}" />
+	<property name="findbugs.lib" location="${findbugs.home}/lib" />
+
+	
+	<path id="classpath">
+        <fileset dir="${findbugs.lib}">
+            <include name="*.jar"/>
+        </fileset>
+	</path>
+
+	<taskdef
+			 resource="edu/umd/cs/findbugs/anttask/tasks.properties"
+			 classpathref="classpath" />
+
+	<target name="all" depends="clean,init,spotbugs"/>
+	
+	<target name="init">
+		<mkdir dir="reports" />
+	</target>
+
+	<target name="clean">
+		<delete dir="reports" failonerror="false"/>
+	</target>
+
+
+	<target name="spotbugs" depends="init">
+		<spotbugs
+				home="${findbugs.home}"
+				output="${findbugs.output.format}"
+				outputFile="${findbugs.output.file}" >
+			<!--
+			<auxClasspath path="${basedir}/lib/Regex.jar" />
+			-->
+			<sourcePath path="${findbugs.src}"/>
+			<sourcePath path="${findbugs.test}"/>
+			<class location="${findbugs.build}"/>
+		</spotbugs>
+	</target>
+
+</project>

@@ -1,0 +1,7 @@
+/bin/
+/findbugs.properties
+/target/
+/.settings/
+/.classpath
+/.project
+/reports/
