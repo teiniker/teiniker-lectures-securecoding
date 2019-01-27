@@ -1,0 +1,63 @@
+<project name="JavaNCSS-Example" default="all">
+
+	<!--
+		Global settings
+	-->
+	<property file="analysis.properties" />
+	<fail unless="project.home" message="analysis.properties file not found!" />
+
+
+	<target name="all" depends="clean,init,jdepend-to-text,jdepend-to-graphviz" />
+
+	<target name="init">
+		<echo message="Analyze project ${project.home}" />
+		<mkdir dir="${analysis.reports}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${analysis.reports}" failonerror="false" />
+	</target>
+
+
+	<!--
+		JDepend
+	-->
+
+	<property name="jdepend.lib" location="vendor/jdepend/lib" />
+	<property name="jdepend.xsl" location="vendor/jdepend/xml/jdepend2dot.xsl" />
+
+	<path id="jdepend.classpath">
+		<fileset dir="${jdepend.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+
+	<target name="jdepend-to-text">
+		<java classname="jdepend.textui.JDepend" fork="yes">
+			<classpath refid="jdepend.classpath" />
+			<arg value="-file" />
+			<arg value="${analysis.reports}/jdepend-report.txt" />
+			<arg file="${project.build}" />
+		</java>
+	</target>
+
+
+	<target name="jdepend-to-graphviz">
+		<java classname="jdepend.xmlui.JDepend" fork="yes">
+			<classpath refid="jdepend.classpath"/>
+			<arg value="-file"/>
+			<arg value="${analysis.reports}/jdepend-report.xml" />
+			<arg file="${project.build}" />
+		</java>
+
+		<style basedir="${analysis.reports}/"
+	           destdir="${analysis.reports}/"
+	           includes="jdepend-report.xml"
+	           extension=".dot"
+	           style="${jdepend.xsl}"/>
+		<exec executable="dot">
+			<arg line="-Tpng ${analysis.reports}/jdepend-report.dot -o ${analysis.reports}/jdepend-report.png"/>
+		</exec>
+	</target>
+</project>
