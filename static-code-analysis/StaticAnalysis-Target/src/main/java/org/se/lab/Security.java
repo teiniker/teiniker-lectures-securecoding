@@ -1,6 +1,7 @@
 package org.se.lab;
 
 import java.io.File;
+import java.util.Random;
 
 public class Security
 {
@@ -13,5 +14,12 @@ public class Security
         {
             System.out.println("File exist!");
         }
+    }
+
+
+    public String randomNumbers()
+    {
+        Random r = new Random();
+        return Long.toHexString(r.nextLong());
     }
 }
