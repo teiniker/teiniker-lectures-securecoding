@@ -48,7 +48,7 @@ public class ScpServer
 			} 
 			catch (IOException e)
 			{
-				e.printStackTrace();
+				throw new IllegalStateException("Can't establish a secure socket connection!", e);
 			} 
 			finally
 			{
@@ -58,7 +58,7 @@ public class ScpServer
 		} 
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			throw new IllegalStateException("Can't create a secure socket!", e);
 		}
 		finally
 		{
@@ -69,7 +69,7 @@ public class ScpServer
 			}
 			catch (IOException e)
 			{
-				e.printStackTrace();
+				throw new IllegalStateException("Can't close the secure socket!", e);
 			}
 			
 			System.out.println("> done");
