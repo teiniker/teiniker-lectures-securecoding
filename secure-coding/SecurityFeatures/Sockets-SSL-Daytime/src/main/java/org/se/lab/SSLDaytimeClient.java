@@ -24,7 +24,7 @@ public class SSLDaytimeClient
 		} 
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			throw new IllegalStateException("Can't establish a secure socket connection!", e);
 		}
 	}
 }
