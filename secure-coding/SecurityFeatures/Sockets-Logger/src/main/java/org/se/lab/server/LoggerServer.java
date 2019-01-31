@@ -48,7 +48,7 @@ public class LoggerServer
 				} 
 				catch (IOException e)
 				{
-					e.printStackTrace(); ///!!!!
+					throw new IllegalStateException("Can't establish a socket connection!", e);
 				} 
 				finally
 				{
@@ -59,7 +59,7 @@ public class LoggerServer
 		} 
 		catch (IOException e)
 		{
-			e.printStackTrace(); //!!!!
+			throw new IllegalStateException("Can't create a socket!", e);
 		}
 		finally
 		{
@@ -70,7 +70,7 @@ public class LoggerServer
 				}
 				catch (IOException e)
 				{
-					e.printStackTrace(); //!!!
+					throw new IllegalStateException("Can't close the socket!", e);
 				}
 		}
 	}
