@@ -12,7 +12,7 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class ScpClient
 {
-	public static void main(String[] args) throws UnknownHostException, IOException
+	public static void main(String[] args)
 	{
 		if(args.length < 3)
 		{
