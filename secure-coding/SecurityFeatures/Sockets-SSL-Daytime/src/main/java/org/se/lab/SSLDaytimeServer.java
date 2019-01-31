@@ -38,7 +38,7 @@ public class SSLDaytimeServer
 				}
 				catch (IOException e)
 				{
-					e.printStackTrace();
+					throw new IllegalStateException("Can't establish a secure socket connection!", e);
 				} 
 				finally
 				{
@@ -49,19 +49,20 @@ public class SSLDaytimeServer
 		} 
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			throw new IllegalStateException("Can't create a secure socket!", e);
 		}
 		finally
 		{
 			if(server != null)
+			{
 				try
 				{
 					server.close();
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
-					e.printStackTrace();
+					throw new IllegalStateException("Can't close the secure socket!", e);
 				}
+			}
 		}
 	}
 }
