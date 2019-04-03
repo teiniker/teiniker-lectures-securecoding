@@ -1,0 +1,63 @@
+Exercise: Password Encryption 
+-------------------------------------------------------------------------------
+
+Implement a class called "PasswordEncrypter" which implements two methods:
+
+1. String encryptPassword(String password)  
+-------------------------------------------------------------------------------
+This method gets a password string and performs the following steps:
+- generate a random salt of 16 bytes
+- concatenate the byte arrays of salt and password 
+- calculate the message digest based on "SHA-256"
+
+- concatenate the salt and the message digest byte arrays 
+- return the base64 encoded string of this result
+
+Also encapsulate all checked exceptions into the "IllegalStateException"
+runtime exception (keep the exception stack-trace). 
+
+
+2. boolean checkPassword(String password, String hashString)
+-------------------------------------------------------------------------------
+- extract the salt byte array from the passed hashString (base64)
+
+- concatenate the byte arrays of salt and password 
+- calculate the message digest based on "SHA-256"
+
+- concatenate the salt and the message diges byte arrays
+- compare this byte array with the byte array of the passed hashString
+
+- return the result of this comparison
+
+Also encapsulate all checked exceptions into the "IllegalStateException"
+runtime exception (keep the exception stack-trace). 
+
+   
+Use the class "PasswordEncrypterTest" to verify your implementations.
+
+
+API for handling Arrays:
+-------------------------------------------------------------------------------
+
+byte[] Arrays.copyOfRange(byte[] original, int from, int to)
+------------------------------------------------------------
+Copies the specified range of the specified array into a new array.
+The initial index of the range 'from' must lie between zero and 'original.length', 
+inclusive. The value at 'original[from]' is placed into the initial element of 
+the copy (unless from == original.length or from == to).
+Values from subsequent elements in the original array are placed into subsequent 
+elements in the copy. The final index of the range 'to', which must be greater 
+than or equal to 'from', may be greater than 'original.length', in which case
+'(byte)0' is placed in all elements of the copy whose index is greater than or 
+equal to 'original.length - from'.  The length of the returned array will be 
+'to - from'.
+
+void System.arraycopy((Object src, int srcPos, Object dest, int destPos, int length)
+------------------------------------------------------------------------------------
+Copies an array from the specified source array, beginning at the specified 
+position, to the specified position of the destination array.
+A subsequence of array components are copied from the source array referenced by 
+'src' to the destination array referenced by 'dest'. The number of components copied 
+is equal to the 'length' argument. The components at positions 'srcPos' through
+'srcPos+length-1' in the source array are copied into positions 'destPos' through
+'destPos+length-1', respectively, of the destination array.
