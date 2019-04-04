@@ -9,10 +9,8 @@ public class SSLDaytimeClient
 {
 	public static void main(String... args)
 	{
-		try
+		try(SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket("localhost", 9013))
 		{
-			SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket("localhost", 9013);
-			
 			InputStream in = socket.getInputStream();
 			StringBuilder buffer = new StringBuilder();
 			int c;
@@ -20,8 +18,7 @@ public class SSLDaytimeClient
 				buffer.append((char)c);
 			
 			System.out.println("It is : " + buffer);
-			socket.close();
-		} 
+		}
 		catch (Exception e)
 		{
 			throw new IllegalStateException("Can't establish a secure socket connection!", e);
