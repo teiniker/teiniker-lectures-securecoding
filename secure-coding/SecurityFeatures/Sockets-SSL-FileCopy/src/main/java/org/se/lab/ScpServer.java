@@ -25,15 +25,11 @@ public class ScpServer
 		
 		System.out.println("> read from port " + PORT + " and write to file " + OUTPUT_FILE_NAME);
 		
-		SSLServerSocket server = null;
-		try
+		try(SSLServerSocket server = (SSLServerSocket) SSLServerSocketFactory.getDefault().createServerSocket(PORT))
 		{
-			server = (SSLServerSocket) SSLServerSocketFactory.getDefault().createServerSocket(PORT);
-			SSLSocket connection = (SSLSocket) server.accept(); // wait for a connection
-
-			System.out.println("> " + connection);
-			try
+			try(SSLSocket connection = (SSLSocket) server.accept())
 			{
+				System.out.println("> " + connection);
 				InputStream in = connection.getInputStream();
 				OutputStream out = new FileOutputStream(new File(OUTPUT_FILE_NAME)); 
 				
@@ -50,29 +46,10 @@ public class ScpServer
 			{
 				throw new IllegalStateException("Can't establish a secure socket connection!", e);
 			} 
-			finally
-			{
-				if(connection != null)
-					connection.close();
-			}
-		} 
+		}
 		catch (IOException e)
 		{
 			throw new IllegalStateException("Can't create a secure socket!", e);
-		}
-		finally
-		{
-			if(server != null)
-			try
-			{
-				server.close();
-			}
-			catch (IOException e)
-			{
-				throw new IllegalStateException("Can't close the secure socket!", e);
-			}
-			
-			System.out.println("> done");
 		}
 	}
 }

@@ -13,20 +13,18 @@ public class ScpClient
 {
     public static void main(String[] args)
     {
-        try
+        if (args.length < 3)
         {
-            if (args.length < 3)
-            {
-                System.out.println("usage: java -cp ./build org.se.lab.ScpClient <filename> <host> <port>");
-                System.exit(0);
-            }
+            System.out.println("usage: java -cp ./build org.se.lab.ScpClient <filename> <host> <port>");
+            System.exit(0);
+        }
 
-            final String INPUT_FILE_NAME = args[0];
-            final String HOST = args[1];
-            final int PORT = Integer.parseInt(args[2]);
+        final String INPUT_FILE_NAME = args[0];
+        final String HOST = args[1];
+        final int PORT = Integer.parseInt(args[2]);
 
-            SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket(HOST, PORT);
-
+        try(SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket(HOST, PORT))
+        {
             InputStream in = new FileInputStream(new File(INPUT_FILE_NAME));
             OutputStream out = socket.getOutputStream();
 
@@ -35,10 +33,9 @@ public class ScpClient
             {
                 out.write(b);
             }
+
             in.close();
             out.flush();
-
-            socket.close();
         }
         catch (IOException e)
         {
