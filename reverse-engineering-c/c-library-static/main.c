@@ -5,11 +5,11 @@ int main()
 {
     // setup linked list
     node *list_ptr = NULL;
-    list_ptr = list_append(list_ptr, new_user(1,"homer","********"));
-    list_ptr = list_append(list_ptr, new_user(2,"marge","********"));
-    list_ptr = list_append(list_ptr, new_user(3,"lisa","********"));
-    list_ptr = list_prepend(list_ptr, new_user(4,"bart","********"));
-    list_ptr = list_prepend(list_ptr, new_user(5,"maggi","********"));
+    list_ptr = list_append(list_ptr, new_user(1,"homer","L29*C>+&~5DjU}k-"));
+    list_ptr = list_append(list_ptr, new_user(2,"marge","Pb<9[r5Q>pGg_d=H"));
+    list_ptr = list_append(list_ptr, new_user(3,"lisa","`8AwTrs6K8CM5S^C"));
+    list_ptr = list_prepend(list_ptr, new_user(4,"bart","m`R{7W/9VUyZk""L"));
+//    list_ptr = list_prepend(list_ptr, new_user(5,"maggi","_aheg$X5.@2AgWuf"));
 
     // navigate
     int length = list_length(list_ptr);
