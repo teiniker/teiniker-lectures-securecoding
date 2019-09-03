@@ -8,7 +8,9 @@ tested by the "LoggerImplTest" class.
 --------------------------------------------------------------------------
 	Implement a "LoggerServer" class that can be started as a separate 
 	process that listens on port 8080 for incoming strings. These strings 
-	should be logged in a file called "./log/server.log" 
+	should be logged in a file called "./log/server.log"
+
+	You can reuse parts of the "LoggerImpl" class.
 	
 	Start the server process from the command line:
 		$ java -cp ./target/classes org.se.lab.server.LoggerServer
