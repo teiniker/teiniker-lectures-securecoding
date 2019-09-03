@@ -12,7 +12,7 @@ char* get_secret(void)
 
 int is_correct_password(char* password)
 {
-    if(strcmp("0815", password) == 0)
+    if(strcmp("6LJ53vc6kFtwY_", password) == 0)
     {
         return 1;
     }
