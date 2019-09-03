@@ -43,11 +43,9 @@ class UserDAOImpl // package private
 
 		final String SQL = "INSERT INTO user VALUES (NULL,?,?,?,?)";
 		LOG.debug("SQL> " + SQL);
-		PreparedStatement pstmt = null;
 
-		try
+		try(PreparedStatement pstmt = getConnection().prepareStatement(SQL))
 		{
-			pstmt = getConnection().prepareStatement(SQL);
 			pstmt.setString(1, user.getFirstname());
 			pstmt.setString(2, user.getLastname());
 			pstmt.setString(3, user.getUsername());
@@ -58,10 +56,6 @@ class UserDAOImpl // package private
 		{
 			throw new DAOException("Insert failure", e);
 		} 
-		finally
-		{
-			closePreparedStatement(pstmt);
-		}
 	}
 
 	public void update(User user)
