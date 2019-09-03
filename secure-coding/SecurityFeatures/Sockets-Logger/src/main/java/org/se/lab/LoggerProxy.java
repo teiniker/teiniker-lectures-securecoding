@@ -13,16 +13,13 @@ public class LoggerProxy
 	{
 		Date now = new Date();
 		LogMessage msg = new LogMessage(now.getTime(), level, text);
-		try
+
+		try(Socket socket = new Socket("localhost", 8080))
 		{
-			Socket socket = new Socket("localhost", 8010);
-			
-			Writer out = new PrintWriter(socket.getOutputStream());	
+			Writer out = new PrintWriter(socket.getOutputStream());
 			out.write(msg.toString());
 			out.flush();
-			
-			socket.close();
-		} 
+		}
 		catch (IOException e)
 		{
 			throw new IllegalStateException("Cant write log message!", e);
