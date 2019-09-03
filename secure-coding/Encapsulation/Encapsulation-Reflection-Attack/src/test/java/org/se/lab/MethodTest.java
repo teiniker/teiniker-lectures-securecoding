@@ -10,7 +10,7 @@ public class MethodTest
 {
 	@Test
 	public void testPrivateMethodAttack() 
-		throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException 
+		throws SecurityException, NoSuchMethodException, IllegalAccessException, InvocationTargetException
 	{
 		User user = new User(7, "teini", "*****");
 	

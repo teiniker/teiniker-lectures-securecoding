@@ -9,7 +9,7 @@ public class FieldTest
 {	
 	@Test
 	public void testPrivateFieldAttack() 
-		throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException
+		throws SecurityException, NoSuchFieldException, IllegalAccessException
 	{
 		User user = new User(7, "teini", "*****");
 		
