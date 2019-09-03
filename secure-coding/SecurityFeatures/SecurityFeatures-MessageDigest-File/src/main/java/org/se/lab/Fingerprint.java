@@ -39,15 +39,11 @@ public class Fingerprint
         if(!file.exists())
             throw new IllegalArgumentException("File " + file.getAbsolutePath() + " does not exist!");
         
-        try
+        try(InputStream in = new FileInputStream(file))
         {        
             int length = (int) file.length();
             byte[] content = new byte[length];
-
-            InputStream in = new FileInputStream(file);
             in.read(content);
-            in.close();
-            
             return sha256(content);
         } 
         catch (IOException e)
