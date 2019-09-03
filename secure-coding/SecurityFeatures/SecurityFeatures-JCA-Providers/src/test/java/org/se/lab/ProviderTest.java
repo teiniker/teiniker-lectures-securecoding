@@ -24,9 +24,9 @@ public class ProviderTest
 
 
 	@Test
-	public void testSHA1() throws NoSuchAlgorithmException
+	public void testSHA256() throws NoSuchAlgorithmException
 	{
-		MessageDigest algorithm = MessageDigest.getInstance("SHA-1");	
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		Provider provider = algorithm.getProvider();
 		
 		System.out.println(provider.getInfo());
@@ -34,9 +34,9 @@ public class ProviderTest
 
 	
 	@Test
-	public void testSHA1WithNewProvider() throws NoSuchAlgorithmException, NoSuchProviderException
+	public void testSHA256WithNewProvider() throws NoSuchAlgorithmException, NoSuchProviderException
 	{
-		MessageDigest algorithm = MessageDigest.getInstance("SHA-1", "BC");	
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256", "BC");
 		Provider provider = algorithm.getProvider();
 		
 		System.out.println(provider.getInfo());
