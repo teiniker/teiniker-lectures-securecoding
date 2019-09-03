@@ -7,6 +7,29 @@ import static org.se.lab.ByteUtil.*;
 public class ByteUtilTest
 {
 	@Test
+	public void testExplicitCast()
+    {
+		byte b = (byte) 0x1234;
+
+		Assert.assertEquals(0x34, b);
+	}
+
+    @Test
+    public void testImplicitCast()
+    {
+        byte b = -1;
+        int i = b;
+
+        Assert.assertEquals(-1, b);
+        Assert.assertEquals(-1, i);
+
+        Assert.assertEquals("11111111111111111111111111111111", Integer.toBinaryString(i));
+    }
+
+
+
+
+	@Test
 	public void testIntegerToByte()
 	{
 		byte b1 = toByte(0xff);
@@ -23,7 +46,8 @@ public class ByteUtilTest
 	@Test
 	public void testByteToInteger()
 	{
-		byte b = toByte(0xce);
+		//byte b = toByte(0xce);
+        byte b = (byte)0xce;
 		System.out.println(b + " , " + toInt(b));
 		Assert.assertEquals(0xce, toInt(b));
 		
