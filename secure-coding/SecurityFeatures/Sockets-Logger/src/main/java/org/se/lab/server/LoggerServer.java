@@ -24,7 +24,7 @@ public class LoggerServer
 		ServerSocket server = null;
 		try
 		{
-			server = new ServerSocket(8010);
+			server = new ServerSocket(8080);
 			while (true)
 			{
 				Socket connection = server.accept(); // wait for a connection
