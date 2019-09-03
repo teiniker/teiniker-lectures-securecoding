@@ -1,6 +1,6 @@
 package org.se.lab;
 
-public class HelloWorld
+public class ByteOrder
 {
 	int i = 0x11223344;
 
