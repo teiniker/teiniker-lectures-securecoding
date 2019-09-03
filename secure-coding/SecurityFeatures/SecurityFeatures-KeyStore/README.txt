@@ -101,6 +101,6 @@ References:
   https://niels.nu/blog/2016/java-rsa.html
 
 - David Hook, Beginning Cryptography with Java, Wrox 2005
-    Chapter 4: Asymmetric Key Cryptography
+    Chapter 6: Distinguished Names and Certificates
 
 
