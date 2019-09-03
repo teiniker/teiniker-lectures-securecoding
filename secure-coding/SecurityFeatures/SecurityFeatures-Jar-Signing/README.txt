@@ -26,6 +26,9 @@ be used to verify the authenticity of the signed jar file.
 We will use the "keytool" to create a keystore:
 
 $ keytool -genkey -deststoretype pkcs12 -keystore keys.ks -alias fhj -storepass student -keypass student
+
+$ keytool -storetype PKCS12 -genkeypair -alias testkey -storepass student -keypass student -keyalg RSA -keystore keystore.pfx
+
 What is your first and last name?
   [Unknown]:  egon teiniker    
 What is the name of your organizational unit?
@@ -51,6 +54,8 @@ Options:
 	  
 To list the content of the keystore file type:
 
+$ keytool -list -keystore keystore.pfx -storepass student
+
 $ keytool -list -keystore keys.ks -storepass student
 
 
@@ -61,6 +66,8 @@ Signing jar files ensures that code was not modified.
 
 Java comes with a tool called "jarsigner", which can be used to sign
 files and verify the signatures and integrity of signed jar files.
+
+$ jarsigner -keystore keystore.pfx  -storepass student -keypass student target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar testkey
 
 $ jarsigner -keystore keys.ks -storepass student -keypass student target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar fhj
 
@@ -224,6 +231,8 @@ Because keys.ks keystore contains your private keys, you need another
 keystore that contains only your public keys to share with the outside 
 world.
 
+$ keytool -export -v -keystore keystore.pfx -alias testkey -file testkey.cert -storepass student -keypass student
+
 $ keytool -export -v -keystore keys.ks -alias fhj -file fhj.cert -storepass student -keypass student
 
 
@@ -231,7 +240,12 @@ $ keytool -export -v -keystore keys.ks -alias fhj -file fhj.cert -storepass stud
 How to use the exported certificate to verify a signed jar?
 ---------------------------------------------------------------------
 
+$ keytool -import -v -keystore certificates.pfx -alias testkey-cert -file testkey.cert -storepass student -keypass student
+
 $ keytool -import -v -keystore certificates.ks -alias fhj-cert -file fhj.cert -storepass student -keypass student
+
+
+$ jarsigner -verify -verbose -keystore certificates.pfx target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
 
 $ jarsigner -verify -verbose -keystore certificates.ks target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
 jar verified.
