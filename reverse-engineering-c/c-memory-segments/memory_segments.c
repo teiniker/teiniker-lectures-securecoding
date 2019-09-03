@@ -29,7 +29,7 @@ int main()
 	
 	// heap segment
 	printf("heap segment:\n");	
-	printf("\theap_var at %p\n", heap_var_ptr);
+	printf("\theap_var_ptr at %p\n", heap_var_ptr);
 
 	// bss segment
 	printf("bss segment:\n");	
@@ -46,7 +46,7 @@ int main()
     printf("\tmain() at %p\n", &main);
 	printf("\tfunction() at %p\n", &function);
 
-//    free(heap_var_ptr);
+    free(heap_var_ptr);
 
 	return 0;
 }
