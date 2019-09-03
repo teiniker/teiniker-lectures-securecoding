@@ -11,6 +11,6 @@ public class LogEncoder
     {
         message = Normalizer.normalize(message, Normalizer.Form.NFKC);
         String log = message.replaceAll("[\n\r]", "_");
-        return log.toString();
+        return log;
     }
 }
