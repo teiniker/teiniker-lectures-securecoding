@@ -13,6 +13,6 @@ Implement the following static method in the LogEncoder class:
 
     public static String encode(String message)
 
-This method replaces dangerous characters like '\ n' and '\ r' with '_'.
+This method replaces dangerous characters like '\n' and '\r' with '_'.
 
 Use "LogForgingAttackTest" to test your encoder method.
