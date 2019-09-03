@@ -1,0 +1,16 @@
+Examples using: Byte[]
+
+o) use commons codec to convert between hex strings and byte arrays
+
+o) Copy byte[] System.arraycopy(), Arrays.copyOfRange() etc.
+            // value = [salt]+[password]
+            byte[] hash = new byte[salt.length + password.length];
+            System.arraycopy(salt, 0, hash, 0, salt.length);
+            System.arraycopy(password, 0, hash, salt.length, password.length);
+
+o) String <=> byte[]: password.getBytes("UTF-8")
+
+o) reading writing files -> byte[]
+
+
+
