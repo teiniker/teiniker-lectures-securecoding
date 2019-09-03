@@ -14,42 +14,23 @@ import org.junit.Test;
 public class SHATest
 {
 	@Test
-	public void testSHA1() 
-		throws NoSuchAlgorithmException, UnsupportedEncodingException
-	{
-		String message = "mypassword"; 
-		
-		MessageDigest algorithm = MessageDigest.getInstance("SHA-1");		
-		algorithm.update(message.getBytes("UTF-8"));
-		byte[] bytes = algorithm.digest();
-
-		String hexString = Hex.encodeHexString(bytes);		
-		assertEquals(40, hexString.length()); 
-		assertEquals("91dfd9ddb4198affc5c194cd8ce6d338fde470e2", hexString);
-		
-		String base64String = Base64.encodeBase64String(bytes);
-		assertEquals(28, base64String.length()); 
-		assertEquals("kd/Z3bQZiv/FwZTNjObTOP3kcOI=", base64String);
-	}
-
-	
-	@Test
 	public void testSHA256() 
 		throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
-		String message = "mypassword"; 
+		String message = "My important message.";
 		
-		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");		
-		algorithm.update(message.getBytes("UTF-8"));
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+		byte[] inBytes = message.getBytes("UTF-8");
+		algorithm.update(inBytes);
 		byte[] bytes = algorithm.digest();
 
 		String hexString = Hex.encodeHexString(bytes);
 		assertEquals(64, hexString.length()); 
-		assertEquals("89e01536ac207279409d4de1e5253e01f4a1769e696db0d6062ca9b8f56767c8", hexString);
+		assertEquals("87a35633cf9f3636ec25fe9b53e631f38c06fc38c9fee1f0a52bc852a978ff3c", hexString);
 
 		String base64String = Base64.encodeBase64String(bytes);
 		assertEquals(44, base64String.length()); 
-		assertEquals("ieAVNqwgcnlAnU3h5SU+AfShdp5pbbDWBiypuPVnZ8g=", base64String);
+		assertEquals("h6NWM8+fNjbsJf6bU+Yx84wG/DjJ/uHwpSvIUql4/zw=", base64String);
 	}
 
 	
