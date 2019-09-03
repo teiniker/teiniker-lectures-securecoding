@@ -13,7 +13,7 @@ public class ReflectPermission
 	{
 		try
 		{
-			User user = new User(7, "teini", "*****");
+			User user = new User(7, "teini", "4m:7MyN9&M");
 			Field id = user.getClass().getDeclaredField("id");			
 			id.setAccessible(true); // Note that we access a private field!!!
 			id.setInt(user, 17);
@@ -21,9 +21,9 @@ public class ReflectPermission
 			
 			System.out.println("id = " + i);
 		}
-		catch (Exception e)
+		catch (IllegalAccessException | NoSuchFieldException e)
 		{
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
 }
