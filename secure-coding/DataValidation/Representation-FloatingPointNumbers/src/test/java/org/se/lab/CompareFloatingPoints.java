@@ -3,10 +3,26 @@ package org.se.lab;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CompareFloatingPoints
 {
+    @Test
+    public void testDoubleComparison()
+    {
+        double a = 0.7;
+        double b = 0.9;
+
+        double x = a + 0.1;
+        double y = b - 0.1;
+
+        System.out.printf("%.50f\n", x);
+        System.out.printf("%.50f\n", y);
+
+        Assert.assertTrue(x == y);
+    }
+
 
 	@Test
 	public void testAbsoluteDelta()
@@ -30,14 +46,14 @@ public class CompareFloatingPoints
 	{
 		double expected = Math.PI; 
 		double value = 3.14; 
-		double delta = 1E-3; // 1E-4 would fail 
+		double delta = 0.001; // 1E-4 would fail
 
 		System.out.printf("%.50f\n", expected);
 		System.out.printf("%.50f\n", value);
 		System.out.printf("%.50f\n", delta);
 		System.out.printf("%.50f\n", Math.abs(expected - value)/expected);
 			
-		boolean result = Math.abs(expected-value)/expected <= delta;
+		boolean result = Math.abs((expected-value)/expected) <= delta;
 		assertTrue(result);
 	}
 	
