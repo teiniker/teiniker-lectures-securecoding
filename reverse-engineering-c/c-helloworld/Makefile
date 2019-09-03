@@ -1,16 +1,17 @@
+all: hello
 
-OBJECTS = 
-CFLAGS = -std=c99 -g -Wall  
-LDLIBS = 
-CC=gcc
+_hello.c: hello.c
+	cpp hello.c _hello.c
 
+_hello.s: _hello.c
+	gcc -Wall -g -S _hello.c
 
-all: hello 
+hello.o : _hello.s
+	as -o hello.o _hello.s
 
-
-hello: hello.c
-	$(CC) $(CFLAGS) $(LDLIBS) -o hello hello.c 
+hello: hello.o
+	gcc -o hello hello.o
 
 clean:
-	rm hello 
+	rm hello hello.o _hello.s _hello.c
 
