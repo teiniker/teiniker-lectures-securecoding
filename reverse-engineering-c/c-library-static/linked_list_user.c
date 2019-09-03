@@ -85,15 +85,14 @@ void list_remove_all(node *list_ptr)
     if(list_ptr == NULL)
         return;
 
-    node *tmp_ptr = list_ptr;
-    while(tmp_ptr->next_ptr != NULL)
+    while(list_ptr->next_ptr != NULL)
     {
-        node *rm_ptr = tmp_ptr;
-        tmp_ptr = tmp_ptr->next_ptr;
+        node *rm_ptr = list_ptr;
+        list_ptr = list_ptr->next_ptr;
         free(rm_ptr->user_ptr);
         free(rm_ptr);                
     }
-    free(tmp_ptr->user_ptr);
-    free(tmp_ptr);
+    free(list_ptr->user_ptr);
+    free(list_ptr);
 } 
 
