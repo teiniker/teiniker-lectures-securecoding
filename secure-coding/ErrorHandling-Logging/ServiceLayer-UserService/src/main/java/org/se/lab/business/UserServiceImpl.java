@@ -61,8 +61,10 @@ class UserServiceImpl // package private
 		String hashValue;
 		try
 		{
+			txBegin();
 			hashValue = PasswordEncoder.toHashValue(password);
 			getUserDAO().createUser(firstName,lastName, username, hashValue);
+			txCommit();
 		}
 		catch(DAOException e)
 		{
@@ -70,7 +72,7 @@ class UserServiceImpl // package private
 			LOG.error(e); // Log stack trace instead of passing it to the presentation
 			throw new ServiceException("Can't add user " + username);
 		}
-		catch(Throwable e)
+		catch(Exception e)
 		{
 			txRollback();
 			LOG.error(e); // Log stack trace instead of passing it to the presentation
