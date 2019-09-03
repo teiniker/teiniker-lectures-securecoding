@@ -75,7 +75,7 @@ public class AsymmetricCipherTest
 
 
 	@Test
-    public void testKeyGenerator() throws NoSuchAlgorithmException
+    public void testKeyPairGenerator() throws NoSuchAlgorithmException
     {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(2048); // Key size in bits
