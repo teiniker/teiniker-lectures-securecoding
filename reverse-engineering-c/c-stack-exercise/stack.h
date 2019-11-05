@@ -2,10 +2,10 @@
 #define _STACK_H_
 
 
-typedef struct _node
+typedef struct node_
 {   
     int value;
-    node *next_ptr;
+    struct node_ *next_ptr;
 }node;
 
 
