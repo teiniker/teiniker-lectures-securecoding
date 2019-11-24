@@ -30,6 +30,16 @@ Tab Monitor -> Heap Dump
 Tab Classes -> look for a class named org.se.lab.ConsoleLogin 
 Double click on it -> Review the stored data
 
+Object Query Language (OQL):
+> select u.password from org.se.lab.ConsoleLogin u
+
+
+How to install JVisualVM?
+-------------------------------------------------------------------------------
+Note that jvisualvm is not part of the OpenJDK, so we have to download and
+unzip a file from: https://visualvm.github.io/download.html
+
+
 
 How to use JavaSnoop?
 -------------------------------------------------------------------------------
