@@ -1,6 +1,7 @@
 -injars       ShoppingCart-1.0.0.jar
 -outjars      ShoppingCart-1.0.0-release.jar
--libraryjars  <java.home>/lib/rt.jar
+#-libraryjars  <java.home>/jmods
+-libraryjars  <java.home>/jmods/java.base.jmod
 -printmapping ShoppingCart.map
 
 -optimizationpasses 3
