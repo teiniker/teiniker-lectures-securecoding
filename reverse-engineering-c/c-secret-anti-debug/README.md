@@ -43,6 +43,24 @@ int main()
 A process probably shouldn't make this request if its parent isn't expecting to 
 trace it.  (pid, addr, and data are ignored.)
 
+## Example: Using gdb
+```
+$ gdb ./secret
+(gdb) run xxxx
+Starting program: /home/student/github/teiniker-lectures-securecoding/reverse-engineering-c/c-secret-anti-debug/secret xxxx
+don't trace me !!
+[Inferior 1 (process 2645) exited with code 01]
+(gdb) 
+```
+
+## Example: Using strace or ltrace
+```
+$ ltrace ./secret 
+ptrace(0, 0, 1, 0)                                   = -1
+puts("don't trace me !!"don't trace me !!
+)                                                    = 18
++++ exited (status 1) +++
+```
 
 
 # References
