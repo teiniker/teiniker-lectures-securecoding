@@ -1,0 +1,50 @@
+Exercise: Java Decompiler
+---------------------------------------------------------------------
+
+Given the JAR file dist/Java-Decompiler-SecureWriter.jar, remove the
+encryption from its implementation.
+
+Original version:
+$ java -cp dist/Java-Decompiler-SecureWriter.jar org.se.lab.SecureWriter secret-message
+8c8b49378652f8af3b3997235cae003a
+
+Modified version:
+$ java -cp dist/Java-Decompiler-SecureWriter.jar org.se.lab.SecureWriter secret-message
+secret-message
+
+Use a decompiler to get the source code, change the code, recompile and
+repackage the jar file.
+
+
+How to extract a JAR file?
+---------------------------------------------------------------------
+
+$ mkdir tmp
+$ cd tmp
+$ jar -xvf Java-Decompiler-SecureWriter.jar
+$ tree
+.
+├── META-INF
+│   ├── MANIFEST.MF
+│   └── maven
+│       └── org.se.lab
+│           └── Java-Decompiler-JAR
+│               ├── pom.properties
+│               └── pom.xml
+└── org
+    └── se
+        └── lab
+            ├── SecureWriter.class
+            └── Utility.class
+
+$ cat META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Created-By: 1.8.0_144 (Oracle Corporation)
+
+
+How to create a JAR file?
+---------------------------------------------------------------------
+
+$ jar -cvf Java-Decompiler-SecureWriter.jar ./
+
+
