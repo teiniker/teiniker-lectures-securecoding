@@ -1,7 +1,5 @@
 package org.se.lab;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -56,6 +54,6 @@ public class FileEntry implements Serializable {
     @Override
     public String toString()
     {
-        return getPath() + ":" + HexBin.encode(getContent());
+        return getPath() + ":" + Hex.encodeHexString(getContent());
     }
 }
