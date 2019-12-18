@@ -1,6 +1,5 @@
 package org.se.lab;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.*;
@@ -15,7 +14,7 @@ public class ProductSerializationTest
      * an FileEntry type!!
      * In this way, we can inject any type found in the class path...
      */
-    @Test
+    @Test(expected = ClassCastException.class)
     public void testReadSerialization() throws IOException, ClassNotFoundException
     {
         FileInputStream in = new FileInputStream(new File("data.bin"));

@@ -1,7 +1,9 @@
 package org.se.lab;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
@@ -11,7 +13,13 @@ public class FileEntrySerializationTest
 {
     private final static String FILENAME = "file_entry.bin";
 
-    private byte[] data = HexBin.decode("000102030405060708090a0b0c0d0e0f");
+    private byte[] data;
+
+    @Before
+    public void setup() throws DecoderException
+    {
+        data = Hex.decodeHex("000102030405060708090a0b0c0d0e0f".toCharArray());
+    }
 
     @Test
     public void testWriteSerialization() throws IOException, ClassNotFoundException

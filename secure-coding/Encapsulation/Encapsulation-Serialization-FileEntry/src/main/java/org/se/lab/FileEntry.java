@@ -1,12 +1,11 @@
 package org.se.lab;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
+import org.apache.commons.codec.binary.Hex;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 
 public class FileEntry implements Serializable
 {
@@ -76,6 +75,6 @@ public class FileEntry implements Serializable
     @Override
     public String toString()
     {
-        return getPath() + ":" + HexBin.encode(getContent());
+        return getPath() + ":" + Hex.encodeHexString(getContent());
     }
 }
