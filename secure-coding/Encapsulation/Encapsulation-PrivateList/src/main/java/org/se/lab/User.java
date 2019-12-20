@@ -43,10 +43,6 @@ public class User
 		for(EMail mail : mails)
 			list.add(new EMail(mail.getAddress()));
 		return list;
-		
-// Other possible solutions:				
-//		return new ReadOnlyList<EMail>(mails); // read-only proxy
-//		return Collections.unmodifiableList(mails);
 	}
 	
 	public final void setMails(final List<EMail> mails)
