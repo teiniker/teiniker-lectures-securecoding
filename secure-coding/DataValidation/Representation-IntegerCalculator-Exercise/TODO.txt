@@ -1,0 +1,13 @@
+Exercise: Integer Calculator for Large Numbers
+-------------------------------------------------------------------------------
+
+Given a simple "IntegerCalculator" class which can add int and long values.
+
+In the case of large values for the parameters a and b, there must be a check
+if the result fits into the corresponding integer type.
+If the sum is larger as an int or long type an "ArithmeticException" should be
+thrown.
+
+Improve the given "IntegerCalculator" class to to detect integer overflow errors.
+
+Verify your implementation with the "IntegerCalculatorTest" class.
