@@ -1,0 +1,12 @@
+Exercise: Precise Floating Point Calculation
+-------------------------------------------------------------------------------
+
+Given a simple "FloatingPointCalculator" class which calculates the sum of a
+given EUR value 100 times.
+
+Because the regular floating point processing is not precise, the result is not
+exact so the given test fails.
+
+Improve the given "FloatingPointCalculator" class to to calculate the exact result.
+
+Verify your implementation with the "FloatingPointCalculatorTest" class.
