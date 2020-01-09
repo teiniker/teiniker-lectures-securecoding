@@ -17,8 +17,6 @@ public class SerializationTest
 {
     private final static String FILENAME = "product.bin";
     
-    // TODO: Implement List<Product> Test
-
     @Test
     public void testWriteSerialization() throws IOException, ClassNotFoundException
     {
@@ -38,20 +36,6 @@ public class SerializationTest
     }
 
 
-    @Test
-    public void testCopyViaSerialization() throws IOException, ClassNotFoundException
-    {
-        Product product = new Product("Applied Cryptography", 0x11223344);
-        
-        writeProduct(FILENAME, product);
-        
-        Product copy = readProduct(FILENAME);
-        copy.setQuantity(7);
-        
-        Assert.assertEquals(0x11223344, product.getQuantity());
-        Assert.assertEquals("Applied Cryptography", product.getName());
-    }
-    
     public void writeProduct(String filename, Product product) throws IOException
     {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
