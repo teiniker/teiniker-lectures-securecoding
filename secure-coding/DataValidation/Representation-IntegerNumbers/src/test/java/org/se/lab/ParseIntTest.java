@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class IntegerParseIntTest
+public class ParseIntTest
 {
 	@Test
 	public void testParseInt()
