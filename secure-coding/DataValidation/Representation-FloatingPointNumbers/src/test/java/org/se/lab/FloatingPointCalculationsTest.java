@@ -3,7 +3,7 @@ package org.se.lab;
 import org.junit.Test;
 import static java.lang.System.out;
 
-public class FloatingPointOperations
+public class FloatingPointCalculationsTest
 {
 	/*
 	 * In this noncompliant code example, the division operations 
