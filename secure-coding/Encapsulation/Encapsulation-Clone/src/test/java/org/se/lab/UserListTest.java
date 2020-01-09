@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.se.lab.UserList;
 import org.se.lab.User;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserListTest

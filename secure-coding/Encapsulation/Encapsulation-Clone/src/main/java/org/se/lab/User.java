@@ -48,7 +48,7 @@ public class User
      * current state of the object on which clone was invoked.
      * The simplest way to make a class that can be cloned is to declare that it
      * implements the Cloneable interface, and override the clone method,
-     * redeclaring it to be public.
+     * re-declaring it to be public.
      */    
     @Override
     public User clone()

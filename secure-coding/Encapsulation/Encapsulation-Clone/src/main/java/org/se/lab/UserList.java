@@ -34,32 +34,17 @@ public class UserList
      * duplicates a reference to an object that should not be shared.
      */
     @Override
-    public UserList clone()
+    public UserList clone() throws CloneNotSupportedException
     {
-        try
-        {
-            UserList list = (UserList)super.clone();
+        UserList list = (UserList)super.clone();
 
-            // ArrayList.clone() returns a shallow copy! 
-            // (The elements themselves are not copied.)
-            // list.persons = persons.clone();
-        
-            // An ArrayList's copy constructor does not make a deep copy too!
-            // list.persons = new ArrayList<Person>(persons);
-        
-            // Therefore, we have to implement a deep copy of persons.
-            list.users = new ArrayList<User>();
-            for(User u : users)
-            {
-                list.users.add(u.clone());
-            }
-            return list;
-        }
-        catch(CloneNotSupportedException e)
+        // We have to implement a deep copy of persons.
+        list.users = new ArrayList<User>();
+        for(User u : users)
         {
-            // Cannot happen!
-            throw new InternalError(e.toString(),e);
+            list.users.add(u.clone());
         }
+        return list;
     }
     
 

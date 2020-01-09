@@ -37,16 +37,9 @@ public class WrongUserList
      */
     @Override
     public WrongUserList clone()
+            throws CloneNotSupportedException
     {
-        try
-        {
-            return (WrongUserList)super.clone();
-        }
-        catch(CloneNotSupportedException e)
-        {
-            // Cannot happen!
-            throw new InternalError(e.toString(),e);
-        }            
+        return (WrongUserList)super.clone();
     }
     
     
