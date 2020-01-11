@@ -14,18 +14,16 @@ public interface ArticleService
 	 * Note that the Article validation is already implemented in the 
 	 * Article class.    
 	 */
-	void addArticle(Article a) 
-		throws ServiceException;
-	
+	void addArticle(Article a);
+
 	/*
 	 * Remove the article with the given id from the article list. 
 	 * Throw an exception if the given article can't be removed from the list.
 	 * constraints:
 	 *     id >= 0
 	 */
-	void removeArticle(long id) 
-		throws ServiceException;
-	
+	void removeArticle(long id);
+
 	/*
 	 * Returns a deep copy of the stored article list.
 	 */
