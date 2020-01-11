@@ -18,7 +18,7 @@ public class ArticleServiceTest
 	}
 	
 	@Test
-	public void testAddArticle() throws ServiceException
+	public void testAddArticle()
 	{
 		Article article = new Article(7, "The Java Programming Language", 
 				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)", 
@@ -27,13 +27,13 @@ public class ArticleServiceTest
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void testAddArticle_Null() throws ServiceException
+	public void testAddArticle_Null()
 	{
 		cart.addArticle(null);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testRemoveArticle_IdNegative() throws ServiceException
+	public void testRemoveArticle_IdNegative()
 	{
 		cart.removeArticle(-1);
 	}
