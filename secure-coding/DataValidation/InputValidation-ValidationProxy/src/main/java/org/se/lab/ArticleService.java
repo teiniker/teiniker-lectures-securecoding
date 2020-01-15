@@ -8,7 +8,6 @@ public interface ArticleService
 	/*
 	 * Add an article to the ShoppingCard's article list.
 	 * (Articles are only stored in memory) 
-	 * Throw ServiceException is the article can't be stored in the list.
 	 */
 	void addArticle(Article a); 
 	
@@ -19,7 +18,7 @@ public interface ArticleService
 	void removeArticle(long id); 
 	
 	/*
-	 * Returns a deep copy of the stored article list.
+	 * Returns an unmodifiable version of the stored article list.
 	 */
 	List<Article> getArticleList(); 
 	
