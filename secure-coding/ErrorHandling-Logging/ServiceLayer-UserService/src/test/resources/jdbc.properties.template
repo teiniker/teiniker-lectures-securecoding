@@ -1,9 +1,0 @@
-#
-# Using MySQL database.
-#
-
-jdbc.driver=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/testdb
-jdbc.username=student
-jdbc.password=student
-

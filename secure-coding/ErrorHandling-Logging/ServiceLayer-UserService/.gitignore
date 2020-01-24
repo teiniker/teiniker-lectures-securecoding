@@ -1,7 +1,0 @@
-/target/
-/.settings/
-/.classpath
-/.project
-/src/test/resources/jdbc.properties
-/*.ucls
-/*.iml
