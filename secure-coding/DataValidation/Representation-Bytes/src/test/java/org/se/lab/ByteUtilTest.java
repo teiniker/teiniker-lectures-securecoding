@@ -2,6 +2,7 @@ package org.se.lab;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 import static org.se.lab.ByteUtil.*;
 
 public class ByteUtilTest
@@ -17,7 +18,7 @@ public class ByteUtilTest
     @Test
     public void testImplicitCast()
     {
-        byte b = -1;
+        byte b = -1;  // 1111 1111
         int i = b;
 
         Assert.assertEquals(-1, b);
