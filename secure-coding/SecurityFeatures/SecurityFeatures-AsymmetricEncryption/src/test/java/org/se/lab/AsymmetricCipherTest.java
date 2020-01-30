@@ -49,7 +49,7 @@ public class AsymmetricCipherTest
         System.out.println("public key : " + Hex.encodeHexString(publicKey.getEncoded()));
 
         // Setup cipher
-        cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
+        cipher = Cipher.getInstance("RSA");
     }
 
 
