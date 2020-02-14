@@ -1,0 +1,16 @@
+Exercise: HTML Encoding
+-------------------------------------------------------------------------------
+
+Implement the missing "encodeForHTML()" method within the "HTMLEncoder" class.
+For a given input string s, iterate through all characters and substitute
+critical characters with the propper HTML encoding:
+
+        "   -> &quot;
+        '   -> &apos;
+        &   -> &amp;
+        <   -> &lt;
+        >   ->  &gt;
+
+Tip: Use the "StringBuilder" class to concatenate the output chars and strings.
+
+Verify your implementation with the "HTMLEncoderTest" class.
