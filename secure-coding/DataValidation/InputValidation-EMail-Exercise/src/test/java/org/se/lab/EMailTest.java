@@ -38,7 +38,7 @@ public class EMailTest
 		new EMail("egon@fhj.misc");
 	}
 	
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testNull()
 	{
 		new EMail(null);
