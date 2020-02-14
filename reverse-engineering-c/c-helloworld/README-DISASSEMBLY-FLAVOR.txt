@@ -20,6 +20,7 @@ intel
 The default value for the disassembly-flavor setting is 'att'.
 
 Note that we can use a ".gdbinit" file with the content:
-set disassembly intel
+
+set disassembly-flavor intel
 
 to change the disassembly-flavor permanently. 
