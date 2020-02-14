@@ -56,7 +56,7 @@ public class PasswordEncrypter
 			md.update(password);
 			byte[] hash = md.digest();
 			
-			// result = hash+salt		
+			// result = salt+hash
 			byte[] result = new byte[salt.length + hash.length];
 			System.arraycopy(salt, 0, result, 0, salt.length);
 			System.arraycopy(hash, 0, result, salt.length, hash.length);			
