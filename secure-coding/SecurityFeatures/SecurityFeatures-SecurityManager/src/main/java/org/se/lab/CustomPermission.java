@@ -25,7 +25,7 @@ public class CustomPermission
 		}
 		catch (SecurityException e)
 		{
-			e.printStackTrace();
+			throw new IllegalStateException(e);
 		}
 	}
 
