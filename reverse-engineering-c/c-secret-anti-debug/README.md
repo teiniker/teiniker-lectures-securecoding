@@ -43,7 +43,7 @@ int main()
 A process probably shouldn't make this request if its parent isn't expecting to 
 trace it.  (pid, addr, and data are ignored.)
 
-## Example: Using gdb
+### Example: Using gdb
 ```
 $ gdb ./secret
 (gdb) run xxxx
@@ -53,7 +53,7 @@ don't trace me !!
 (gdb) 
 ```
 
-## Example: Using strace or ltrace
+### Example: Using strace or ltrace
 ```
 $ ltrace ./secret 
 ptrace(0, 0, 1, 0)                                   = -1
@@ -63,7 +63,7 @@ puts("don't trace me !!"don't trace me !!
 ```
 
 
-# References
+## References
 * [Linux Anti Debugging](https://seblau.github.io/posts/linux-anti-debugging)
 
 * [Linux Programmer's Manual](http://man7.org/linux/man-pages/man2/ptrace.2.html)

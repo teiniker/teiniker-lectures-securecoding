@@ -16,8 +16,7 @@ struct complex_number
 };
 
 
-struct complex_number complex_add(struct complex_number a,
-                                    struct complex_number b)
+struct complex_number complex_add(struct complex_number a, struct complex_number b)
 {
     struct complex_number c;
     c.re = a.re + b.re;
