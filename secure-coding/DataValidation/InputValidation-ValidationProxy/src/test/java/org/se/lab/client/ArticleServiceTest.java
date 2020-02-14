@@ -22,7 +22,9 @@ public class ArticleServiceTest
 				"24.92");
 		cart.addArticle(article);
 	}
-	
+
+	// TODO: Implement a test for calculateTotalSum()!!!!
+
 	@Test(expected = IllegalArgumentException.class)
 	public void testAddArticle_Null() throws ServiceException
 	{
