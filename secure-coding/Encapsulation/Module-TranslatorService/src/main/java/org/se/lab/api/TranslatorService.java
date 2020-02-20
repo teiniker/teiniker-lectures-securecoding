@@ -4,7 +4,7 @@ import org.se.lab.impl.German2EnglishTranslator;
 
 public interface TranslatorService
 {
-    public static TranslatorService create()
+    static TranslatorService create()
     {
         return new German2EnglishTranslator();
     }
