@@ -13,7 +13,7 @@ public class Fingerprint
 {
     private Fingerprint() {}
     
-    public static String sha256(byte[] data)
+    public static String sha256(byte[] data)  // TODO: API without algorithm name
     {
         if(data == null)
             throw new IllegalArgumentException("Byte array is null!");
