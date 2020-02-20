@@ -13,7 +13,7 @@ public class HashUtility
 
     public static String sha256AsBase64String(String message)
     {
-        if(message == null || message.length() == 0)
+        if(message == null || message.isEmpty())
             throw new IllegalArgumentException("Invalid message string!");
 
         byte[] bytes = sha256(message);
