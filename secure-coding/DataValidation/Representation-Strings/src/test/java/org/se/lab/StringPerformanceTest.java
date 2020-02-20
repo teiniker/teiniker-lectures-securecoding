@@ -2,8 +2,6 @@ package org.se.lab;
 
 import org.junit.Test;
 
-
-
 public class StringPerformanceTest
 {
 	private final int LOOP_COUNT = 50000;
@@ -41,5 +39,4 @@ public class StringPerformanceTest
 		System.out.println(s.length());
 		System.out.println(timer);
 	}
-
 }
