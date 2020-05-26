@@ -63,7 +63,7 @@ together with the **module path** needed:
     -p target/Module-LoggingService-0.0.1-SNAPSHOT.jar
 ```
 
-The classic way of specifying the **CLASSPAH** also works here, but keep in mind that the compiler ich checking the 
+The classic way of specifying the **CLASSPAH** also works here, but keep in mind that the compiler is checking the 
 model dependencies and visibility of packages. 
 ```
     $ java -cp target/classes/ org.se.lab.Main
