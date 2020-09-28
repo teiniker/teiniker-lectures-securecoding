@@ -70,7 +70,7 @@ public final class Article
 		if(!m.matches())		
 			throw new IllegalArgumentException();
 		
-		this.name = name;
+		this.name = name; // TODO: Normalized Version!!!
 	}
 
 
