@@ -66,7 +66,7 @@ int function_two(void)
 }
 
 
-int main()
+int main(void)
 {
 	int i = 7;
     print_integer(i);
