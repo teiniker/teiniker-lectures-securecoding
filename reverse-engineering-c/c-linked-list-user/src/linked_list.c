@@ -3,8 +3,7 @@
 #include <memory.h>
 #include <stdlib.h>
 
-#include "linked_list_user.h"
-
+#include <linked_list.h>
 
 node *new_node(user *user_ptr)
 {
@@ -97,5 +96,4 @@ void list_remove_all(node *list_ptr)
     }
     free(tmp_ptr->user_ptr);
     free(tmp_ptr);
-} 
-
+}

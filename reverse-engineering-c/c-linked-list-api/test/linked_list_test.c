@@ -29,7 +29,7 @@ void test_length(void)
 }
 
 void test_elements(void)
- {
+{
 	// Exercise & Verify
 	TEST_ASSERT_EQUAL(4, list_get(list_ptr,0));
 	TEST_ASSERT_EQUAL(1, list_get(list_ptr,1));
