@@ -12,11 +12,9 @@
  * which a pointer points.
  */
 
-// void *
 void print_integer(int i)
 {
     int *i_ptr = &i;
-
     printf("i = %d and is stored at %p\n", *i_ptr, i_ptr);
 }
 
