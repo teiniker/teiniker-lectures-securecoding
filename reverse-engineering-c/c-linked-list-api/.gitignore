@@ -1,5 +1,3 @@
 /.settings/
 /.project
-/linked_list
-/linked_list.o
-/main.o
+/build/

@@ -1,8 +1,19 @@
+#include <unity.h>
 #include <stdio.h>
-#include "linked_list.h"
+#include <linked_list.h>
 
-int main(void)
+void setUp(void)
 {
+	// Setup
+}
+
+void tearDown(void)
+{
+	// tear down code
+}
+
+void test_LinkedList(void)
+ {
     // setup linked list
     struct node *list_ptr = NULL;
     list_ptr = list_append(list_ptr, 1);
@@ -22,6 +33,12 @@ int main(void)
     list_ptr = NULL;  //!!!
     printf("list.length = %d\n", list_length(list_ptr));
  
-     return 0;
 }
 
+int main(void)
+{
+	UNITY_BEGIN();
+	RUN_TEST(test_LinkedList);
+
+	return UNITY_END();
+}
