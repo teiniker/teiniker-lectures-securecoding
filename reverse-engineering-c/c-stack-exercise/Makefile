@@ -1,23 +1,28 @@
 
 OBJECTS = 
-CFLAGS = -std=c99 -g -Wall  
+CFLAGS = -std=c11 -g -Wall
 LDLIBS = 
 CC=gcc
+UNITY=../unity
 
+all: test
 
-all: main  
+init:
+	mkdir -p build
 
+unity.o: $(UNITY)/unity.c $(UNITY)/unity.h
+	$(CC) $(CFLAGS) -c $(UNITY)/unity.c -o build/unity.o
 
+stack.o: src/stack.c
+	$(CC) $(CFLAGS) $(LDLIBS) -I $(UNITY) -I include -c src/stack.c -o build/stack.o
 
-stack.o: stack.c
-	$(CC) $(CFLAGS) $(LDLIBS) -c stack.c 
+test.o: test/stack_test.c
+	$(CC) $(CFLAGS) $(LDLIBS) -I $(UNITY) -I include -c test/stack_test.c -o build/stack_test.o
 
-main.o: main.c
-	$(CC) $(CFLAGS) $(LDLIBS) -c main.c 
-
-main: stack.o main.o
-	$(CC) $(CFLAGS) $(LDLIBS) stack.o main.o -o stack 
+test: init unity.o stack.o test.o
+	$(CC) $(CFLAGS) $(LDLIBS) build/unity.o build/stack.o build/stack_test.o -o build/stack_test
+	build/stack_test
 
 clean:
-	rm -f *.o stack
+	rm -rf build/
 
