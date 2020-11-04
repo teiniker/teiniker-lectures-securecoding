@@ -1,7 +1,6 @@
 #include <stdlib.h>
 
-#include"linked_list.h"
-
+#include<linked_list.h>
 
 struct node *new_node(int value)
 {
@@ -10,6 +9,7 @@ struct node *new_node(int value)
     node_ptr->next_ptr = NULL;
     return node_ptr;
 }
+
 
 struct node *list_append(struct node *list_ptr, int value)
 {
@@ -52,7 +52,6 @@ int list_get(struct node *list_ptr, int index)
 } 
 
 
-
 int list_length(struct node *list_ptr)
 { 
     if(list_ptr == NULL)
@@ -84,4 +83,3 @@ void list_remove_all(struct node *list_ptr)
     }
     free(tmp_ptr);
 }
- 
