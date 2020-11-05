@@ -46,7 +46,7 @@ $ rm Java-LinkedList-0.0.1-SNAPSHOT.jar
 $ rm -r META-INF/maven/
 $ tree
 ├── META-INF
-│   └── MANIFEST.MF
+│    └── MANIFEST.MF
 └── org
     └── se
         └── lab
