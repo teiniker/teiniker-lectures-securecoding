@@ -88,7 +88,7 @@ Assembly code is difficult to read, especially when it comes to large binary fil
 Analysis tools such as **Hopper** can be very helpful here.
 Hopper can represent a binary in assembly, as data flow graph or pseudocode.
 
-![Hopper Pseudo Code](“Hopper-Pseudocode.png”)
+![Hopper Pseudo Code](Hopper-Pseudocode.png)
 
 This **pseudocode** is a mixture of C and assembler code that cannot be compiled. 
 Nevertheless, this representation makes the analysis much easier.
