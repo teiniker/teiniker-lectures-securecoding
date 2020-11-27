@@ -1,22 +1,29 @@
-
-OBJECTS = 
-CFLAGS = -std=c99 -g -Wall  
+OBJECTS =
+CFLAGS = -std=c11 -g -Wall
 LDLIBS = 
 CC=gcc
+UNITY=../unity
 
+all: test
 
-all: main  
+init:
+	mkdir -p build
 
-linked_list.o: linked_list.c
-	$(CC) $(CFLAGS) $(LDLIBS) -c linked_list.c 
+unity.o: $(UNITY)/unity.c $(UNITY)/unity.h
+	$(CC) $(CFLAGS) -c $(UNITY)/unity.c -o build/unity.o
 
-main.o: main.c
-	$(CC) $(CFLAGS) $(LDLIBS) -c main.c
+linked_list.o: src/linked_list.c include/linked_list.h
+	$(CC) $(CFLAGS) $(LDLIBS) -I include -c src/linked_list.c -o build/linked_list.o
 
-main: linked_list.o main.o
-	$(CC) $(CFLAGS) $(LDLIBS) linked_list.o main.o -o linked_list
+test.o: test/linked_list_test.c
+	$(CC) $(CFLAGS) $(LDLIBS) -I $(UNITY) -I include -c test/linked_list_test.c -o build/linked_list_test.o
+
+test: init unity.o linked_list.o test.o
+	$(CC) $(CFLAGS) $(LDLIBS) build/unity.o build/linked_list.o build/linked_list_test.o -o build/linked_list_test
+	build/linked_list_test
 
 
 clean:
-	rm -f *.o linked_list
+	rm -rf build/
+
 

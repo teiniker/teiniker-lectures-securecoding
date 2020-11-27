@@ -1,5 +1,3 @@
 /.project
-/.main.c.swp
-/main.o
-/stack
-/stack.o
+build/
+

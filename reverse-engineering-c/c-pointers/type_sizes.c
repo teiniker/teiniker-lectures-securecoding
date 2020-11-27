@@ -2,7 +2,7 @@
 #include <string.h>
 #include <memory.h>
 
-int main()
+int main(void)
 {
     printf("sizeof(char) = %lu\n", sizeof(char));
     printf("\n");

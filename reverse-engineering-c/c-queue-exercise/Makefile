@@ -1,22 +1,28 @@
-
-OBJECTS = 
-CFLAGS = -std=c99 -g -Wall  
-LDLIBS = 
+BJECTS =
+CFLAGS = -std=c11 -g -Wall
+LDLIBS =
 CC=gcc
+UNITY=../unity
 
+all: test
 
-all: main  
+init:
+	mkdir -p build
 
-linked_queue.o: linked_queue.c
-	$(CC) $(CFLAGS) $(LDLIBS) -c linked_queue.c 
+unity.o: $(UNITY)/unity.c $(UNITY)/unity.h
+	$(CC) $(CFLAGS) -c $(UNITY)/unity.c -o build/unity.o
 
-main.o: main.c
-	$(CC) $(CFLAGS) $(LDLIBS) -c main.c
+queue.o: src/linked_queue.c include/linked_queue.h
+	$(CC) $(CFLAGS) $(LDLIBS) -I include -c src/linked_queue.c -o build/linked_queue.o
 
-main: linked_queue.o main.o
-	$(CC) $(CFLAGS) $(LDLIBS) linked_queue.o main.o -o linked_queue
+test.o: test/linked_queue_test.c
+	$(CC) $(CFLAGS) $(LDLIBS) -I $(UNITY) -I include -c test/linked_queue_test.c -o build/linked_queue_test.o
+
+test: init unity.o queue.o test.o
+	$(CC) $(CFLAGS) $(LDLIBS) build/unity.o build/linked_queue.o build/linked_queue_test.o -o build/linked_queue_test
+	build/linked_queue_test
 
 
 clean:
-	rm -f *.o linked_queue
+	rm -rf build/
 

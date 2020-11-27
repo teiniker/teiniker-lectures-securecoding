@@ -29,12 +29,12 @@ $ tree
 .
 ├── README.txt
 ├── src
-│   └── main
-│       └── java
-│           └── org
-│               └── se
-│                   └── lab
-│                       └── HelloWorld.java
+│    └── main
+│        └── java
+│             └── org
+│                └── se
+│                    └── lab
+│                        └── HelloWorld.java
 └── target
     └── classes
         └── org
@@ -131,18 +131,18 @@ $ mvn package
 .
 ├── pom.xml
 ├── src
-│   └── main
-│       └── java
-│           └── org
-│               └── se
-│                   └── lab
-│                       └── HelloWorld.java
+│    └── main
+│        └── java
+│            └── org
+│                └── se
+│                    └── lab
+│                        └── HelloWorld.java
 └── target
     ├── classes
-    │   └── org
-    │       └── se
-    │           └── lab
-    │               └── HelloWorld.class
+    │    └── org
+    │        └── se
+    │            └── lab
+    │                └── HelloWorld.class
     ├── Java-HelloWorld-0.0.1-SNAPSHOT.jar
 
 

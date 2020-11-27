@@ -6,7 +6,7 @@ int global_var;
 int global_initialized_var = 5;
 
 
-void function()
+void function(void)
 {
 	int stack_var;
 
@@ -14,13 +14,14 @@ void function()
 }
 
 
-int main()
+int main(void)
 {
 	int stack_var;
 	
 	static int static_var;
 	static int static_initialized_var = 5;
 	int *heap_var_ptr = (int *)malloc(sizeof(int));
+    *heap_var_ptr = 7;
 
 	// stack segment
 	printf("stack segment:\n");

@@ -55,7 +55,7 @@ void time_init(struct time *t_ptr)
 }
 
 
-int main()
+int main(void)
 {
     // Structures may be initialized at declaration time by putting
     // the list of elements in curly braces.
@@ -71,7 +71,7 @@ int main()
     printf("c1 + c2 = (%f,%f)\n", result.re, result.im);
 
     struct complex_number *c_ptr;
-    c_ptr = (struct complex_number*)malloc(sizeof(struct complex_number)); 
+    c_ptr = malloc(sizeof(struct complex_number)); 
     c_ptr->re = 7.0;
     c_ptr->im = -13.0;
     printf("*c_ptr = (%f,%f)\n", c_ptr->re, c_ptr->im);    
