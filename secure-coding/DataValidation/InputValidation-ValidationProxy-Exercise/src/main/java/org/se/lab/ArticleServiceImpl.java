@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-class ArticleServiceImpl
+class ArticleServiceImpl  // package private
 	implements ArticleService
 {
 	/*
@@ -13,13 +13,14 @@ class ArticleServiceImpl
 	private final List<Article> articleList = new ArrayList<Article>();
 	
 	
-	public void addArticle(Article article) throws ServiceException
+	public void addArticle(long id, String name, String description, String price)
 	{
+		Article article = new Article(id, name, description, new BigDecimal(price));
 		articleList.add(article);		
 	}
 
 	
-	public void removeArticle(long id) throws ServiceException
+	public void removeArticle(long id)
 	{
 		for(int i=0; i<articleList.size();i++)
 		{

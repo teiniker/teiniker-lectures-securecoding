@@ -1,6 +1,10 @@
 package org.se.lab;
 
 import java.math.BigDecimal;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class Article
 {	
@@ -28,8 +32,6 @@ public final class Article
 	
 	/*
 	 * Property: id:long
-	 * constraints: 
-	 * 	id >= 0
 	 */
 	private long id;
 	public long getId()
@@ -44,10 +46,6 @@ public final class Article
 	
 	/*
 	 * Property: name:String
-	 * constraints: 
-	 * 	not null
-	 * 	a-z A-Z 0-9 and space
-	 * 	length = [4,64]
 	 */
 	private String name;
 	public String getName()
@@ -55,17 +53,13 @@ public final class Article
 		return name;
 	}
 	public void setName(String name)
-	{		
+	{
 		this.name = name;
 	}
 
 
 	/*
 	 * Property: description:String
-	 * constraints: 
-	 * 	not null
-	 * 	a-z A-Z 0-9 , : . \ - ) ( and space 
-	 * 	length = [0,256]
 	 */
 	private String description;
 	public String getDescription()
@@ -80,8 +74,6 @@ public final class Article
 
 	/*
 	 * Property: price:Bigecimal
-	 * constraints:
-	 * 	price >= 0.0
 	 */
 	private BigDecimal price;
 	public BigDecimal getPrice()

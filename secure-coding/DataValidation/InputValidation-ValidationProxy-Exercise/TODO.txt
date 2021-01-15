@@ -1,22 +1,46 @@
-Exercise: Validation Proxy
+Exercise: Validation Proxy - ArticleService
 --------------------------------------------------------------------------
 
-1. Article Validation
---------------------------------------------------------------------------
-Implement a proper input validation for the entity class "Article".
-All constraints are described in the getter/setter comments.
-	
-	
-2. Validation Proxy
---------------------------------------------------------------------------
+For a given "ArticleService" interface and "ArticleServiceImpl" class,
+implement a validation proxy.
 
-2.1 Implement a validation proxy for the "ArticleService" interface that
-	validates all parameters (as described in the comments) and delegates
-	the calls to the "ArticleServiceImpl" class.
-	The name of the proxy class is "ArticleServiceValidation".
-	
-2.2 Change the static "createArticleService()" method of the "Factory"
-	class to create a sequence of objects: 
+1. ArticleServiceValidator
+--------------------------------------------------------------------------
+Implement the validation proxy named "ArticleServiceValidator" which checks
+the following constraints:
+
+i) void addArticle(long id, String name, String description, String price)
+     id:
+         >= 0
+
+     name:
+        not null
+        a-z A-Z 0-9 and space
+        length = [4,64]
+
+     description:
+        not null
+        a-z A-Z 0-9 , : . \ - ) ( and space
+        length = [0,256]
+
+     price:
+        not null
+        >= 0.0
+
+ii) void removeArticle(long id)
+     id:
+         >= 0
+
+iii) List<Article> getArticleList()
+        result list should be read-only
+
+Tip: Use the following regular expressions:
+    name = "^[a-zA-Z0-9 ]{4,64}$"
+    description = "^[a-zA-Z0-9,:.\\-)( ]{0,256}$"
+
+2. Factory
+--------------------------------------------------------------------------
+Change the static "createArticleService()" method of the "Factory"
+class to create a sequence of objects:
+
 		ArticleServiceValidation -> ArticleServiceImpl
-		
- 			

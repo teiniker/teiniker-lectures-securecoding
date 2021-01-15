@@ -7,25 +7,17 @@ public interface ArticleService
 {
 	/*
 	 * Add an article to the ShoppingCard's article list.
-	 * (Articles are only stored in memory) 
-	 * Throw ServiceException is the article can't be stored in the list.
-	 * constraints: 
-	 *     a != null
-	 * Note that the Article validation is already implemented in the 
-	 * Article class.    
 	 */
-	void addArticle(Article a);
-
+	void addArticle(long id, String name, String description, String price);
+	
 	/*
 	 * Remove the article with the given id from the article list. 
 	 * Throw an exception if the given article can't be removed from the list.
-	 * constraints:
-	 *     id >= 0
 	 */
-	void removeArticle(long id);
-
+	void removeArticle(long id); 
+	
 	/*
-	 * Returns a deep copy of the stored article list.
+	 * Returns an unmodifiable version of the stored article list.
 	 */
 	List<Article> getArticleList(); 
 	
