@@ -5,7 +5,7 @@ import java.text.Normalizer.Form;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class EMail
+public final class EMail	// Value Object (immutable + Input Validation)
 {
 	/*
 	 * Constructor
