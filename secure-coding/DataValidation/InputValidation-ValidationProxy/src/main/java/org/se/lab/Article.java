@@ -32,8 +32,6 @@ public final class Article
 	
 	/*
 	 * Property: id:long
-	 * constraints: 
-	 * 	id >= 0
 	 */
 	private long id;
 	public long getId()
@@ -42,68 +40,40 @@ public final class Article
 	}
 	public void setId(long id)
 	{
-		if(id < 0)
-			throw new IllegalArgumentException();
 		this.id = id;
 	}
 
 	
 	/*
 	 * Property: name:String
-	 * constraints: 
-	 * 	not null
-	 * 	a-z A-Z 0-9 and space
-	 * 	length = [4,64]
 	 */
 	private String name;
-	private final Pattern namePattern = Pattern.compile("^[a-zA-Z0-9 ]{4,64}$");
 	public String getName()
 	{
 		return name;
 	}
 	public void setName(String name)
 	{
-		if(name == null)
-			throw new IllegalArgumentException();
-		
-		Matcher m = namePattern.matcher(Normalizer.normalize(name, Form.NFKC));		
-		if(!m.matches())		
-			throw new IllegalArgumentException();
-		
-		this.name = name; // TODO: Normalized Version!!!
+		this.name = name;
 	}
 
 
 	/*
 	 * Property: description:String
-	 * constraints: 
-	 * 	not null
-	 * 	a-z A-Z 0-9 , : . \ - ) ( and space 
-	 * 	length = [0,256]
 	 */
 	private String description;
-	private final Pattern descriptionPattern = Pattern.compile("^[a-zA-Z0-9,:.\\-)( ]{0,256}$");
 	public String getDescription()
 	{
 		return description;
 	}
 	public void setDescription(String description)
 	{
-		if(description == null)
-			throw new IllegalArgumentException();
-		
-		Matcher m = descriptionPattern.matcher(Normalizer.normalize(description, Form.NFKC));		
-		if(!m.matches())		
-			throw new IllegalArgumentException();
-		
 		this.description = description;
 	}
 
 
 	/*
 	 * Property: price:Bigecimal
-	 * constraints:
-	 * 	price >= 0.0
 	 */
 	private BigDecimal price;
 	public BigDecimal getPrice()
@@ -112,15 +82,10 @@ public final class Article
 	}
 	public void setPrice(BigDecimal price)
 	{
-		if(price == null || price.doubleValue() < 0.0)
-			throw new IllegalArgumentException();
-		
 		this.price = price;
 	}
 	public void setPrice(String s)
 	{
-		if(s == null)
-			throw new IllegalArgumentException();
 		setPrice(new BigDecimal(s));
 	}
 

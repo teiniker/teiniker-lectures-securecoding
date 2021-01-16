@@ -1,14 +1,19 @@
 package org.se.lab;
 
 import java.math.BigDecimal;
+import java.text.Normalizer;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class ArticleServiceValidator // package private
 	implements ArticleService
 {
-	private ArticleService impl;
-	
+	private final ArticleService impl;
+	private final Pattern namePattern = Pattern.compile("^[a-zA-Z0-9 ]{4,64}$");
+	private final Pattern descriptionPattern = Pattern.compile("^[a-zA-Z0-9,:.\\-)( ]{0,256}$");
+
 	public ArticleServiceValidator(ArticleService impl)
 	{
 		if(impl == null)
@@ -17,19 +22,45 @@ class ArticleServiceValidator // package private
 		this.impl = impl;
 	}
 	
-	
+	// Interface Methods
+
 	@Override
-	public void addArticle(Article a)
+	public void addArticle(long id, String name, String description, String price)
 	{
 		// validate parameter
-		// article != null
-		if(a == null)
-			throw new IllegalArgumentException();
-		
-		// Article validation is performed in the Article class.
-		// If we can not change the Article class we move all
-		// the validation code into that proxy.
-		impl.addArticle(a);
+		// id >= 0
+		// name:
+		//		not null
+		//		a-z A-Z 0-9 and space
+	 	// 		length = [4,64]
+		// description:
+		//		not null
+		//		a-z A-Z 0-9 , : . \ - ) ( and space
+		//		length = [0,256]
+		// price:
+		// 		not null
+		// 		>= 0.0
+
+		if(id < 0)
+			throw new IllegalArgumentException("Invalid id!");
+
+		if(name == null)
+			throw new IllegalArgumentException("Invalid name (null)!");
+		Matcher m1 = namePattern.matcher(Normalizer.normalize(name, Normalizer.Form.NFKC));
+		if(!m1.matches())
+			throw new IllegalArgumentException("Invalid name!");
+
+		if(description == null)
+			throw new IllegalArgumentException("Invalid description (null)!");
+		Matcher m2 = descriptionPattern.matcher(Normalizer.normalize(description, Normalizer.Form.NFKC));
+		if(!m2.matches())
+			throw new IllegalArgumentException("Invalid description!");
+
+		if(price == null || new BigDecimal(price).doubleValue() < 0.0)
+			throw new IllegalArgumentException("Invalid price!");
+
+		// delegate to the implementation
+		impl.addArticle(id, name, description, price);
 	}
 
 	

@@ -7,9 +7,8 @@ public interface ArticleService
 {
 	/*
 	 * Add an article to the ShoppingCard's article list.
-	 * (Articles are only stored in memory) 
 	 */
-	void addArticle(Article a); 
+	void addArticle(long id, String name, String description, String price);
 	
 	/*
 	 * Remove the article with the given id from the article list. 

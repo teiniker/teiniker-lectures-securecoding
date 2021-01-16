@@ -13,8 +13,9 @@ class ArticleServiceImpl  // package private
 	private final List<Article> articleList = new ArrayList<Article>();
 	
 	
-	public void addArticle(Article article)
+	public void addArticle(long id, String name, String description, String price)
 	{
+		Article article = new Article(id, name, description, new BigDecimal(price));
 		articleList.add(article);		
 	}
 

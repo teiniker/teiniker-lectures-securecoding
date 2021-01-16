@@ -17,18 +17,104 @@ public class ArticleServiceTest
 	@Test
 	public void testAddArticle() throws ServiceException
 	{
-		Article article = new Article(7, "The Java Programming Language", 
-				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)", 
+		cart.addArticle(7, "The Java Programming Language",
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
 				"24.92");
-		cart.addArticle(article);
 	}
 
 	// TODO: Implement a test for calculateTotalSum()!!!!
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testAddArticle_Null() throws ServiceException
+	public void testAddArticle_idIsNegative() throws ServiceException
 	{
-		cart.addArticle(null);
+		cart.addArticle(-7, "The Java Programming Language",
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_NameIsNull() throws ServiceException
+	{
+		cart.addArticle(7, null,
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_NameIsTooShort() throws ServiceException
+	{
+		cart.addArticle(7, "123",
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_NameIsTooLong() throws ServiceException
+	{
+		cart.addArticle(7, "12345678901234567890123456789012345678901234567890123456789012345",
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_DescriptionIsNull() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				null,
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_DescriptionTooLong() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				"12345678901234567890123456789012345678901234567890" +
+				"12345678901234567890123456789012345678901234567890" +
+				"12345678901234567890123456789012345678901234567890" +
+				"12345678901234567890123456789012345678901234567890" +
+				"12345678901234567890123456789012345678901234567890" +
+				"1234567",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_DescriptionIllegalChar1() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				";",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_DescriptionIllegalChar2() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				"'",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_DescriptionIllegalChar3() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				"/",
+				"24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_priceIsNegative() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
+				"-24.92");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticle_priceIsNullString() throws ServiceException
+	{
+		cart.addArticle(7, "The Java Programming Language",
+				"Addison-Wesley Longman, Amsterdam, Auflage: 4th ed. (17. August 2005)",
+				(String)null);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
