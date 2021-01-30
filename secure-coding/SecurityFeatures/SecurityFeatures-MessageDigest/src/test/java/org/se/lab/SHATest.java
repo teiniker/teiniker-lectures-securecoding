@@ -18,9 +18,9 @@ public class SHATest
 		throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
 		String message = "My important message.";
-		
-		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		byte[] inBytes = message.getBytes("UTF-8");
+
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		algorithm.update(inBytes);
 		byte[] bytes = algorithm.digest();
 
@@ -38,8 +38,8 @@ public class SHATest
 	public void testSHA512() 
 		throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
-		String message = "mypassword"; 
-		
+		String message = "mypassword";
+
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-512");		
 		algorithm.update(message.getBytes("UTF-8"));
 		byte[] bytes = algorithm.digest();
