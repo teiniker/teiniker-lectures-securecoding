@@ -10,19 +10,31 @@ import org.junit.Test;
 public class FinallyTest
 {
 
-	private String readFirstLine(String path) throws IOException
+	private String readFirstLine(String path)
 	{
-		BufferedReader br = new BufferedReader(new FileReader(path));
+		BufferedReader br = null;
 		try
 		{
+			br = new BufferedReader(new FileReader(path));
 			return br.readLine();
+		}
+		catch(IOException e)
+		{
+			throw new IllegalStateException("Can't read from " + path, e);
 		}
 		finally
 		{
 			// Ensure that BufferedReader will be closed (also in the
 			// case of an exception).
-			if (br != null)
-				br.close();
+			try
+			{
+				if (br != null)
+					br.close();
+			}
+			catch(IOException e)
+			{
+				// Log that event;
+			}
 		}
 	}
 
