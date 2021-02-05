@@ -36,8 +36,7 @@ public class WrongUserList
      * field in the destination object.
      */
     @Override
-    public WrongUserList clone()
-            throws CloneNotSupportedException
+    public WrongUserList clone()  throws CloneNotSupportedException
     {
         return (WrongUserList)super.clone();
     }

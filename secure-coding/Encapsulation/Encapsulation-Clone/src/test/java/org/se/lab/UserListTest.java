@@ -26,8 +26,7 @@ public class UserListTest
     
     
     @Test
-    public void testClone() 
-    {
+    public void testClone() throws CloneNotSupportedException {
         UserList x = list.clone();
         out.println("Original:\n" + list);
         out.println("Clone:\n" + x);
@@ -37,8 +36,8 @@ public class UserListTest
     }
     
     @Test
-    public void testCloneAndModify()
-    {        
+    public void testCloneAndModify() throws CloneNotSupportedException
+    {
         out.println("Original (before changing an element):\n" + list);
 
         UserList x = list.clone();

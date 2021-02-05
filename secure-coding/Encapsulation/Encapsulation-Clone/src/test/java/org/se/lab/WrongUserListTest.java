@@ -23,7 +23,7 @@ public class WrongUserListTest
     
     
     @Test
-    public void testClone() 
+    public void testClone() throws CloneNotSupportedException
     {
         WrongUserList x = list.clone();
         out.println("Original:\n" + list);
@@ -34,8 +34,8 @@ public class WrongUserListTest
     }
     
     @Test
-    public void testCloneAndModify() 
-    {        
+    public void testCloneAndModify() throws CloneNotSupportedException
+    {
         out.println("Original (before changing an element):\n" + list);
 
         WrongUserList x = list.clone();
