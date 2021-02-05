@@ -8,12 +8,12 @@ import java.io.IOException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 
-public class DecodingClassLoader 
+public class CustomClassLoader
 	extends ClassLoader
 {
-	public DecodingClassLoader()
+	public CustomClassLoader()
 	{
-		super(DecodingClassLoader.class.getClassLoader()); // set the parent class loader
+		super(CustomClassLoader.class.getClassLoader()); // set the parent class loader
 	}
 	
 	

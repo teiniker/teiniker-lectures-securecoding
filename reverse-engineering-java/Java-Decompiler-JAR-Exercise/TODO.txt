@@ -25,12 +25,12 @@ $ jar -xvf Java-Decompiler-SecureWriter.jar
 $ tree
 .
 ├── META-INF
-│   ├── MANIFEST.MF
-│   └── maven
-│       └── org.se.lab
-│           └── Java-Decompiler-JAR
-│               ├── pom.properties
-│               └── pom.xml
+│        ├── MANIFEST.MF
+│        └── maven
+│                └── org.se.lab
+│                       └── Java-Decompiler-JAR
+|                       ├── pom.properties
+│                       └── pom.xml
 └── org
     └── se
         └── lab

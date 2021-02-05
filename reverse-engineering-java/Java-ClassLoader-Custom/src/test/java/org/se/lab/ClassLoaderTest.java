@@ -12,7 +12,7 @@ public class ClassLoaderTest
 	public void testPluginClassLoader() 
 		throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException
 	{
-		DecodingClassLoader loader = new DecodingClassLoader();
+		CustomClassLoader loader = new CustomClassLoader();
 
 		Class<?> klass = loader.loadClass("org.se.lab.HelloWorld");
 		Assert.assertEquals("org.se.lab.HelloWorld", klass.getName());
