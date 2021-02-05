@@ -13,7 +13,6 @@ Based on these examples, an inductive learning approach to code review and secur
   * [ErrorHandling & Logging](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/ErrorHandling-Logging)
   * [SecurityFeatures](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/SecurityFeatures)
   
-* [Static Code Analysis](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/static-code-analysis)
 
 See also: 
 [Secure Design by Exampe](https://github.com/teiniker/teiniker-lectures-securedesign) and 
