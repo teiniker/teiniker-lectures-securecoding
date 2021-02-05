@@ -1,0 +1,13 @@
+# REST server settings
+rest.host=localhost
+rest.port=8080
+
+
+# Optional proxy settings
+# For example, we can use BurpSuite as an intercepting proxy:
+# java -jar burpsuite_free_v1.5.jar
+# 	Tab Proxy:
+#		Options: Interface = true	127.0.0.1:8040
+#	 	Intercept: Forward...
+proxy.address=127.0.0.1
+proxy.port=8010
