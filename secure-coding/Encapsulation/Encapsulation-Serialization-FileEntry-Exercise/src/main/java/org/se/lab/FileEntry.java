@@ -1,5 +1,7 @@
 package org.se.lab;
 
+import org.apache.commons.codec.binary.Hex;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;

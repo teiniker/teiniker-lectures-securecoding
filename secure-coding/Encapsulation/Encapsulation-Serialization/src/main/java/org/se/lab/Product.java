@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Product 
     implements Serializable
 {
-    private static final long serialVersionUID = -574191274210224033L;
+    private static final long serialVersionUID = 1L;
 
     /*
      * Constructor
