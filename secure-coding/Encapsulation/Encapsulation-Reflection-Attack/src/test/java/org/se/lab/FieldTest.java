@@ -12,10 +12,7 @@ public class FieldTest
 		throws SecurityException, NoSuchFieldException, IllegalAccessException
 	{
 		User user = new User(7, "teini", "*****");
-		
 		Field id = user.getClass().getDeclaredField("id");
-
-		// Note that we access a private field!!!
 		id.setAccessible(true);
 		id.setInt(user, 17);
 		
