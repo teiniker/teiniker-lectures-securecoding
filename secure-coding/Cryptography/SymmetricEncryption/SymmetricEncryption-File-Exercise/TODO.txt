@@ -1,0 +1,21 @@
+Exercise: Cryptography - Symmetric File Encryption
+-------------------------------------------------------------------------------
+
+Extend the given "EncryptedFile" class to support the handling of encrypted files:
+
+1) public EncryptedFile(String keyString, String ivString)
+    Implement a constructor which initializes a symmetric cipher: "AES/CTR/NoPadding"
+
+2) public void saveEncrypted(String filename, byte[] data)
+    Encrypt the given data before they are written into the file.
+
+3) public byte[] loadEncrypted(String filename)
+    Decrypt the loaded data before the are returned by this method.
+
+Tip: Implement a simple input validation on all public operations (see test cases).
+
+Tip: Make sure that you wrap all checked exceptions into a IllegelStateException.
+
+Run the "EncryptedFileTest" to validate your implementations.
+
+
