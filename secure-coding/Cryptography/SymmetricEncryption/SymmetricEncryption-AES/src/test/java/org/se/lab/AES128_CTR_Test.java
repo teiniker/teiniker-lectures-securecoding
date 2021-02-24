@@ -18,7 +18,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SymmetricBlockCipherTest
+public class AES128_CTR_Test
 {
     private Cipher cipher;
     private SecretKey key;
