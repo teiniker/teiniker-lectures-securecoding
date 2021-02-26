@@ -31,7 +31,7 @@ ensure message authentication:
   then the receiver accepts the message and assures himself that the message has been sent by the intended sender.
   
 _Example:_ HMAC-SHA256
-```C
+```Java
     Mac hmac = Mac.getInstance("HmacSHA256");
     hmac.init(hmacKey);
     hmac.update(inputBytes);
