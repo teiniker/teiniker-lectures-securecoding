@@ -9,10 +9,11 @@ The JWS cryptographic mechanisms provide **integrity protection** for an arbitra
 The given example demonstrates how to create and verify a JSON Web Signature (JWS) based 
 on a hash-based message authentication code (HMAC). 
 
-This requires the producer and consumer to posses a shared secret, negotiated 
+![JWS](JWS.png)
+
+This requires the sender and receiver to use a **shared secret**, negotiated 
 through some out-of-band mechanism before the JWS-protected object is communicated.
-The payload is a simple "Hello, world!" string but can also be a JSON string or 
-a BASE64 encoded byte array.
+The payload can be a simple string but also a JSON string or a BASE64 encoded byte array.
 
 The Nimbus JOSE+JWT library supports all standard JWS algorithms for HMAC protection.
 
@@ -20,3 +21,4 @@ The Nimbus JOSE+JWT library supports all standard JWS algorithms for HMAC protec
 * [RFC 7515 - JSON Web Signature (JWS)](https://tools.ietf.org/html/rfc7515)
 * [JOSE & JSON Web Token (JWT) Examples](https://connect2id.com/products/nimbus-jose-jwt/examples)
 * [JWT Debugger](https://jwt.io/)
+* [JWT, JWS and JWE for Not So Dummies!](https://medium.facilelogin.com/jwt-jws-and-jwe-for-not-so-dummies-b63310d201a3)
