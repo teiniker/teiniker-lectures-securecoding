@@ -1,5 +1,8 @@
 # Exception Handling
 
+An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the 
+program's instructions.
+ 
 Exceptions can **improve a program's readability, reliability, and maintainability**.
 When used improperly, they can have the opposite effect.
 
@@ -29,6 +32,66 @@ Not only does the exception-based loop obfuscate the prpose of the code and redu
 but it's not guaranteed to work.
 If there is a bug in the loop, the use of exceptions for flow control can mask the bug, complicating the 
 debugging process.
+
+# Separate Programm Logic From Error Handling
+
+The use of **return values** to determine errors has the disadvantage that the actual program logic is interspersed 
+with the code for error handling.
+_Example_: Error handling in C
+```
+int read_file(char* filename)
+{
+    char line[256];    
+    FILE *fp;
+
+    if(filename == NULL || strlen(filename) < 4)
+        return ERROR_INVALID_ARGUMENT;
+
+    fp = fopen(filename, "r");
+    if (fp == NULL) 
+    {
+        return ERROR_CANNOT_OPEN_FILE;
+    }
+    
+    while(fscanf(fp, "%s", line) != EOF)
+    {
+        printf("> %s\n", line);
+    }
+
+    int error_code = fclose(fp);
+    if(error_code == EOF)
+        return ERROR_CANNOT_CLOSE_FILE;
+    else
+        return ERROR_NONE;
+}
+```
+
+By using **exceptions** it is possible to separate the program logic (`try` block) from the error handling 
+(`catch` blocks).
+
+_Example_: Error handling in Java
+```Java
+    public EncryptedFile(String keyString, String ivString)
+    {
+        // Input validation
+        try
+        {
+            cipher = Cipher.getInstance("AES/CTR/NoPadding");
+            byte[] keyBytes;
+            keyBytes = Hex.decodeHex(keyString.toCharArray());
+            key = new SecretKeySpec(keyBytes, "AES");
+            byte[] ivBytes = Hex.decodeHex(ivString.toCharArray());
+            iv = new IvParameterSpec(ivBytes);
+        }
+        catch (NoSuchAlgorithmException | NoSuchPaddingException | DecoderException e)
+        {
+            throw new IllegalStateException("Can't initilaize EncryptedFile object!", e);
+        }
+    }
+```
+A clear division between program logic and error handling increases readability considerably. 
+We should therefore **avoid too many small try-catch statements in one method**.
+
 
 ## Use Checked Exceptions for Recoverable Conditions and Runtime Exceptions for Programming Errors
 
@@ -254,6 +317,8 @@ the log file and a service exception with an error message is passed on to the *
 ## Resources
 * Joshua Bloch. **Effective Java**. Addison-Wesley, 3rd Edition 2018.
     Chapter 10: Exceptions
-    
+* [Oracle Java Tutorials - Lesson: Exception](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)    
 * [Exception Handling in Java](https://www.baeldung.com/java-exceptions)    
 * [10 Best Practices to Handle Java Exceptions](https://www.javacodegeeks.com/10-best-practices-to-handle-java-exceptions.html)
+
+*Egon Teiniker, 2020 - 2021, GPL v3.0* 
