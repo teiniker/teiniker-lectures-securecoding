@@ -90,6 +90,42 @@ Parameters:
 * **-noout**: Needed not to output the encoded version of the certificate
 * **-in**: The certificate that we are verifying.
 
+## Generating a CA and Server Certificate
+
+We can create an in-house CA und use its certificate (and private key) to sign server certificates. 
+
+_Example_: Create the CA private key and its self-signed certificate
+```
+$ openssl genrsa -out ca.key 4096
+$ openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+
+$ openssl x509 -text -noout -in ca.crt
+```
+
+_Example_: Server certificate signed by the CA
+```
+$ openssl genrsa -out server.key 4096
+$ openssl req -new -key server.key -out server.csr
+$ openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+$ openssl x509 -text -noout -in server.crt
+Certificate:
+    Data:
+        Version: 1 (0x0)
+        Serial Number: 1 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = at, ST = st, L = kberg, O = fhj, OU = ims, CN = teini, emailAddress = teini@fhj.at
+        Validity
+            Not Before: Mar 26 15:54:56 2021 GMT
+            Not After : Mar 26 15:54:56 2022 GMT
+        Subject: C = at, ST = st, L = graz, O = fhj, OU = ece, CN = egon, emailAddress = egon@fhj.at
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (4096 bit)
+    ...
+```
+
+
 ## References
 * [openssl](https://www.openssl.org/docs/man1.1.1/man1/openssl.html)
 * [How To Use OpenSSL To Generate Certificates](https://blog.ipswitch.com/how-to-use-openssl-to-generate-certificates)
