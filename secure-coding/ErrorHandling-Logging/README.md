@@ -37,8 +37,9 @@ debugging process.
 
 The use of **return values** to determine errors has the disadvantage that the actual program logic is interspersed 
 with the code for error handling.
+
 _Example_: Error handling in C
-```
+```C
 int read_file(char* filename)
 {
     char line[256];    
@@ -176,6 +177,7 @@ existing client programs.
 
 **Higher layers should catch lower-level exceptions and throw exceptions that can be explained in terms 
 of the higher-level abstraction.** This is known as **exception translation**.
+
 _Example_: Exception translation
 ```Java
     try
@@ -283,31 +285,31 @@ This prevents details of the implementation from leaking out.
 _Example_: Service layer operation
 ```Java
 public void addUser(String firstName, String lastName,	String username, String password) 
-	{
-		logger.debug("addUser(" + firstName + "," + lastName + "," + username + ")");
+{
+    logger.debug("addUser(" + firstName + "," + lastName + "," + username + ")");
 
-		// Input Validation
+    // Input Validation
 
-		try
-		{
-			txBegin();
-			String hashValue = PasswordEncoder.toHashValue(password);
-			getUserDAO().createUser(firstName,lastName, username, hashValue);
-			txCommit();
-		}
-		catch(DAOException e)
-		{
-			txRollback();
-			logger.error(e); // Log stack trace instead of passing it to the presentation
-			throw new ServiceException("Can't add user " + username);
-		}
-		catch(Exception e)  // Safety net to catch all exceptions.
-		{
-			txRollback();
-			logger.error(e); // Log stack trace instead of passing it to the presentation
-			throw new ServiceException("Unknown error during adding: " + username);			
-		}
-	}
+    try
+    {
+        txBegin();
+        String hashValue = PasswordEncoder.toHashValue(password);
+        getUserDAO().createUser(firstName,lastName, username, hashValue);
+        txCommit();
+    }
+    catch(DAOException e)
+    {
+        txRollback();
+        logger.error(e); // Log stack trace instead of passing it to the presentation
+        throw new ServiceException("Can't add user " + username);
+    }
+    catch(Exception e)  // Safety net to catch all exceptions.
+    {
+        txRollback();
+        logger.error(e); // Log stack trace instead of passing it to the presentation
+        throw new ServiceException("Unknown error during adding: " + username);			
+    }
+}
 ```
 In a **layered architecture**, all exceptions are caught in the **service layer**, the stack trace is written to 
 the log file and a service exception with an error message is passed on to the **presentation layer**.
