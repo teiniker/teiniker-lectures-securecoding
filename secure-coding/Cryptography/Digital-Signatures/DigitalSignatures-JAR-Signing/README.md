@@ -1,30 +1,28 @@
-How to build a JAR file?
--------------------------------------------------------------------------------
+# JAR File Signing
 
-When distributing applications, code is usually grouped into a jar file to ease
-the process. A jar file is an archiving mechanism to compress multiple files into
-a single file known as jar - Java Archive File.
+When distributing applications, code is usually grouped into a JAR file to ease the process. 
+A **JAR file** is an archiving mechanism to compress multiple files into a single file known as **Java Archive File**.
  
-We use the build tool Maven to compile the Java source files into class
-files and to zip them into a jar file.
+We use the build tool Maven to compile the Java source files into class files and to zip them into a JAR file.
 
+```
 $ mvn package 
+```
 
-
-To review the content of a jar file type:
-
+To review the content of a JAR file type:
+```
 $ jar -tf target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+```
 
 
+# Create a Keystore
 
-How to create a keystore?
--------------------------------------------------------------------------------
-The first step that is neccessary for signing a jar file is to create a certificate.
-The private key can be used to sign a jar file, as well as a public key that can
-be used to verify the authenticity of the signed jar file.
+The first step that is neccessary for signing a JAR file is to create a keypair stored in a keystore file.
+The **private key** can be used to sign a JAR file, as well as a **public key** that can be used to verify the 
+authenticity of the signed JAR file.
 
-We will use the "keytool" to create a keystore:
-
+We will use the `keytool` to **create a keystore**:
+```
 $ keytool -storetype PKCS12 -genkeypair -alias testkey -storepass student -keypass student -keyalg RSA -keystore keystore.pfx
 
 What is your first and last name?
@@ -48,29 +46,29 @@ Options:
 	-alias 		provides a name associated with the key in the store
 	-storepass	provides a password for accessing the keystore file
 	-keypass	provides a password for the private key
-	
+```
 	  
-To list the content of the keystore file type:
-
+To **list the content of the keystore** file type:
+```
 $ keytool -list -keystore keystore.pfx -storepass student
+```
 
+## Sign a JAR File
 
+Signing JAR files ensures that code was not modified.
 
-How to sign a JAR file?
--------------------------------------------------------------------------------
-Signing jar files ensures that code was not modified.
+Java comes with a tool called **jarsigner**, which can be used to sign files and verify the signatures and integrity 
+of signed JAR files.
 
-Java comes with a tool called "jarsigner", which can be used to sign
-files and verify the signatures and integrity of signed jar files.
-
+```
 $ jarsigner -keystore keystore.pfx  -storepass student -keypass student target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar testkey
+```
 
-When we execute the command we see a warning statement that "The signer certificate
-will expire within six months." This is because the self-signed certificate we
-generated with the keytool is valid for less than six months.
+When we execute the command we see a warning statement that _"The signer certificate will expire within six months."_ 
+This is because the **self-signed certificate** we generated with the keytool is valid for less than six months.
 
-Let's review the jar file's content:
-
+Let's review the JAR file's content:
+```
 $ jar -tf target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
 META-INF/MANIFEST.MF				<-- Manifest File
 META-INF/TESTKEY.SF					<-- Signature File
@@ -84,30 +82,30 @@ org/se/lab/ServiceException.class
 org/se/lab/User.class
 org/se/lab/UserDAO.class
 org/se/lab/UserService.class
+```
 
-
+```
 $ mkdir tmp
 $ cd tmp/
 $ jar xvf ../target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar 
 
 	target/
 	├── classes
-	│   └── META-INF
-	│       ├── MANIFEST.MF
-	│       └── maven
-	│           └── org.se.lab
-	│               └── SecurityFeatures-Jar-Signing
-	│                   ├── pom.properties
-	│                   └── pom.xml
+	│    └── META-INF
+	│           ├── MANIFEST.MF
+	│           └── maven
+	│               └── org.se.lab
+	│                    └── SecurityFeatures-Jar-Signing
+	│                        ├── pom.properties
+	│                        └── pom.xml
 	├── maven-archiver
-	│   └── pom.properties
+	│        └── pom.properties
 	├── SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
 	└── test-classes
+```
 
-
-
-The MANIFEST.MF file contains the following:
- 
+The `MANIFEST.MF` file contains the following:
+``` 
 Manifest-Version: 1.0
 Ant-Version: Apache Ant 1.9.2
 Created-By: 1.7.0_25-b15 (Oracle Corporation)
@@ -126,15 +124,14 @@ SHA-256-Digest: hiTV219DqEWKyyCfGZ3KPm+08KyA/KF92ojaGslvFTc=
 
 Name: org/se/lab/UserService.class
 SHA-256-Digest: LbRUfxQp6yh8OepReP6p6VmRNttvMZJIxI+fyhO2xwU=
- 
-Each class file contained in the jar is given an associated digest entry.
+``` 
+**Each class file contained in the JAR is given an associated digest entry**.
 In this case SHA-256 hash is created for each corresponding class file.
 A hash value is like a fingerprint for a given file.
 This hash value will only change if the file itself changes.
 
-
-The signature file named FHJ.SF contains the following:
-
+The signature file named `FHJ.SF` contains the following:
+```
 Signature-Version: 1.0
 SHA-256-Digest-Manifest-Main-Attributes: M4HaMKUjjUr50EJru9jJWxQz2jykb
  m3xR+l3LbYc6Ug=
@@ -155,30 +152,23 @@ SHA-256-Digest: 1imjvwlv/XaaADPJM1+KpU5640OvoKn+BkMTcVxwBT0=
 
 Name: org/se/lab/UserService.class
 SHA-256-Digest: Sl5w6mfOYtNJ47euIwjYAn1iJQuWjB2icjS49VfMxkA=
- 
-Here we see again a SHA-256 hash value for each file within the jar.
-These hash values are generated based on the corresponding entries in 
-the MANIFEST.MF file instead of creating a hash from the data in the 
-class file itself. 
-There is also a SHA-256-Digest-Manifest, which hashes the entire 
-MANIFEST.MF file. 
+``` 
+Here we see again a SHA-256 hash value for each file within the JAR.
+**These hash values are generated based on the corresponding entries in the `MANIFEST.MF` file instead of creating 
+a hash from the data in the class file itself.** 
+There is also a **SHA-256-Digest-Manifest**, which hashes the entire `MANIFEST.MF` file. 
+
+The **signature block** file named `TESTKEY.RSA` contains the digital signature for the `.SF` file, which was 
+generated by the signer's private key.
+This file also contains the certificate (which contains the public key)  that can be used to verify the digital 
+signature and conform that the signed jar file is authentic.
+The RSA extension indicates that the file was created using the **RSA algorithm**.
 
 
-The signature block file named TESTKEY.RSA contains the digital signature
-for the .SF file, which was generated by the signer's private key.
-This file also contains the certificate (which contains the public key) 
-that can be used to verify the digital signature and conform that the 
-signed jar file is authentic.
-The RSA extension indicates that the file was created using the RSA
-Algorithm.
+## Verify a JAR File
 
-
-How to verify a JAR file?
----------------------------------------------------------------------
-
-A signed jar file can be verified by using jarsigner with the -verify
-option. 
-
+A signed JAR file can be verified by using **jarsigner** with the `-verify` option. 
+```
 $ jarsigner -verify -verbose -keystore keystore.pfx target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
 
 s k      598 Sat Apr 12 12:14:10 CEST 2014 META-INF/MANIFEST.MF
@@ -200,41 +190,37 @@ smk     1081 Sat Apr 12 11:35:20 CEST 2014 org/se/lab/UserService.class
   i = at least one certificate was found in identity scope
 
 jar verified.	<--
+```
+When jarsigner verifies a JAR file, it takes the following steps:
 
-When jarsigner verifies a jar file, it takes the following steps:
-
-1) Verify the digital signature.
-	The digital signature stored in the signature block file (.RSA) is
+* Verify the digital signature.
+	The digital signature stored in the signature block file (`.RSA`) is
 	verified with the public key. This ensures that the signature was 
 	in fact generated using the corresponding private key.
 	The digital signature is also checked to ensure that it matches the
 	data in the signature file (.SF)
 
-2) Verify that the hash values in the .SF file match the corresponding 
-	entries in the MANIFEST.MF file.
+* Verify that the hash values in the `.SF` file match the corresponding 
+	entries in the `MANIFEST.MF` file.
 	
-3) Verify that the hash values for every file listed in the .SF file 
+* Verify that the hash values for every file listed in the `.SF` file 
 	match the value listed in the manifest.			
 
 
+## Export the Certificate
 
-How to export the public key?
----------------------------------------------------------------------
-
-Because keystore.pfx file contains your private keys, we need another
-keystore that contains only your public keys to share with the outside 
-world.
-
+Because **keystore.pfx** file **contains your private keys**, we need another
+keystore that contains only your public keys to share with the outside world.
+```
 $ keytool -export -v -keystore keystore.pfx -alias testkey -file testkey.cert -storepass student -keypass student
+```
 
-
-How to use the exported certificate to verify a signed jar?
----------------------------------------------------------------------
-
+## Use the Exported Certificate to Verify a Signed JAR
+```
 $ keytool -import -v -keystore certificates.pfx -alias testkey-cert -file testkey.cert -storepass student -keypass student
 
 $ jarsigner -verify -verbose -keystore certificates.pfx target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+```
 
 
-
- 
+*Egon Teiniker, 2020 - 2021, GPL v3.0* 
