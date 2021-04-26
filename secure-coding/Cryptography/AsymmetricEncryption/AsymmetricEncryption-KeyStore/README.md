@@ -73,12 +73,30 @@ What is the two-letter country code for this unit?
 Is CN=Egon Teiniker, OU=IMS, O=FHJ, L=KBerg, ST=Styria, C=AT correct?
   [no]:  yes
 ```
+Parameters:
+* **-genkeypair**: Generates a key pair (a public key and associated private key). Wraps the public key into an 
+    X.509 v3 self-signed certificate, which is stored as a single-element certificate chain. 
+    This certificate chain and the private key are stored in a new keystore entry identified by alias.
+* **-storetype**: Keystore type
+* **-alias**:  Alias name of the entry to process
+* **-storepass**:  Keystore password
+* **-keypass**: Key password
+* **-keyalg**: Key algorithm name
+* **-keysize**: Key bit size
+* **-keystore**: Keystore name
 
 We can **list the content of a keystore** by using the following command:
 ```
 $ keytool -list -v -keystore keystore.pfx 
 Enter keystore password: student 
 ```
+Parameters:
+* **-list**: Prints to stdout the contents of the keystore entry identified by alias. If no alias is specified, 
+    then the contents of the entire keystore are printed.
+* **-v**: Verbose output
+* **-keystore**: Keystore name
+* **-storepass**:  Keystore password 
+
 
 ## Export the Certificate
 
