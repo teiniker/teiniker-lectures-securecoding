@@ -33,7 +33,7 @@ but it's not guaranteed to work.
 If there is a bug in the loop, the use of exceptions for flow control can mask the bug, complicating the 
 debugging process.
 
-# Separate Programm Logic From Error Handling
+# Separate Program Logic From Error Handling
 
 The use of **return values** to determine errors has the disadvantage that the actual program logic is interspersed 
 with the code for error handling.
