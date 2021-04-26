@@ -1,5 +1,5 @@
 -injars       ShoppingCart-1.0.0.jar
--outjars      ShoppingCart-1.0.0-release.jar
+-outjars      ShoppingCart-1.0.0-out.jar
 #-libraryjars  <java.home>/jmods
 -libraryjars  <java.home>/jmods/java.base.jmod
 -printmapping ShoppingCart.map
