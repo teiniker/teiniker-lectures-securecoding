@@ -99,3 +99,5 @@ Here some major settings:
 ## References
 * [ProGuard Manual](https://www.guardsquare.com/manual/home)
 * [ProGuard Download](https://github.com/Guardsquare/proguard/releases)
+
+*Egon Teiniker, 2020 - 2021, GPL v3.0* 
