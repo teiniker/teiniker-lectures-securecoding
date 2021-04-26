@@ -2,11 +2,6 @@ package org.se.lab;
 
 import java.lang.reflect.Field;
 
-
-/*
- * $ java -cp ./target/classes -Djava.security.policy=my.policy -Djava.security.manager org.se.lab.ReflectPermission
- */
-
 public class ReflectPermission
 {
 	public static void main(String[] args)

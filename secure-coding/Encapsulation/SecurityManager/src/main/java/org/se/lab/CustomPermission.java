@@ -1,11 +1,5 @@
 package org.se.lab;
 
-/*
- * Here we create our own permission to switch on and off the usage of a method.
- * 
- * $ java -cp ./target/classes -Djava.security.policy=my.policy -Djava.security.manager org.se.lab.CustomPermission
- */
-
 public class CustomPermission
 {
 	 static final private java.security.Permission CUSTOM_PERMISSION =

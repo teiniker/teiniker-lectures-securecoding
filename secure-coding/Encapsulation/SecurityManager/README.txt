@@ -113,3 +113,32 @@ my.policy file:
 
 //permission java.lang.reflect.ReflectPermission "suppressAccessChecks", "";
 
+
+Example: org.se.lab.CustomPermission
+-------------------------------------------------------------------------------
+We can define our own Permission as well:
+
+	 static final private java.security.Permission CUSTOM_PERMISSION =
+			new RuntimePermission("customPermission");
+
+Using this CUSTOM_PERMISSION, we can implement our own SecurityManager guards:
+
+    SecurityManager sm = System.getSecurityManager();
+    if (sm != null)
+    {
+        sm.checkPermission(CUSTOM_PERMISSION);
+    }
+
+Again, we can confige this permission in our my.policy file:
+    permission java.lang.RuntimePermission "customPermission";
+
+$ java -cp ./target/classes -Djava.security.policy=my.policy -Djava.security.manager org.se.lab.CustomPermission
+
+
+Example: org.se.lab.LoggingSecurityManager
+-------------------------------------------------------------------------------
+To find out all the permissions will be checked during a program execution, we can
+use a subclass of the SecurityManager which logs all checks to the console.
+
+$ java -cp ./target/classes -Djava.security.manager=org.se.lab.LoggingSecurityManager org.se.lab.PropertyPermission
+
