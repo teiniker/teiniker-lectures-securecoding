@@ -11,8 +11,16 @@ $ hexdump -C product.bin
 00000060  20 43 72 79 70 74 6f 67  72 61 70 68 79           | Cryptography|
 
 
+How to use hexedit?
+-------------------------------------------------------------------------------
+$ hexedit product.bin
+
+[tab]               toggle hex/ASCII
+[ctrl][shift][x]    save and exit
+[ctrl][shift][c]    exit without saving
+
+
 References:
 -------------------------------------------------------------------------------
-
 https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.html
-
+https://linux.die.net/man/1/hexedit
