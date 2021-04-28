@@ -1,11 +1,15 @@
-Exercise: Input Validation - EMail Address
+Exercise: Value Object - EMail Address
 --------------------------------------------------------------------------
 
-Implement an immutable class called "EMail" that stores a single email address.
-Validate the string passed by the constructor to ensure to store a proper
-email address.
+Implement a Value Object (immutable class) called "EMail" that stores a
+single email address.
+
+Validate the string passed to the constructor to ensure the storage of
+a proper email address.
 
 Read the test cases in "EMailTest" to get an overview about accepted
 and rejected mail addresses.
+
+Tip: Don't miss the normalization!
 
 Tip: Use "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
