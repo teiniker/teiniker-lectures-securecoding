@@ -25,17 +25,6 @@ import org.junit.Test;
 
 public class MatcherTest
 {
-	/* 
-	 * public static Pattern compile(String regex)
-	 * Compiles the given regular expression into a pattern.
-	 * 
-	 * public Matcher matcher(CharSequence input)
-	 * Creates a matcher that will match the given input against
-	 * this pattern.
-	 * 
-	 * public boolean matches()
-	 * Attempts to match the entire region against the pattern.
-	 */
 	@Test
 	public void testMatches()
 	{
@@ -44,18 +33,11 @@ public class MatcherTest
 							
 		Pattern pattern = Pattern.compile(regex);
 		Matcher m = pattern.matcher(input);
-	
 		boolean result = m.matches();
 
 		assertTrue(result);	
 	}	
 	
-	
-	/*
-	 * public boolean lookingAt()
-	 * Attempts to match the input sequence, starting at the
-	 * beginning of the region, against the pattern.
-	 */
 	@Test
 	public void testLookingAt()
 	{
@@ -64,28 +46,11 @@ public class MatcherTest
 							
 		Pattern pattern = Pattern.compile(regex);
 		Matcher m = pattern.matcher(input);
-
 		boolean result = m.lookingAt();
 
 		assertTrue(result);	
 	}
 
-
-	/*
-	 * public boolean find() 
-	 * Attempts to find the next subsequence of the input sequence 
-	 * that matches.
-	 * 
-	 * public String group()
-	 * Returns the input subsequence captured by the
-	 * given group during the previous match operation.
-	 * 
-	 * public int start()
-	 * Returns the start index of the previous match.
-	 * 
-	 * public int end()
-	 * Returns the offset after the last character matched.
-	 */
 	@Test
 	public void testFind()
 	{
@@ -108,12 +73,6 @@ public class MatcherTest
 		}
 	}
 	
-	
-	/*
-	 * public String replaceFirst(String replacement)
-	 * Replaces the first subsequence of the input sequence that matches the
-	 * pattern with the given replacement string.
-	 */
 	@Test
 	public void testReplaceFirst()
 	{
@@ -127,12 +86,6 @@ public class MatcherTest
 		assertEquals("-ber den Dächern von Österreich.", result);
 	}
 	
-	
-	/*
-	 * public String replaceAll(String replacement)
-	 * Replaces every subsequence of the input sequence that 
-	 * matches the pattern with the given replacement string. 
-	 */
 	@Test
 	public void testReplaceAll()
 	{
