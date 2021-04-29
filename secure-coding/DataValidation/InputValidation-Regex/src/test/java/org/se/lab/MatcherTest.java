@@ -8,21 +8,6 @@ import java.util.regex.Pattern;
 
 import org.junit.Test;
 
-/*
- * Evaluating a regular expression can be compute intensive, and in many
- * instances a single regular expression will be used repeatedly.
- * This can be addressed by compiling the regular expression once and 
- * using the result.
- * 
- * Model of using a regular expression:
- *  - Turn the regular expression string into a Pattern object that is
- *    the compiled version of the pattern.
- *  - Ask the Pattern object for a Matcher object that applies that
- *    pattern to a character sequence (String, StringBuilder).
- *  - Ask the Matcher to perform operations on the sequence using the
- *    compiled pattern.     
- */
-
 public class MatcherTest
 {
 	@Test
