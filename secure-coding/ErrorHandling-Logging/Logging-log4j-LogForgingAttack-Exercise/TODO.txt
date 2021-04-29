@@ -9,7 +9,7 @@ log files.
 LogEncoder Class
 ----------------
 
-Implement the following static method in the LogEncoder class:
+Implement a class called "LogEncoder" with the following static method:
 
     public static String encode(String message)
 
