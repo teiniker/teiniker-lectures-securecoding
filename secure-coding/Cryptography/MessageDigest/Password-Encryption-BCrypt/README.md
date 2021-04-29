@@ -1,27 +1,26 @@
-BCrypt - A Future-Adaptable Password Scheme
--------------------------------------------------------------------------------
+# BCrypt 
 
-bcrypt is a key derivation function for passwords designed by Niels Provos and 
+bcrypt is a **password-hashing function** designed by Niels Provos and 
 David Mazières, based on the Blowfish cipher.
 
 Besides incorporating a salt to protect against rainbow table attacks, bcrypt 
-is an adaptive function: over time, the iteration count can be increased to make 
+is an **adaptive function**: over time, the **iteration count** can be increased to make 
 it slower, so it remains resistant to brute-force search attacks even with 
 increasing computation power.
 
 The bcrypt function is the default password hash algorithm for BSD and other 
 systems including some Linux distributions.
 
-The prefix "$2a$" or "$2b$" (or "$2y$") in a hash string indicates that hash string 
+The **prefix** `$2a$` or `$2b$` (or `$2y$`) in a hash string indicates that hash string 
 is a bcrypt hash in modular crypt format.
-The rest of the hash string includes the cost parameter, a 128-bit salt (base-64 
+The rest of the hash string includes the **cost parameter**, a 128-bit salt (base-64 
 encoded as 22 characters), and 184 bits of the resulting hash value (base-64 encoded 
 as 31 characters). 
 The cost parameter specifies a key expansion iteration count as a power of two, which 
 is an input to the crypt algorithm.
 
-Example: $2a$10$ClRCVXO0F/7kFTvXk0467Oxdunc6NsMe6Olt9VHu0OPzWHjojnzjm
-
+_Example_: `$2a$10$ClRCVXO0F/7kFTvXk0467Oxdunc6NsMe6Olt9VHu0OPzWHjojnzjm`
+```
 	prefix: $2a$
 
 	cost parameter: 10  (indicating 2^10 key expansion rounds)
@@ -29,5 +28,9 @@ Example: $2a$10$ClRCVXO0F/7kFTvXk0467Oxdunc6NsMe6Olt9VHu0OPzWHjojnzjm
 	salt: ClRCVXO0F/7kFTvXk0467O
 
 	resulting hash: xdunc6NsMe6Olt9VHu0OPzWHjojnzjm
+```
+## References
+* [Hashing a Password in Java](https://www.baeldung.com/java-password-hashing)
+* [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)
 
-
+*Egon Teiniker, 2020 - 2021, GPL v3.0* 
