@@ -27,7 +27,7 @@ public class LogForgingAttackTest
 	public void testLogEncoder()
 	{
         operation("homer");
-        operation("bart\n2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
+        operation("bart\r2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
         operation("lisa");
 	}
 
