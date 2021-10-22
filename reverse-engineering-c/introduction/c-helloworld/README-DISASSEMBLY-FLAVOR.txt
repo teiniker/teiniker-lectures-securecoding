@@ -1,5 +1,5 @@
 Disassembly-flavor 
-
+-------------------------------------------------------------------------------
 Controls the disassembly style used by the disassemble and x commands.
 
 Syntax
