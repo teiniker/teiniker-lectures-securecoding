@@ -1,8 +1,8 @@
 #include <unity.h>
 #include <stdio.h>
-#include <linked_list.h>
+#include "linked_list.h"
 
-struct node *list_ptr = NULL;
+node_t *list_ptr = NULL;
 
 void setUp(void)
 {

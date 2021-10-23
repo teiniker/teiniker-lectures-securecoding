@@ -1,8 +1,8 @@
 #include <unity.h>
 #include <stdio.h>
-#include <stack.h>
+#include "stack.h"
 
-node *stack_ptr = NULL;
+node_t *stack_ptr = NULL;
 
 void setUp(void)
 {

@@ -4,15 +4,15 @@
 #include <stdlib.h>
 
 
-struct node
+typedef struct node
 {
     int value;
     struct node *next_ptr;
-};
+} node_t;
 
-struct node *new_node(int value)
+node_t *new_node(int value)
 {
-    struct node *node_ptr = malloc(sizeof(struct node));
+    node_t *node_ptr = malloc(sizeof(node_t));
     node_ptr->value = value;
     node_ptr->next_ptr = NULL;
     return node_ptr;
@@ -21,7 +21,7 @@ struct node *new_node(int value)
 int main()
 {
     // setup linked list
-    struct node *list_ptr;
+    node_t *list_ptr;
     list_ptr = new_node(1);
     list_ptr->next_ptr = new_node(2);
     list_ptr->next_ptr->next_ptr = new_node(3);
