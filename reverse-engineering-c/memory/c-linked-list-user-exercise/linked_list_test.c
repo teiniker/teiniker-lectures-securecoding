@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <linked_list.h>
 #include <unity.h>
+#include "linked_list.h"
 
-node *list_ptr = NULL;
+node_t *list_ptr = NULL;
 
 void setUp(void)
 {
@@ -29,7 +29,7 @@ void test_length(void)
 void test_element_0(void)
 {
     // exercise
-    user *user_ptr = list_get(list_ptr, 0);
+    user_t *user_ptr = list_get(list_ptr, 0);
 
 	// verify
 	TEST_ASSERT_EQUAL(3, user_ptr->id);
@@ -40,7 +40,7 @@ void test_element_0(void)
 void test_element_1(void)
 {
     // exercise
-    user *user_ptr = list_get(list_ptr, 1);
+    user_t *user_ptr = list_get(list_ptr, 1);
 
 	// verify
 	TEST_ASSERT_EQUAL(1, user_ptr->id);
@@ -51,7 +51,7 @@ void test_element_1(void)
 void test_element_2(void)
 {
     // exercise
-    user *user_ptr = list_get(list_ptr, 2);
+    user_t *user_ptr = list_get(list_ptr, 2);
 
 	// verify
 	TEST_ASSERT_EQUAL(2, user_ptr->id);
