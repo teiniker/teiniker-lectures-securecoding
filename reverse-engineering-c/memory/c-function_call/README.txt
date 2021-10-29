@@ -27,9 +27,9 @@ $ gdb ./function_call
 
 (gdb) disass main
 Dump of assembler code for function main:
-   0x00000000004004f1 <+0>:		push   rbp
-   0x00000000004004f2 <+1>:		mov    rbp,rsp
-   0x00000000004004f5 <+4>:		sub    rsp,0x20
+   0x00000000004004f1 <+0>:	push   rbp
+   0x00000000004004f2 <+1>:	mov    rbp,rsp
+   0x00000000004004f5 <+4>:	sub    rsp,0x20
 
    0x00000000004004f9 <+8>:	mov    DWORD PTR [rbp-0x14],edi
    0x00000000004004fc <+11>:	mov    QWORD PTR [rbp-0x20],rsi
@@ -125,7 +125,7 @@ Dump of assembler code for function add:
 (gdb) disass
 Dump of assembler code for function add:
    0x00000000004004d7 <+0>:	push   rbp
-   0x00000000004004d8 <+1>:   mov    rbp,rsp
+   0x00000000004004d8 <+1>:	mov    rbp,rsp
 
    0x00000000004004db <+4>:	mov    DWORD PTR [rbp-0x14],edi
    0x00000000004004de <+7>:	mov    DWORD PTR [rbp-0x18],esi
