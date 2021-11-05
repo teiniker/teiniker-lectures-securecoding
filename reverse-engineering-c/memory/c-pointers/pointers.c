@@ -23,9 +23,9 @@ void print_integer(int i)
  * Usually, C passes parameters using "call by value".
  * Pointers can be used to get around this restriction.
  */
-void inc_integer(int *value)
+void inc_integer(int *i_ptr)
 {
-    (*value)++;
+    (*i_ptr)++;
 }
 
 
@@ -68,6 +68,7 @@ int function_two(void)
 
 int main(void)
 {
+/*
 	int i = 7;
     print_integer(i);
     inc_integer(&i);
@@ -76,7 +77,8 @@ int main(void)
     char str_a[20];
 	strcpy(str_a, "Hello world!");
     print_string(str_a);
-	
+*/
+
     int (*function_ptr)();
     function_ptr = function_one;
     int value1 = function_ptr();
