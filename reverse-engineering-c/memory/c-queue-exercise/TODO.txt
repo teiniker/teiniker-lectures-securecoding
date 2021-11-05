@@ -28,15 +28,15 @@ provided by the standard C library:
 
 Example: 
 
-Queue: <-tail[1 ]head<-
-Queue: <-tail[1 2 ]head<-
-Queue: <-tail[1 2 3 ]head<-
-Queue: <-tail[1 2 3 4 ]head<-
+Queue: ->tail[1 ]<-head
+Queue: ->tail[1 2 ]<-head
+Queue: ->tail[1 2 3 ]<-head
+Queue: ->tail[1 2 3 4 ]<-head
 1
-Queue: <-tail[2 3 4 ]head<-
+Queue: ->tail[2 3 4 ]<-head
 2
-Queue: <-tail[3 4 ]head<-
+Queue: ->tail[3 4 ]<-head
 3
-Queue: <-tail[4 ]head<-
+Queue: ->tail[4 ]<-head
 4
 [ ]

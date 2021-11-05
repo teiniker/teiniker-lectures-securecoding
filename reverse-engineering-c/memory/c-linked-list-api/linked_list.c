@@ -2,7 +2,7 @@
 
 #include "linked_list.h"
 
-struct node *new_node(int value)
+node_t *new_node(int value)
 {
     node_t *node_ptr = malloc(sizeof(node_t));
     node_ptr->value = value;
