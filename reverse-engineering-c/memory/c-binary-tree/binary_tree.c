@@ -33,11 +33,6 @@ node_t *tree_insert_right(node_t *node_ptr, int value)
 }
 
 
-void tree_delete(node_t *node_ptr)
-{
-
-}
-
 void tree_traversal_preorder(node_t *node_ptr)
 {
     if(node_ptr == NULL)
