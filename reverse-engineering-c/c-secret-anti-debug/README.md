@@ -9,7 +9,7 @@ The **ptrace()** system call provides a means by which one process (the "tracer"
 may observe and control the execution of another process (the "tracee"), and 
 examine and change the tracee's memory and registers.  
 It is primarily used to implement breakpoint debugging and system call tracing.
-```
+```C
 #include <sys/ptrace.h>
 
 long ptrace(enum __ptrace_request request, pid_t pid, void *addr, void *data);
@@ -22,7 +22,7 @@ attached  and  thus  not  debugged.
 Therefore,  "tracee"  always means "(one) thread", never "a (possibly multi‐
 threaded) process".  
 
-```
+```C
 #include <stdio.h>
 #include <sys/ptrace.h>
 
