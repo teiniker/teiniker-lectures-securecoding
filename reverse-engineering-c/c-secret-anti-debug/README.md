@@ -1,4 +1,4 @@
-## Anti Debug
+# Anti Debug
 
 Debuggers like gdb and strace utilize the ptrace() function to attach to a 
 process at runtime. But there is **only one process** allowed to do this at a 
