@@ -11,7 +11,7 @@ $ mkdir ~/local/jd-gui
 $ mv jd-gui-1.6.6.jar ~/local/jd-gui/
 
 $ cd ~/local/jd-gui
-$ $ java -jar jd-gui-1.6.6.jar
+$ java -jar jd-gui-1.6.6.jar
 ```
 
 ## References
