@@ -1,30 +1,5 @@
 # Code Obfuscation using ProGuard
 
-The given project can be built using Maven:
-```
-$ mvn package
-```
-As the result of the build process, we can see a JAR file in the `target` folder:
-```
-    target
-    ├── Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar
-```
-
-To start the `Main` class in the JAR library, type:
-```
-$ java -cp ./target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar org.se.lab.Main
-<category id="1" name="VmVyeSBzZWNyZXQga2V5IQ==">
-<category id="2" name="English Books">
-<category id="4" name="Programming Books">
-<product id="5" title="Programming C" price="17.9"/>
-<product id="6" title="Java Programming" price="34.5"/>
-</category>
-</category>
-<category id="3" name="German Books">
-</category>
-</category>
-```
-
 ## Install ProGuard 
 We can **download** ProGuard from: https://github.com/Guardsquare/proguard/releases and unzip the file into a
 local directory:
@@ -41,11 +16,37 @@ export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin:/opt/bin:$PROGUARD/bin:$PA
 ```
 
 ## Run ProGuard in Standalone Mode
-We can run ProGuard from the command line by typing:
-```
-$ pwd
-teiniker-lectures-securecoding/reverse-engineering-java/Java-Obfuscator-ShoppingCart
+We can use ProGuard from the command line, as shown by the following example.
 
+_Example_: Using ProGuard to obfuscate a JAR file
+We change into the project directory and build the JAR file.
+```
+$ cd teiniker-lectures-securecoding/reverse-engineering-java/Java-Obfuscator-ShoppingCart
+$ mvn package
+```
+As the result of the build process, we can see a JAR file in the `target` folder:
+```
+    target
+    ├── Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar
+```
+
+To start the `Main` class in the JAR file, type:
+```
+$ java -cp ./target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar org.se.lab.Main
+<category id="1" name="VmVyeSBzZWNyZXQga2V5IQ==">
+<category id="2" name="English Books">
+<category id="4" name="Programming Books">
+<product id="5" title="Programming C" price="17.9"/>
+<product id="6" title="Java Programming" price="34.5"/>
+</category>
+</category>
+<category id="3" name="German Books">
+</category>
+</category>
+```
+
+Now, that we have a working JAR file, we can use **ProGuard** to create an **obfuscated version** of this JAR file.
+```
 $ cp target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-1.0.0.jar
 $ proguard.sh @config.pro
 ```
