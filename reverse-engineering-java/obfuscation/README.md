@@ -50,7 +50,26 @@ Now, that we have a working JAR file, we can use **ProGuard** to create an **obf
 $ cp target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-1.0.0.jar
 $ proguard.sh @config.pro
 ```
-Here we can put all options into a **configuration file** named `config.pro`.
+
+We put all options into a **configuration file** named `config.pro`.
+```
+-injars       ShoppingCart-1.0.0.jar
+-outjars      ShoppingCart-1.0.0-out.jar
+-libraryjars  <java.home>/jmods/java.base.jmod
+
+-keep public class org.se.lab.Main
+{
+    public static void main(java.lang.String[]);
+}
+
+-optimizationpasses 3
+-overloadaggressively
+-repackageclasses ''
+-allowaccessmodification
+
+-printmapping ShoppingCart.map
+```
+
 We can add comments in the configuration file, starting with a `#` character and continuing until the end of the line.
 
 Configuration details can be found in the online [manual](https://www.guardsquare.com/manual/configuration/usage).
