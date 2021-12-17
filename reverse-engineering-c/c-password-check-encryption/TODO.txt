@@ -1,0 +1,22 @@
+Exercise: Password Check with Encryption - Reverse Engineering (Static Analysis)
+-------------------------------------------------------------------------------
+
+Given the executable named "password_check".
+
+$ ./password_check 
+password> student
+Login rejected, invalid password!
+
+A) Hardcoded password 
+Use static reverse engineering techniques to extract the hardcoded password.
+
+hardcoded password: IxooVlfkd7Pl
+
+
+B) Decrypt password 
+Find out how the password will be encrypted and decrypt the found password.
+For the process of decryption, extend the "decrypt_password.py" file, so that
+the plaintext password will be printed out.
+
+plaintext password: FullSicha4Mi
+
