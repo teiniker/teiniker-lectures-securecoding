@@ -1,0 +1,25 @@
+Exercise: Password check
+-------------------------------------------------------------------------------
+
+Given an executable named "password_check" which asks for a password and 
+validates the entered string. 
+
+$ ./password_check 
+password> student
+Login rejected, invalid password!
+
+If we pick a password which satisfies all these constraints, it will be accepted.
+Otherwise, it will be rejected.
+
+A) Static Analysis 
+By using static reverse engineering techniques, find out the constraints a 
+password must fulfill to be accepted. 
+
+Write down the constraints:
+
+// TODO
+
+
+Give an example of a valid passord:
+
+// TODO

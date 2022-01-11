@@ -47,7 +47,7 @@ $ java -cp ./target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar org.se.lab.M
 
 Now, that we have a working JAR file, we can use **ProGuard** to create an **obfuscated version** of this JAR file.
 ```
-$ cp target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-1.0.0.jar
+$ cp target/Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-1.0.0.jar
 $ proguard.sh @config.pro
 ```
 
