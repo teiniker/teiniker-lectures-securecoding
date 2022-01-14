@@ -1,8 +1,8 @@
-## Example: Module-LoggingService
+# Example: Module-LoggingService
 
 In this example we create a Java9 Module which uses another **System Module**.
 
-### Implementing the Module
+## Implementing the Module
 Here we create the simplest possible Module containing only one public package.
 
 ```
@@ -47,7 +47,7 @@ target/
 ├── Module-LoggingService-0.0.1-SNAPSHOT.jar
 ```
 
-### Running the Module
+## Running the Module
 
 We start the main class of our module from the command line:
 ```
@@ -69,9 +69,9 @@ model dependencies and visibility of packages.
     $ java -cp target/classes/ org.se.lab.Main
 ```
 
-### References
+## References
 
 * [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 * Sander Mak and Paul Bakker, *Java 9 Modularity: Patterns and Practices for Developing Maintainable Applications*, O'Reilly, 2017
 
-*Egon Teiniker, 2020, GPL v3.0*
+*Egon Teiniker, 2020-2022, GPL v3.0*
