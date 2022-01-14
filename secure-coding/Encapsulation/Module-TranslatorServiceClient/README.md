@@ -1,8 +1,8 @@
-## Example: Module-TranslatorServiceClient
+# Example: Module-TranslatorServiceClient
 
 This example implements a Module and uses another Module as a library.
 
-### Implementing the Module
+## Implementing the Module
 
 We define a package named *org.se.lab.client* and implement simple client within that package.
 
@@ -56,7 +56,7 @@ target/
 │                   └── TranslatorClient.class
 ```
 
-### Running the Module
+## Running the Module
 
 We can start the main class of a module from the command line:
 ```
@@ -91,9 +91,9 @@ $ java -cp target/classes:../Module-TranslatorService/target/classes  org.se.lab
 But remember, without a proper definition of module dependencies and package visibility the Java compiler
 would not even compile the client Module.   
     
-### References
+## References
 
 * [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 * Sander Mak and Paul Bakker, *Java 9 Modularity: Patterns and Practices for Developing Maintainable Applications*, O'Reilly, 2017
 
-*Egon Teiniker, 2020, GPL v3.0*
+*Egon Teiniker, 2020-2022, GPL v3.0*
