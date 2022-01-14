@@ -1,8 +1,8 @@
-## Example: Module-TranslatorService
+# Example: Module-TranslatorService
 
 In this example, we implement a Java 9 Module which can be used as a library.
 
-### Implementing a Module
+## Implementing a Module
 When we create a module, we organize the code internally in packages just like we previously did with any other project.
 
 ```
@@ -52,9 +52,9 @@ target/
 
 This Module can be used like a regular library but a client can only access the exported package **org.se.lab.api**-
 
-### References
+## References
 
 * [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 * Sander Mak and Paul Bakker, *Java 9 Modularity: Patterns and Practices for Developing Maintainable Applications*, O'Reilly, 2017
 
-*Egon Teiniker, 2020, GPL v3.0*
+*Egon Teiniker, 2020-2022, GPL v3.0*
