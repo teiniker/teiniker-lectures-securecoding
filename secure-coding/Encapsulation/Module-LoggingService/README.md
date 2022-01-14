@@ -70,7 +70,7 @@ model dependencies and visibility of packages.
 ```
 
 ## References
-
+* [Java Platform, Standard Edition & Java Development Kit Version 17 API Specification](https://docs.oracle.com/en/java/javase/17/docs/api/index.html)
 * [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 * Sander Mak and Paul Bakker, *Java 9 Modularity: Patterns and Practices for Developing Maintainable Applications*, O'Reilly, 2017
 
