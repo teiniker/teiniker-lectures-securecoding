@@ -107,6 +107,6 @@ public final class Dependency
 ## References
 * [Sealed Classes and Interfaces in Java 15](https://www.baeldung.com/java-sealed-classes-interfaces)
 * [JEP 409: Sealed Classes](https://openjdk.java.net/jeps/409)
-
+* [Making Use of Sealed Classes in Java](https://youtu.be/Xkh5sa3vjTE)
 
 *Egon Teiniker, 2020-2022, GPL v3.0* 
