@@ -9,8 +9,8 @@
 * **Value Object**
   * [Exercise: Mail](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValueObject-EMail-Exercise)\
     ([Model Solution](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValueObject-EMail))
-  * [Exercise: Date](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ImmutableClass-Date-Exercise)\
-    ([Model Solution](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ImmutableClass-Date))
+  * [Exercise: Date](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValueObject-Date-Exercise)\
+    ([Model Solution](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValueObject-Date))
   
 * **Validation Proxy**
   * [Exercise: ArticleService](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValidationProxy-ArticleService-Exercise)\
