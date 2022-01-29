@@ -53,7 +53,6 @@ public class StringTest
     }
 
 
-
     @Test
 	public void testStringLiteral()
 	{

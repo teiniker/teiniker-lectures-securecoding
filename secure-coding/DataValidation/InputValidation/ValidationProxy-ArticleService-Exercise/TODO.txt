@@ -34,6 +34,8 @@ ii) void removeArticle(long id)
 iii) List<Article> getArticleList()
         result list should be read-only
 
+Tip: Use Collections.unmodifiableList(result) method from the standard library.
+
 Tip: Use the following regular expressions:
     name = "^[a-zA-Z0-9 ]{4,64}$"
     description = "^[a-zA-Z0-9,:.\\-)( ]{0,256}$"
