@@ -43,10 +43,13 @@ In a **single-part operation**, a single invocation of the `doFinal()` method is
 and resets the engine.		
 		
 ## References 
+* [YouTube (Cristof Paar):  MAC (Message Authentication Codes) and HMAC](https://youtu.be/DiLPn_ldAAQ)
+
 * [Message Authentication Code](https://en.wikipedia.org/wiki/Message_authentication_code) 
 * [Hash-Based Message Authentication Code](https://en.wikipedia.org/wiki/HMAC)
 * [Message Authentication](https://www.tutorialspoint.com/cryptography/message_authentication.htm)
+
 * Jason Weiss. **Java Cryptography Extensions**. Morgan Kaufmann, 2004. Chapter 4: Message Digest, Message Authentication, 
 and Digital Signatures.
 
-*Egon Teiniker, 2020 - 2021, GPL v3.0* 
+*Egon Teiniker, 2020 - 2022, GPL v3.0* 
