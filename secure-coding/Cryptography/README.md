@@ -24,5 +24,6 @@ With these examples we can study the most important **cryptographic operations a
 ## References
 * [YouTube: Cryptography 101 for Java developers](https://youtu.be/1925zmDP_BY)
 
+* Jean-Philippe Aumasson. **Serious Cryptography**. No Starch Press, 2018 
 
 Egon Teiniker, 2016-2022, GPL v3.0
