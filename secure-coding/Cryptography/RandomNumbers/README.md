@@ -8,7 +8,7 @@ Without randomness, cryptography would be impossible because all operations woul
 and therefore insecure.
 
 To generate randomness, we need two things:
-* A source of uncertainty, or source of entropy, provided by random number generators (RNGs). 
+* A source of uncertainty, or source of entropy, provided by **random number generators (RNGs)**. 
 * A cryptographic algorithm to produce high-quality random bits from the source of entropy. 
    This is found in **pseudorandom number generators (PRNGs)**.
 
