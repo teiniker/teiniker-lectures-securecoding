@@ -1,7 +1,6 @@
 # Random Numbers
 
-**Randomness is found everywhere in cryptography**: in the generation of secret keys, in encryption schemes, 
-and even in the attacks on cryptosystems. 
+**Randomness is found everywhere in cryptography**: in the generation of secret keys, in encryption schemes, and even in the attacks on cryptosystems. 
 Without randomness, cryptography would be impossible because all operations would become predictable, 
 and therefore insecure.
 
@@ -98,11 +97,9 @@ Parameters:
 * **-base64**: Perform base64 encoding on the output.
 * **-out file**: Write to file instead of standard output.
 
+This command generates random bytes using a **cryptographically secure pseudo random number generator (CSPRNG)**.
 
 ## References
-
-* David Hook. **Beginning Cryptography with Java**. Wrox, 2005
-  * Chapter 6: Distinguished Names and Certificates
 
 * Jean-Philippe Aumasson. **Serious Cryptography**. No Starch Press, 2018
   * Chapter 2: Randomness
