@@ -26,4 +26,5 @@ With these examples we can study the most important **cryptographic operations a
 
 * Jean-Philippe Aumasson. **Serious Cryptography**. No Starch Press, 2018 
 
+
 *Egon Teiniker, 2016-2022, GPL v3.0*

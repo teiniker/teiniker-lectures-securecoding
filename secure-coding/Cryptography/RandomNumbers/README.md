@@ -72,14 +72,7 @@ array with the specified number of random bytes.
 On **Windows with the Oracle JDK** and the default configuration the SHA1PRNG generator is used.
 
 On **Linux with the Oracle JDK** and default configuration the NativePRNG algorithm is used. 
-This algorithm provides the output of the `/dev/urandom` PRNG that is provided by the OS. 
-
-
-## Generating Random Bits in Linux-Based Systems
-
-The device file `/dev/urandom` is the userland interface to the crypto PRNG of common Linux systems, 
-and it’s what you will typically use to generate reliable random bits. 
-Because it’s a device file, requesting random bits from `/dev/urandom` is done by reading it as a file.
+This algorithm provides the output of the `/dev/urandom` PRNG that is provided by the OS.
 
 
 ## Generating Psuedo Random Numbers using OpenSSL
@@ -103,7 +96,6 @@ This command generates random bytes using a **cryptographically secure pseudo ra
 
 * Jean-Philippe Aumasson. **Serious Cryptography**. No Starch Press, 2018
   * Chapter 2: Randomness
-    
 
 *Egon Teiniker, 2020 - 2022, GPL v3.0* 
 
