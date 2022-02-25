@@ -4,6 +4,8 @@ The JCA is architected to provide an abstraction layer for
 application developers, and the objects that provide the implementations
 of the algorithms you wish to use are created using factory classes.
 
+![Java Crypto Architecture](JCA.png)
+
 This architecture is referred as **provider-based architecture** where new 
 implementations of algorithms can be added without increasing the
 complexity of the API.

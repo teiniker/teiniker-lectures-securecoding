@@ -42,7 +42,10 @@ In a **single-part operation**, a single invocation of the `doFinal()` method is
 **Multipart operations** invoke the `update()` method one or many times, and `doFinal()` method concludes the operation
 and resets the engine.		
 		
-## References 
+## Reference
+* [Java API: Class Mac](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/javax/crypto/Mac.html)
+* [Java API: Mac Algorithms](https://docs.oracle.com/en/java/javase/17/docs/specs/security/standard-names.html#mac-algorithms)
+
 * [YouTube (Cristof Paar):  MAC (Message Authentication Codes) and HMAC](https://youtu.be/DiLPn_ldAAQ)
 
 * [Message Authentication Code](https://en.wikipedia.org/wiki/Message_authentication_code) 
