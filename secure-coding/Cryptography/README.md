@@ -3,6 +3,8 @@
 This directory contains examples related to practical cryptography in Java.
 With these examples we can study the most important **cryptographic operations and algorithms**.
 
+* [**Java Cryptography Architecture**](JavaCryptoAPI/JCA-Provider)
+
 * [**Pseude Random Number Generators**](RandomNumbers/)
 
 * [**Message Digests**](MessageDigest/)
@@ -25,6 +27,6 @@ With these examples we can study the most important **cryptographic operations a
 * [YouTube: Cryptography 101 for Java developers](https://youtu.be/1925zmDP_BY)
 
 * Jean-Philippe Aumasson. **Serious Cryptography**. No Starch Press, 2018 
-
+* David Hook. **Beginning Cryptography with Java**. Wrox, 2005
 
 *Egon Teiniker, 2016-2022, GPL v3.0*
