@@ -1,4 +1,4 @@
-## Generating Private and Public Keys Using OpenSSL
+# Generating Private and Public Keys Using OpenSSL
 
 To generate an RSA **private key** type the following command:
 ```
