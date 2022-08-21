@@ -1,7 +1,7 @@
 package org.se.lab;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 
@@ -14,7 +14,7 @@ public class Log4jTest
 	@Test
 	public void testLoggerWithDefaultConfiguratonFile()
 	{
-		Logger logger = Logger.getLogger(Log4jTest.class);
+		Logger logger = LogManager.getLogger(Log4jTest.class);
 		callLoggerMethods(logger);
 	}
 
@@ -23,14 +23,15 @@ public class Log4jTest
 	 * Load configurations from a properties file stored in  
 	 * the file system.
 	 */
+	/*
 	@Test
 	public void testLoggerWithPropertyConfigurator()
 	{
-		Logger logger = Logger.getLogger(Log4jTest.class);
+		Logger logger = LogManager.getLogger(Log4jTest.class);
 		PropertyConfigurator.configure("log4j-example.properties");
 		callLoggerMethods(logger);
 	}
-
+*/
 
 	// Log levels: trace > debug > info > warning > error > fatal
 	protected void callLoggerMethods(Logger logger)
