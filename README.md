@@ -11,7 +11,6 @@ Based on these examples, an inductive learning approach to code review and secur
   * [Encapsulation](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/Encapsulation)
   * [DataValidation](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation)
   * [ErrorHandling & Logging](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/ErrorHandling-Logging)
-  * [Cryptography in Practice](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/Cryptography)
   
 
 See also: 
