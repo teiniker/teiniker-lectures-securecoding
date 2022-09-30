@@ -6,7 +6,7 @@ The following examples present important techniques and tools that we will need 
 * [How to test a C application automatically](c-hello-test)
 
 For a more generic introduction to C and the C environment, see:
-[Computer Science Repo](https://github.com/teiniker/teiniker-lectures-computerscience)
+[Computer Science and Programming in C/C++](https://github.com/teiniker/teiniker-lectures-computerscience)
 
 ## References
 
