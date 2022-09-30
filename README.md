@@ -4,13 +4,21 @@ This project collects examples, exercises and model solutions needed as an intro
 Based on these examples, an inductive learning approach to code review and security testing can be used.
 
 * **Reverse Engineering**
-  * [C Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-c)
-  * [Java Applications](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/reverse-engineering-java)
+  * [C Applications](reverse-engineering-c)
+    * [Introduction](reverse-engineering-c/introduction/)
+    * [Memory Segments](reverse-engineering-c/memory/)
+    * [Libraries](reverse-engineering-c/libraries/)
+  
+    * [Static Analysis](reverse-engineering-c/analysis-static/)
+
+    * [Dynamic Analysis](reverse-engineering-c/analysis-static/)
+
+  * [Java Applications](reverse-engineering-java)
   
 * **Secure Coding**
-  * [Encapsulation](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/Encapsulation)
-  * [DataValidation](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation)
-  * [ErrorHandling & Logging](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/ErrorHandling-Logging)
+  * [Encapsulation](Encapsulation)
+  * [DataValidation](DataValidation)
+  * [ErrorHandling & Logging](ErrorHandling-Logging)
   
 
 See also: 
