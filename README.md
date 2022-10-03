@@ -8,9 +8,7 @@ Based on these examples, an inductive learning approach to code review and secur
     * [Introduction](reverse-engineering-c/introduction/)
     * [Memory Segments](reverse-engineering-c/memory/)
     * [Libraries](reverse-engineering-c/libraries/)
-  
     * [Static Analysis](reverse-engineering-c/analysis-static/)
-
     * [Dynamic Analysis](reverse-engineering-c/analysis-static/)
 
   * [Java Applications](reverse-engineering-java)
