@@ -102,7 +102,7 @@ In computing, recursion is supported via recursive functions.
 A recursive function is a function that calls itself. 
 Each successive call worls on a more refined set of inputs, bringing us closer and closer to the solution of a problem.
 
-_Example_: Factorial of a number n
+_Example_: [Factorial](c-factorial/)
 ```C
 int fact(int n)
 {
@@ -131,10 +131,8 @@ There are two basic phases in a recursive process:
     function are revisited in reverse order.
     This phase continues until the original call returns, at which point the recursive process is complete.
 
-_Examples_: [Factorial](c-factorial/)
 
-
-_Examples_: [Linked List](c-linked-list-recursion/)
+_Example_: [Linked List](c-linked-list-recursion/)
 
 
 However, stack usage does have a few **drawbacks**:
