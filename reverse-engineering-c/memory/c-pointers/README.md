@@ -1,4 +1,4 @@
-# Pointers
+# Pointers in C
 
 In computers, memory is divided into **bytes**, with each byte can store eight bits of information.
 Each byte has a unique **address** to distinguish it from the other bytes in memory.
@@ -117,6 +117,6 @@ Properties of void pointers:
     
 * [Youtube: CS50 Pointers](https://youtu.be/XISnO2YhnsY)
  
-* [void pointer in C / C++](https://www.geeksforgeeks.org/void-pointer-c-cpp/) 
+* [void pointer in C/C++](https://www.geeksforgeeks.org/void-pointer-c-cpp/) 
  
-*Egon Teiniker, 2020-2021, GPL v3.0* 
+*Egon Teiniker, 2020-2022, GPL v3.0* 

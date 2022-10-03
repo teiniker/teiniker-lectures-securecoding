@@ -1,4 +1,4 @@
-# Local vs. Global Variables
+# Memory Segments used in C
 
 ## Local Variables
 
@@ -130,24 +130,6 @@ Many C programmers rely **far to much on global variables** - try to avoid them!
 When we use global variables, at least we have to give them **meaningful names** (for local variables, in contrast, 
 we often use single characters like `i`). 
 
-# Memory Segments
-
-When a program is started, it's memory is divided into five segments:
-* The **.text** segment (or code segment) is where the assembled machine language instructions of 
-the program are located. This memory segment has a **fixed size**.
-* The **.data** and **.bss** segments are used to store **global and static variables**. 
-    The `.data` segment is filled with the initialized global and static variables, 
-    while the `.bss` segment is filled with their uninitialized counterparts.
-    Although these segments are writable, they also have a **fixed size**.
-* The **.heap** segment is a segment of memory a programmer can directly control. 
-    Blocks of memory in this segment can be allocated and used for whatever the programmer 
-    might need. The heap segment is **not of fixed size**, so it can grow larger or smaller 
-    as needed.
-* The **.stack** segment is used to store **local variables** and context during functions calls. 
-    When a program calls a function that function will have its own set of **parameters**.
-    The stack is also **not of a fixed size**.
-   
-![Memory Segments of a C Application](figures/C-MemoryLayout.png)
 
 _Example_: Addresses of variables and functions
 ```
@@ -169,9 +151,61 @@ code segment:
         main()                          at 0x55cd3831f165
 ```
 
+Note that the format string `"%p"` does not print the leading `0`s.
+
+Also, for every single run of this application the addresses will be different!
+
+## Memory Leaks 
+
+The memory leak occurs, when a piece of memory which was previously allocated by 
+the programmer is not deallocated properly by programmer. 
+That memory is no longer in use by the program, but that place in the heap is reserved 
+for no reason.
+
+_Example_: Using valgrind to detect memory leaks
+```
+$ valgrind ./memory_segments
+==3382== Memcheck, a memory error detector
+==3382== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3382== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==3382== Command: ./memory_segments
+==3382==
+stack segment:
+        stack_var at 0x1ffefffb04
+        function.stack_var at 0x1ffefffaec
+heap segment:
+        heap_var at 0x520c040
+bss segment:
+        global_var at 0x601044
+        static_var at 0x601040
+data segment:
+        global_initialized_var at 0x601034
+        static_initialized_var at 0x601038
+code segment:
+        main() at 0x400588
+        function() at 0x400567
+==3382==
+==3382== HEAP SUMMARY:
+==3382==     in use at exit: 4 bytes in 1 blocks    <= !!!!!!!!!!!!!
+==3382==   total heap usage: 2 allocs, 1 frees, 1,028 bytes allocated
+==3382==
+==3382== LEAK SUMMARY:
+==3382==    definitely lost: 4 bytes in 1 blocks    <= !!!!!!!!!!!!!
+==3382==    indirectly lost: 0 bytes in 0 blocks
+==3382==      possibly lost: 0 bytes in 0 blocks
+==3382==    still reachable: 0 bytes in 0 blocks
+==3382==         suppressed: 0 bytes in 0 blocks
+==3382== Rerun with --leak-check=full to see details of leaked memory
+==3382==
+==3382== For counts of detected and suppressed errors, rerun with: -v
+==3382== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
 ## References
 * K. N. King. **C Programming, A Modern Approach.** W. W. Norton & Company, inc. 2nd Edition 2008. 
     Chapter 10: Program Organization
 * Jon Erickson. **Hacking - The Art of Exploitation**. No Starch Press, 2nd Edition, 2008. 
 
-*Egon Teiniker, 2020-2021, GPL v3.0* 
+* [Valgrind](https://valgrind.org/)
+
+*Egon Teiniker, 2020-2022, GPL v3.0* 

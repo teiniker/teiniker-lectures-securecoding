@@ -35,7 +35,7 @@ Since the stack can contain many different stack frames, stack variables can mai
 
 _Example_: [Pointers in C](c-pointers/)
 
-_Example_: [Memory Segments](c-memory-segments/)
+_Example_: [Memory Segments used in C](c-memory-segments/)
 
 
 
