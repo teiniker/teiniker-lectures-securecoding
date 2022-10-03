@@ -3,7 +3,7 @@ Stack Usage During a Function Call
 
 $ gdb ./function_call
 
-(gdb) list 1
+(gdb) list 
 1	#include<stdio.h>
 2	
 3	

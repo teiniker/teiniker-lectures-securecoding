@@ -31,11 +31,67 @@ The called functionâ€™s responsibilities are first to save the calling programâ€
 After that, the function gets an opportunity to execute its statements.
 
 
-### Function epilog
+### Function epilogue
 
 The last thing a called function does before returning to the calling program is to clean up the stack by removing the `rbp`. Then the saved return address is popped off the stack and saved to the `rip` register as part of the return process.
 
 _Example_: [Function calls in C](c-function-call/)
+```C
+$ gdb ./function_call
+(gdb) list 
+1	#include<stdio.h>
+2	
+3	
+4	int add(int a, int b)
+5	{
+6	    int s;
+7	    s = a+b;
+8	    return s;
+9	}
+10	
+11	
+12	int main(int argc, char** argv)
+13	{
+14	    int result = add(0x22222222, 0x44444444);
+15	
+16	    printf("result = 0x%08x\n", result);
+17	    return 0;    
+18	}
+```
+
+In the **main() prolog** you can see that the `rbp` register is saved onto the stack, then loaded with the current value of the `rsp` register (beginning of the new stack frame) and the stack pointer is decreased by `0x20` bytes to make room for local variables.
+
+In the **epilogue of main()**, the stack frame is released again with the instruction `leave` which copies the frame pointer (in the `rbp` register) into the stack pointer register `rsp`, which releases the stack space allocated to the stack frame.
+
+```
+(gdb) disass main
+Dump of assembler code for function main:
+   0x00000000004004f1 <+0>:	    push   rbp
+   0x00000000004004f2 <+1>:	    mov    rbp,rsp
+   0x00000000004004f5 <+4>:	    sub    rsp,0x20
+
+   ...
+
+   0x000000000040052b <+58>:	leave
+   0x000000000040052c <+59>:	ret  
+```
+
+Since the `add()` function makes no further function calls, the **prolog** does not need to allocate a full stack frame (`rsp` is not reduced).
+
+This also makes cleaning up in the **epilogue** easier, only the `rbp` has to be popped off the stack.
+
+```
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004d7 <+0>:	    push   rbp
+   0x00000000004004d8 <+1>:	    mov    rbp,rsp
+
+   ...
+   
+   0x00000000004004ef <+24>:	pop    rbp
+   0x00000000004004f0 <+25>:	ret    
+```
+
 
 
 ## Recursion
