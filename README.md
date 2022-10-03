@@ -4,14 +4,15 @@ This project collects examples, exercises and model solutions needed as an intro
 Based on these examples, an inductive learning approach to code review and security testing can be used.
 
 * **Reverse Engineering**
-  * [C Applications](reverse-engineering-c)
+  * C Environment
     * [Introduction](reverse-engineering-c/introduction/)
     * [Memory Segments](reverse-engineering-c/memory/)
     * [Libraries](reverse-engineering-c/libraries/)
+  * Analyzing C Binaries
     * [Static Analysis](reverse-engineering-c/analysis-static/)
     * [Dynamic Analysis](reverse-engineering-c/analysis-static/)
 
-  * [Java Applications](reverse-engineering-java)
+  * [Java Environment](reverse-engineering-java)
   
 * **Secure Coding**
   * [Encapsulation](Encapsulation)
