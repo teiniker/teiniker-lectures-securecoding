@@ -25,19 +25,15 @@ _Example_: [Linked List (Principle)](c-linked-list/)
 
 _Example_: [Linked List](c-linked-list-api/)
 
-_Exercise_: [Lined List for Users](c-linked-list-user-exercise/)\
-    ([model solution:](c-linked-list-user/))
+_Exercise_: [Lined List for Users](c-linked-list-user-exercise/) ([Model Solution](c-linked-list-user/))
 
-_Exercise_: [Stack](c-stack-exercise/)\
-    ([model solution:](c-stack/))
+_Exercise_: [Stack](c-stack-exercise/) ([Model Solution](c-stack/))
 
-_Exercise_: [Queue](c-queue-exercise/)\
-    ([model solution:](c-queue/))
+_Exercise_: [Queue](c-queue-exercise/) ([Model Solution](c-queue/))
 
 _Example_: [Binary Tree](c-binary-tree/)
 
-_Exercise_: [Binary Search Tree](c-binary-search-tree-exercise/)\
-    ([model solution:](c-binary-search-tree/))
+_Exercise_: [Binary Search Tree](c-binary-search-tree-exercise/) ([Model Solution](c-binary-search-tree/))
 
 
 

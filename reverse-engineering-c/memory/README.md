@@ -1,24 +1,21 @@
 # Memory Segments
 
+## Introduction 
 A compiled program's memory is divided into five segments:
 
 * The **.text** segment (or code segment) is where the assembled machine language instructions 
-of the program are located.
-
+of the program are located.\
 This memory segment has a **fixed size**.
 
 * The data and bss segments are used to store global and static program variables. The **.data**
-segment is filled with the initialized global and static variables, while the **.bss** segment is filled with their uninitialized counterparts.
-
+segment is filled with the initialized global and static variables, while the **.bss** segment is filled with their uninitialized counterparts.\
 Although these segments are writable, they also have a **fixed size**.
 
 * The **.heap** segment is a segment of memory a programmer can directly control. 
-Blocks of memory in this segment can be allocated and used for whatever the programmer might need. 
-
+Blocks of memory in this segment can be allocated and used for whatever the programmer might need.\
 The heap segment is not of fixed size, so it **can grow larger or smaller** as needed. 
 
-* The **.stack** segment is used to store local function variables and context during function calls. When a program calls a function that function will have its own set of passed variables. 
-
+* The **.stack** segment is used to store local function variables and context during function calls. When a program calls a function that function will have its own set of passed variables.\
 The stack is also **not of a fixed size**.
 
 ![Memory Layout](figures/MemorySegments.png)
@@ -37,6 +34,13 @@ _Example_: [Pointers in C](c-pointers/)
 
 _Example_: [Memory Segments used in C](c-memory-segments/)
 
+## Using the Heap Segment
+
+[Read more...](heap/)
+
+## Using the Stack Segment
+
+[Read more...](stack/)
 
 
 ## References
