@@ -1,5 +1,6 @@
 # Memory Segments
 
+## Introduction 
 A compiled program's memory is divided into five segments:
 
 * The **.text** segment (or code segment) is where the assembled machine language instructions 
@@ -37,6 +38,13 @@ _Example_: [Pointers in C](c-pointers/)
 
 _Example_: [Memory Segments used in C](c-memory-segments/)
 
+## Using the Heap Segment
+
+[Read more...](heap/)
+
+## Using the Stack Segment
+
+[Read more...](stack/)
 
 
 ## References
