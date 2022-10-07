@@ -1,5 +1,5 @@
 OBJECTS = 
-CFLAGS = -g -std=c99 -Wall  
+CFLAGS = -g -std=c17 -Wall  
 LDLIBS = 
 CC=gcc
 
