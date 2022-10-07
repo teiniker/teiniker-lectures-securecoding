@@ -10,10 +10,19 @@ Based on these examples, an inductive learning approach to code review and secur
     * [Libraries](reverse-engineering-c/libraries/)
   * Analyzing C Binaries
     * [Static Analysis](reverse-engineering-c/analysis-static/)
-    * [Dynamic Analysis](reverse-engineering-c/analysis-static/)
+    * [Dynamic Analysis](reverse-engineering-c/analysis-dynamic/)
 
-  * [Java Environment](reverse-engineering-java)
-  
+  * Java Environment
+    * [Introduction](reverse-engineering-java/introduction)
+    * [Java Virtual Machine](reverse-engineering-java/jvm)
+      * [Memory Segments](reverse-engineering-java/jvm/memory)
+      * [Class Loader](reverse-engineering-java/jvm/classloader)
+      * [Just-in-Time Compiler](reverse-engineering-java/jvm/jit)
+  * Analyzing Java Binaries
+    * [Static Analysis](reverse-engineering-java/analysis-static/)
+    * [Dynamic Analysis](reverse-engineering-java/analysis-dynamic/)
+  * [Obfuscation](reverse-engineering-java/obfuscation/)
+
 * **Secure Coding**
   * [Encapsulation](Encapsulation)
   * [DataValidation](DataValidation)
