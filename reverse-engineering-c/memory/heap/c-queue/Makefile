@@ -1,8 +1,8 @@
 BJECTS =
-CFLAGS = -std=c11 -g -Wall
+CFLAGS = -std=c17 -g -Wall
 LDLIBS =
 CC=gcc
-UNITY=../../unity
+UNITY=../../../unity
 
 all: test
 

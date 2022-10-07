@@ -1,19 +1,21 @@
-
 OBJECTS = 
-CFLAGS = -std=c11 -g -Wall
+CFLAGS = -std=c17 -g -Wall
 LDLIBS = 
 CC=gcc
 
 
-all: pointers type_sizes
+all: pointers 
 
-pointer: pointers.c
-	$(CC) $(CFLAGS) $(LDLIBS) -o pointers pointers.c 
+init:
+	mkdir -p build
 
-type_sizes: type_sizes.c
-	$(CC) $(CFLAGS) $(LDLIBS) -o type_sizes type_sizes.c
+pointers: init pointers.c
+	$(CC) $(CFLAGS) $(LDLIBS) -o build/pointers pointers.c 
+	build/pointers
+
+type_sizes: init type_sizes.c
+	$(CC) $(CFLAGS) $(LDLIBS) -o build/type_sizes type_sizes.c
 
 clean:
-	rm -f pointers
-	rm -f type_sizes
+	rm -rf build/
 

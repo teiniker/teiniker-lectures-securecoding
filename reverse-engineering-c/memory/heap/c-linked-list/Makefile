@@ -1,15 +1,19 @@
 
 OBJECTS = 
-CFLAGS = -std=c11 -g -Wall
+CFLAGS = -std=c17 -g -Wall
 LDLIBS = 
 CC=gcc
 
 
 all: linked_list 
 
-addressof: linked_list.c
-	$(CC) $(CFLAGS) $(LDLIBS) -o linked_list linked_list.c 
+init:
+	mkdir -p build
+
+linked_list: init linked_list.c
+	$(CC) $(CFLAGS) $(LDLIBS) -o build/linked_list linked_list.c 
+	build/linked_list
 
 clean:
-	rm -f linked_list
+	rm -rf build/
 

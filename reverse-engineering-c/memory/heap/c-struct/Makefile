@@ -1,15 +1,17 @@
 
 OBJECTS = 
-CFLAGS = -std=c11 -g -Wall
+CFLAGS = -std=c17 -g -Wall
 LDLIBS = 
 CC=gcc
 
-
 all: struct 
 
-stack: struct.c
-	$(CC) $(CFLAGS) $(LDLIBS) -o struct struct.c 
+init:
+	mkdir -p build
+
+struct: init struct.c
+	$(CC) $(CFLAGS) $(LDLIBS) -o build/struct struct.c 
+	build/struct 
 
 clean:
-	rm -f struct
-
+	rm -rf build/
