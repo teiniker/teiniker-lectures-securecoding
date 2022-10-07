@@ -24,9 +24,9 @@ Based on these examples, an inductive learning approach to code review and secur
   * [Obfuscation](reverse-engineering-java/obfuscation/)
 
 * **Secure Coding**
-  * [Encapsulation](Encapsulation)
-  * [DataValidation](DataValidation)
-  * [ErrorHandling & Logging](ErrorHandling-Logging)
+  * [Encapsulation](secure-coding/Encapsulation)
+  * [DataValidation](secure-coding/DataValidation)
+  * [ErrorHandling & Logging](secure-coding/ErrorHandling-Logging)
   
 
 See also: 

@@ -66,9 +66,9 @@ In the **epilogue of main()**, the stack frame is released again with the instru
 ```
 (gdb) disass main
 Dump of assembler code for function main:
-   0x00000000004004f1 <+0>:	    push   rbp
-   0x00000000004004f2 <+1>:	    mov    rbp,rsp
-   0x00000000004004f5 <+4>:	    sub    rsp,0x20
+   0x00000000004004f1 <+0>:	push   rbp
+   0x00000000004004f2 <+1>:	mov    rbp,rsp
+   0x00000000004004f5 <+4>:	sub    rsp,0x20
 
    ...
 
@@ -83,8 +83,8 @@ This also makes cleaning up in the **epilogue** easier, only the `rbp` has to be
 ```
 (gdb) disass add
 Dump of assembler code for function add:
-   0x00000000004004d7 <+0>:	    push   rbp
-   0x00000000004004d8 <+1>:	    mov    rbp,rsp
+   0x00000000004004d7 <+0>:	push   rbp
+   0x00000000004004d8 <+1>:	mov    rbp,rsp
 
    ...
    
