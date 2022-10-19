@@ -5,7 +5,7 @@ With these examples we can study the most important **cryptographic operations a
 
 * [**Java Cryptography Architecture**](JavaCryptoAPI/JCA-Provider)
 
-* [**Pseude Random Number Generators**](RandomNumbers/)
+* [**Random Numbers**](RandomNumbers/)
 
 * [**Message Digests**](MessageDigest/)
 
