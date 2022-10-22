@@ -4,6 +4,7 @@ This project collects examples, exercises and model solutions needed as an intro
 Based on these examples, an inductive learning approach to code review and security testing can be used.
 
 * **Reverse Engineering**
+  * [Setup](reverse-engineering-c/setup)
   * C Environment
     * [Introduction](reverse-engineering-c/introduction/)
     * [Memory Segments](reverse-engineering-c/memory/)
