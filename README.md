@@ -4,6 +4,10 @@ This project collects examples, exercises and model solutions needed as an intro
 Based on these examples, an inductive learning approach to code review and security testing can be used.
 
 * **Reverse Engineering**
+  * Setup
+    * [gdb](reverse-engineering-c/setup/gdb-disassembler-flavor.md)
+    * [Debugging in VS Code](reverse-engineering-c/setup/VSCode-Debugging.md)
+    * [Ghidra](reverse-engineering-c/setup/Ghidra.md)
   * C Environment
     * [Introduction](reverse-engineering-c/introduction/)
     * [Memory Segments](reverse-engineering-c/memory/)
