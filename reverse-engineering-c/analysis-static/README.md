@@ -8,6 +8,7 @@ which, in the case of malware, generally consists solely of a **disassembly list
 
 ## References
 
+* [YouTube: Simple Tools and Techniques for Reversing a binary](https://youtu.be/3NTXFUxcKPc)
 * [YouTube: HackadayU: Reverse Engineering with Ghidra](https://youtu.be/d4Pgi5XML8E)
 
 * Chris Eagle, Kara Nance. **The Ghidra Book**. No Starch Press, 2020
