@@ -15,7 +15,7 @@ hardcoded password: TODO
 
 B) Decrypt password [7 points]
 Find out how the password will be encrypted and decrypt the found password.
-For the process of decryption, extend the "decrypt_password.py" file, so that
+For the process of decryption, extend the "decrypt_password.c" file, so that
 the plaintext password will be printed out.
 
 plaintext password: TODO
