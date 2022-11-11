@@ -13,6 +13,6 @@ File / Import File
 
 ## References
 * [YouTube: HackadayU: Reverse Engineering with Ghidra](https://youtu.be/d4Pgi5XML8E)
+* [YouTube (BlackHat 2019): Ghidra - Journey from Classified NSA Tool to Open Source](https://youtu.be/kx2xp7IQNSc)
 
-
-*Egon Teiniker, 2020-2021, GPL v3.0*
+*Egon Teiniker, 2020-2022, GPL v3.0*
