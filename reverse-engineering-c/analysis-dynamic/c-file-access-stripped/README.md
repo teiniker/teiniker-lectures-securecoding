@@ -1,4 +1,4 @@
-# Example: File Access - Tracing System Calls  
+# Example: Tracing System Calls - File Access - Stripped 
 
 We try to guess the right password for the user `student`:
 ```
@@ -8,48 +8,18 @@ password> student
 Login rejected!
 ```
 
-From the given source code we can see that file_login reads user 
-credentials from a file.
-```C
-bool is_valid_user(char* username, char* password)
-{
-    char _username[256];
-    char _password[256];
-    FILE *fp;
-    fp = fopen("application-users.config", "r");
-    if (fp == NULL) 
-    {
-        fprintf(stderr, "Can't open passwords.txt file!\n");
-        return false;
-    }
-    
-    while(fscanf(fp, "%s %s", _username, _password) != EOF)
-    {
-        if(strcmp(username,_username) == 0
-            && strcmp(password,_password) == 0)
-        {
-            fclose(fp);
-            return true;
-        }
-    }
-    fclose(fp);
-    return false;
-}
-```
 ## Using strip to Remove Symbols
 
-strip is a GNU utility to `strip` symbols from object files. 
-This is useful for minimizing their file size, streamlining them for distribution. 
-It can also be useful for making it **more difficult to reverse-engineer** the compiled code.
+We use `strip` to remove symbols from binary files.
 
 As part of the make build process, we invoke the strip command.
 ```
 $ make
-gcc -std=c99 -Wall    -o file_login file_login.c 
+gcc -std=c17 -Wall -o file_login file_login.c 
 strip file_login
 ```
 
-When we use file, we can see that this executable is recognized as being stripped.
+When we use `file`, we can see that this executable is recognized as being stripped.
 ```
 $ file file_login
 file_login: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=690f7f16d2d09caa8d81775a1e471d67c8416bd2, for GNU/Linux 3.2.0, stripped
@@ -107,4 +77,4 @@ Now it is much harder to analyze the assembly code to find the right locations f
 ## References:
 * [Linux strip command](https://www.computerhope.com/unix/strip.htm)
 
-*Egon Teiniker, 2020-2021, GPL v3.0* 
+*Egon Teiniker, 2020-2022, GPL v3.0* 

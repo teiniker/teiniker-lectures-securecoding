@@ -68,4 +68,4 @@ puts("don't trace me !!"don't trace me !!
 
 * [Linux Programmer's Manual](http://man7.org/linux/man-pages/man2/ptrace.2.html)
 
-*Egon Teiniker, 2019, GPL v3.0*
+*Egon Teiniker, 2020-2022, GPL v3.0*

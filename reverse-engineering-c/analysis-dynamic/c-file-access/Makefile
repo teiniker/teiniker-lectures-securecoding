@@ -1,6 +1,6 @@
 
 OBJECTS = 
-CFLAGS = -std=c99 -g -Wall  
+CFLAGS = -std=c99 -Wall  
 LDLIBS = 
 CC=gcc
 
