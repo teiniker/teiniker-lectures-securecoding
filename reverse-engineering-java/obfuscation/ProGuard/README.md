@@ -1,8 +1,8 @@
 # Code Obfuscation using ProGuard
 
 ## Install ProGuard 
-We can **download** ProGuard from: https://github.com/Guardsquare/proguard/releases and unzip the file into a
-local directory:
+We can **download** [ProGuard](https://github.com/Guardsquare/proguard/releases) 
+and unzip the file into a local directory:
 ```
 $ mkdir local
 $ cd local
@@ -32,7 +32,7 @@ As the result of the build process, we can see a JAR file in the `target` folder
 
 To start the `Main` class in the JAR file, type:
 ```
-$ java -cp ./target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar org.se.lab.Main
+$ java -cp ./target/Obfuscation-ShoppingCart-0.0.1-SNAPSHOT.jar org.se.lab.Main
 <category id="1" name="VmVyeSBzZWNyZXQga2V5IQ==">
 <category id="2" name="English Books">
 <category id="4" name="Programming Books">
@@ -47,7 +47,7 @@ $ java -cp ./target/Java-Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar org.se.lab.M
 
 Now, that we have a working JAR file, we can use **ProGuard** to create an **obfuscated version** of this JAR file.
 ```
-$ cp target/Obfuscator-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-1.0.0.jar
+$ cp target/Obfuscation-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-1.0.0.jar
 $ proguard.sh @config.pro
 ```
 
@@ -122,4 +122,4 @@ Here some major settings:
 * [ProGuard Manual](https://www.guardsquare.com/manual/home)
 * [ProGuard Download](https://github.com/Guardsquare/proguard/releases)
 
-*Egon Teiniker, 2020 - 2021, GPL v3.0* 
+*Egon Teiniker, 2020 - 2022, GPL v3.0* 
