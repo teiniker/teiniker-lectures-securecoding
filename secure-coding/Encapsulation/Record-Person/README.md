@@ -52,11 +52,11 @@ _Example_: Equivalent getters: `name()` and `address()`
         return name;
     }
 
-	private final String address;
-	public String address()
-	{
-		return address;
-	}
+    private final String address;
+    public String address()
+    {
+        return address;
+    }
 ```
 
 ## HashCode and Equals
