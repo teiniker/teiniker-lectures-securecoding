@@ -18,7 +18,7 @@ How to attack a Java JAR file using a Decompiler
     $ mv SecureWriter.class org/se/lab/
 
 5) Test your changes
-    $ java org.se.lab.SecureWriter hello
+    $ java -cp ./ org.se.lab.SecureWriter hello
 
 6) Re-create Java-Decompiler-SecureWriter.jar
 

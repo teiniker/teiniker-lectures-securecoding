@@ -44,7 +44,7 @@ public class TryWithResourcesTest
 	public void testReadFirstLineFinally() throws IOException
 	{
 
-		String line = readFirstLine("README.txt");
+		String line = readFirstLine("README.md");
 
 		Assert.assertEquals("The try-with-resources Statement", line);
 	}

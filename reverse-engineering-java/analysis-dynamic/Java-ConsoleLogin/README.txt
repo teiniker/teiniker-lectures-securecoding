@@ -23,7 +23,7 @@ password > superhomer
 ------------------
 While the target application is running, start:
 
-$ jvisualvm
+$ jvisualvm --fontsize 20
 
 Double click on the right PID
 Tab Monitor -> Heap Dump
