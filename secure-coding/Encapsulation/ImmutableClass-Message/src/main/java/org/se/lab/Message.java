@@ -1,7 +1,8 @@
-package org.sel.ab;
+package org.se.lab;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public final class Message
 {
@@ -14,11 +15,11 @@ public final class Message
 			throw new IllegalArgumentException();
 		if(data == null)
 			throw new IllegalArgumentException();
-		
+
 		this.id = id;
 	
 		// create a deep copy of the data list
-		this.data = new ArrayList<String>();
+		this.data = new ArrayList<>();
 		for(String d : data)
 			this.data.add(d);
 	}
@@ -41,7 +42,7 @@ public final class Message
 	public List<String> getData()
 	{
 		// create a deep copy of the data list
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		for(String d : data)
 			result.add(d);
 				
@@ -52,34 +53,28 @@ public final class Message
 	/*
 	 * Object methods
 	 */
-	
+
 	@Override
 	public String toString()
 	{
-		return getId() + ":" + getData().toString(); 
-	}
-	
-	@Override
-	public int hashCode()
-	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
+		return "Message[" + "id=" + id + ", data=" + data + ']';
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	public boolean equals(Object o)
 	{
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Message other = (Message) obj;
-		if (id != other.id)
-			return false;
-		return true;
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Message message = (Message) o;
+		if (id != message.id) return false;
+		return Objects.equals(data, message.data);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = (int) (id ^ (id >>> 32));
+		result = 31 * result + (data != null ? data.hashCode() : 0);
+		return result;
 	}
 }

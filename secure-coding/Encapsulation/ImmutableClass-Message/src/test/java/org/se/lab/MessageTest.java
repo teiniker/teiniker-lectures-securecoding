@@ -1,11 +1,11 @@
-package org.sel.ab;
+package org.se.lab;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Assert;
-import org.junit.Test;
 
 public class MessageTest
 {
@@ -40,7 +40,7 @@ public class MessageTest
 	
 		final String actual = m.toString();
 
-		final String expected = "1:[097SGHD787, XXJSGGA5, LKSHSN78]";
+		final String expected = "Message[id=1, data=[097SGHD787, XXJSGGA5, LKSHSN78]]";
 		Assert.assertEquals(expected, actual);
 	}
 	
@@ -48,7 +48,7 @@ public class MessageTest
 	public void testHashCodeAndEquals()
 	{
 		Message m1 = new Message(1, Arrays.asList("097SGHD787", "XXJSGGA5", "LKSHSN78"));
-		Message m2 = new Message(1, Arrays.asList("", "", ""));
+		Message m2 = new Message(1, Arrays.asList("097SGHD787", "XXJSGGA5", "LKSHSN78"));
 		
 		// Note that hashCode() and equals() compares the id only!
 		Assert.assertTrue(m1.equals(m2));
@@ -60,7 +60,7 @@ public class MessageTest
 	@Test
 	public void testListAttack1()
 	{
-		List<String> data = new ArrayList<String>();
+		List<String> data = new ArrayList<>();
 		data.add("097SGHD787");
 		data.add("XXJSGGA5");
 		data.add("LKSHSN78");
@@ -69,9 +69,8 @@ public class MessageTest
 		// attack: hold a reference to internal mutable object
 		data.set(1, "---666---");
 		
-		final String actual = m.toString();
-
-		final String expected = "1:[097SGHD787, XXJSGGA5, LKSHSN78]";
+		String actual = m.toString();
+		String expected = "Message[id=1, data=[097SGHD787, XXJSGGA5, LKSHSN78]]";
 		Assert.assertEquals(expected, actual);		
 	}
 
@@ -86,7 +85,7 @@ public class MessageTest
 		
 		final String actual = m.toString();
 
-		final String expected = "1:[097SGHD787, XXJSGGA5, LKSHSN78]";
+		final String expected = "Message[id=1, data=[097SGHD787, XXJSGGA5, LKSHSN78]]";
 		Assert.assertEquals(expected, actual);		
 	}
 }
