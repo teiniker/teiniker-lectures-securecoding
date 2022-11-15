@@ -1,6 +1,6 @@
 # Sealed Classes and Interfaces
 
-This feature is about enabling more **fine-grained inheritance control** in Java. 
+This feature (introduced in Java 15) is about enabling more **fine-grained inheritance control** in Java. 
 **Sealing allows classes and interfaces to define their permitted subtypes**.
 
 In other words, a class or an interface can now define which classes can implement or extend it. 
