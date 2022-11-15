@@ -1,8 +1,8 @@
 # Sealed Classes and Interfaces
 
 This feature (introduced in Java 15) is about enabling more **fine-grained inheritance control** in Java. 
-**Sealing allows classes and interfaces to define their permitted subtypes**.
 
+**Sealing allows classes and interfaces to define their permitted subtypes**.
 In other words, a class or an interface can now define which classes can implement or extend it. 
 It is a useful feature for domain modeling and increasing the security of libraries.
 
@@ -39,7 +39,7 @@ public sealed class User permits Admin
 }
 ```
 
-A **permitted subclass** must define a modifier. It may be declared **final** to prevent any further extensions:
+A **permitted subclass** must define a modifier, it may be declared **final** to prevent any further extensions:
 
 _Example_: Final subclass
 ```Java
@@ -85,7 +85,7 @@ A sealed class imposes three important **constraints on its permitted subclasses
 
 ## Sealed Interfaces
   To seal an interface, we can apply the **sealed** modifier to its declaration. 
-  The **permits** clause then specifies the classes that are permitted to implement the sealed interface.
+  The **permits** clause then specifies the **classes that are permitted to implement the sealed interface**.
 
 _Example_:
 ```Java
