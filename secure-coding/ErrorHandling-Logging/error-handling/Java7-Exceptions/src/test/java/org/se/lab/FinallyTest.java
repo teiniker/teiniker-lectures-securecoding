@@ -42,7 +42,7 @@ public class FinallyTest
 	public void testReadFirstLineFinally() throws IOException
 	{
 
-		String line = readFirstLine("README.md");
+		String line = readFirstLine("README.txt");
 
 		Assert.assertEquals("The try-with-resources Statement", line);
 	}

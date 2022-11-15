@@ -6,9 +6,9 @@
 
 	<parent>
 		<groupId>org.se.lab</groupId>
-		<artifactId>OutputEncoding-Parent</artifactId>
+		<artifactId>DataValidation-Parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
 	<dependencies>
