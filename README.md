@@ -3,18 +3,8 @@
 This project collects examples, exercises and model solutions needed as an introduction to software security.
 Based on these examples, an inductive learning approach to code review and security testing can be used.
 
-* **Reverse Engineering**
-  * Setup
-    * [gdb](reverse-engineering-c/setup/gdb-disassembler-flavor.md)
-    * [Debugging in VS Code](reverse-engineering-c/setup/VSCode-Debugging.md)
-    * [Ghidra](reverse-engineering-c/setup/Ghidra.md)
-  * C Environment
-    * [Introduction](reverse-engineering-c/introduction/)
-    * [Memory Segments](reverse-engineering-c/memory/)
-    * [Libraries](reverse-engineering-c/libraries/)
-  * Analyzing C Binaries
-    * [Static Analysis](reverse-engineering-c/analysis-static/)
-    * [Dynamic Analysis](reverse-engineering-c/analysis-dynamic/)
+* Reverse Engineering
+  * [Reverse Engineering C](reverse-engineering-c)
 
   * Java Environment
     * [Introduction](reverse-engineering-java/introduction)
