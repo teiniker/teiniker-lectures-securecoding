@@ -22,4 +22,4 @@
 * Joshua Bloch. **Effective Java**. Addison-Wesley, 2017, 3nd Edition
 * Christian Collberg, Jasvir Nagra. **Surreptitious Software**. Addison Wesley, 2010
 
-*Egon Teiniker, 2020-2022, GPL v3.0*
+*Egon Teiniker, 2016-2022, GPL v3.0*
