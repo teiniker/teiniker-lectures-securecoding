@@ -7,11 +7,11 @@ Based on these examples, an inductive learning approach to code review and secur
   * [Reverse Engineering C](reverse-engineering-c)
   * [Reverse Engineering Java](reverse-engineering-java)
 
-* **Secure Coding**
+* Secure Coding
   * [Encapsulation](secure-coding/Encapsulation)
   * [DataValidation](secure-coding/DataValidation)
   * [ErrorHandling & Logging](secure-coding/ErrorHandling-Logging)
-  
+  * [Cryptography in Practice](secure-coding/Cryptography)
 
 See also: 
 [Secure Design by Example](https://github.com/teiniker/teiniker-lectures-securedesign) and 
