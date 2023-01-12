@@ -16,6 +16,7 @@
 
 
 ## References
+* Allen Harper, Shon Harris, Jonathan Ness, Chris Eagle, Gideon Lenkey, Terron Williams. **Gray Hat Hacking**. McGraw Hill, 3rd Edition, 2011
 * Joshua Bloch. **Effective Java**. Addison-Wesley, 2017, 3rd Edition
 * Charlie Hunt, Binu John. **Java Performance**. Addison-Wesley, 2012
 * Christian Collberg, Jasvir Nagra. **Surreptitious Software**. Addison Wesley, 2010

@@ -11,7 +11,7 @@ $ mvn package
 
 To review the content of a JAR file type:
 ```
-$ jar -tf target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+$ jar -tf target/DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar
 ```
 
 
@@ -61,7 +61,7 @@ Java comes with a tool called **jarsigner**, which can be used to sign files and
 of signed JAR files.
 
 ```
-$ jarsigner -keystore keystore.pfx  -storepass student -keypass student target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar testkey
+$ jarsigner -keystore keystore.pfx  -storepass student -keypass student target/DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar testkey
 ```
 
 When we execute the command we see a warning statement that _"The signer certificate will expire within six months."_ 
@@ -69,7 +69,7 @@ This is because the **self-signed certificate** we generated with the keytool is
 
 Let's review the JAR file's content:
 ```
-$ jar -tf target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+$ jar -tf target/DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar
 META-INF/MANIFEST.MF				<-- Manifest File
 META-INF/TESTKEY.SF					<-- Signature File
 META-INF/TESTKEY.RSA				<-- Signature Block
@@ -87,7 +87,7 @@ org/se/lab/UserService.class
 ```
 $ mkdir tmp
 $ cd tmp/
-$ jar xvf ../target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar 
+$ jar xvf ../target/DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar 
 
 	target/
 	├── classes
@@ -95,12 +95,12 @@ $ jar xvf ../target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
 	│           ├── MANIFEST.MF
 	│           └── maven
 	│               └── org.se.lab
-	│                    └── SecurityFeatures-Jar-Signing
+	│                    └── DigitalSignatures-JAR-Signing
 	│                        ├── pom.properties
 	│                        └── pom.xml
 	├── maven-archiver
 	│        └── pom.properties
-	├── SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+	├── DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar
 	└── test-classes
 ```
 
@@ -169,7 +169,7 @@ The RSA extension indicates that the file was created using the **RSA algorithm*
 
 A signed JAR file can be verified by using **jarsigner** with the `-verify` option. 
 ```
-$ jarsigner -verify -verbose -keystore keystore.pfx target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+$ jarsigner -verify -verbose -keystore keystore.pfx target/DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar
 
 s k      598 Sat Apr 12 12:14:10 CEST 2014 META-INF/MANIFEST.MF
          725 Sat Apr 12 12:14:10 CEST 2014 META-INF/FHJ.SF
@@ -219,8 +219,8 @@ $ keytool -export -v -keystore keystore.pfx -alias testkey -file testkey.cert -s
 ```
 $ keytool -import -v -keystore certificates.pfx -alias testkey-cert -file testkey.cert -storepass student -keypass student
 
-$ jarsigner -verify -verbose -keystore certificates.pfx target/SecurityFeatures-Jar-Signing-0.0.1-SNAPSHOT.jar
+$ jarsigner -verify -verbose -keystore certificates.pfx target/DigitalSignatures-JAR-Signing-0.0.1-SNAPSHOT.jar
 ```
 
 
-*Egon Teiniker, 2020 - 2021, GPL v3.0* 
+*Egon Teiniker, 2020 - 2022, GPL v3.0* 

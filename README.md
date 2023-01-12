@@ -8,7 +8,6 @@ Based on these examples, an inductive learning approach to code review and secur
   * [Java Applications](reverse-engineering-java/)
  
 * [Secure Coding](secure-coding/)
-  
 
 See also: 
 [Secure Design by Example](https://github.com/teiniker/teiniker-lectures-securedesign) and 

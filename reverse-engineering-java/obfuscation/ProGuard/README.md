@@ -21,7 +21,7 @@ We can use ProGuard from the command line, as shown by the following example.
 _Example_: Using ProGuard to obfuscate a JAR file
 We change into the project directory and build the JAR file.
 ```
-$ cd teiniker-lectures-securecoding/reverse-engineering-java/Java-Obfuscator-ShoppingCart
+$ cd Java-Obfuscator-ShoppingCart
 $ mvn package
 ```
 As the result of the build process, we can see a JAR file in the `target` folder:

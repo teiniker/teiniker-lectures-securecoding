@@ -3,23 +3,23 @@
 This directory contains examples related to practical cryptography in Java.
 With these examples we can study the most important **cryptographic operations and algorithms**.
 
-* [**Java Cryptography Architecture**](JavaCryptoAPI/JCA-Provider)
+* [Java Cryptography Architecture](JavaCryptoAPI/JCA-Provider)
 
-* [**Random Numbers**](RandomNumbers/)
+* [Random Numbers](RandomNumbers/)
 
-* [**Message Digests**](MessageDigest/)
+* [Message Digests](MessageDigest/)
 
-* [**Key Derivation Functions**](KeyDerivationFunctions/)
+* [Key Derivation Functions](KeyDerivationFunctions/)
 
-* [**Message Authentication Codes**](MessageAuthenticationCode/)
+* [Message Authentication Codes](MessageAuthenticationCode/)
 
-* [**Symmetric Encryption**](SymmetricEncryption/)
+* [Symmetric Encryption](SymmetricEncryption/)
 
-* [**Asymmetric Encryption**](AsymmetricEncryption/)
+* [Asymmetric Encryption](AsymmetricEncryption/)
 
-* [**Digital Signatures**](Digital-Signatures/)
+* [Digital Signatures](Digital-Signatures/)
 
-* [**Digital Certificates**](Digital-Certificates/)
+* [Digital Certificates](Digital-Certificates/)
 
 
 
