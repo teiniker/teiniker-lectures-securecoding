@@ -13,4 +13,4 @@ Sub-systems must ensure that data received across a trust boundary is appropriat
 * [**Output Encoding**](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/OutputEncoding)
   Data that leave the subsystem must be encoded appropriate so that they cannot cause any damage in another sub-system.
 
-*Egon Teiniker, 2020-2022, GPL v3.0*
+*Egon Teiniker, 2016-2023, GPL v3.0*
