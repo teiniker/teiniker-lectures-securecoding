@@ -18,7 +18,7 @@ Here we create the simplest possible Module containing only one public package.
 │   │                   └── Main.java
 ```
 
-In the **Module Descriptor**, we define that the *org.se.lab.api* package is public and we use the *java.logging* sytem module. 
+In the **Module Descriptor**, we define that the *org.se.lab* package is public and we use the *java.logging* sytem module. 
 Note that the *java.base* system module is included by default (therefore it is not necessary to add this requires statement).
 ```
 module loggingservice 
