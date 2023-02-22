@@ -5,11 +5,10 @@ public class StackImpl
 {
 	private Node stack = null;
 	
-	
 	@Override
 	public void push(Integer value)
 	{
-		Node newNode = new Node(value, null);
+		Node newNode = new Node(value);
 	
 		if(stack != null)
 		{

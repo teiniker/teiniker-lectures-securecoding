@@ -1,6 +1,7 @@
 package org.se.lab;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 
@@ -15,7 +16,7 @@ import org.junit.Test;
 
 public class LogForgingAttackTest
 {
-	private final Logger logger = Logger.getLogger(LogForgingAttackTest.class);
+	private final Logger logger = LogManager.getLogger(LogForgingAttackTest.class);
 
 	@Test
 	public void testLogForgingAttack()
@@ -34,6 +35,6 @@ public class LogForgingAttackTest
 
 	protected void operation(String name)
 	{
-		logger.info("Parameter:" + LogEncoder.encode(name));
+		//logger.info("Parameter:" + LogEncoder.encode(name));
 	}
 }

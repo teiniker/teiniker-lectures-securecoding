@@ -2,6 +2,8 @@ Regular Expressions: egrep Examples
 -------------------------------------------------------------------------------
 
 We use egrep to select strings from the file InputData.txt
+$ grep -E
+$ egrep
 
 Examples: String Literals
 -------------------------------------------------------------------------------

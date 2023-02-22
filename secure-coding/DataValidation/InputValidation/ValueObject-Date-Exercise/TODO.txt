@@ -4,7 +4,7 @@ Exercise: Input Validation - Value Object
 1. Immutable Class
 -------------------------------------------------------------------------------
 Implement an immutable class "ImmutableDate" which reads a date string like
-"2019-01-18" in the constructor and stores the year, month and day as
+"2022-01-18" in the constructor and stores the year, month and day as
 integer values.
 Also implement toString(), hashCode(), and equals().
 

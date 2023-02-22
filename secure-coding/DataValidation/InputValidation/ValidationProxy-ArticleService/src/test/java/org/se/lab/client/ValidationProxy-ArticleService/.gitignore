@@ -1,0 +1,6 @@
+/target/
+/.settings/
+/.classpath
+/.project
+/ClassDiagram.ucls
+/InputValidation-ValidationProxy.iml

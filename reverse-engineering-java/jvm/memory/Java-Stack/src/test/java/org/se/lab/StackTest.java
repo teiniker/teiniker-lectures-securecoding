@@ -7,8 +7,7 @@ import org.junit.Test;
 public class StackTest
 {
 	private Stack stack;
-	
-	
+
 	@Before
 	public void setup()
 	{

@@ -70,7 +70,8 @@ public class EncryptedFile
         {
             byte[] data = load(filename);
             cipher.init(Cipher.DECRYPT_MODE, key, iv);
-            return cipher.doFinal(data);
+            byte[] plain = cipher.doFinal(data);
+            return plain;
         }
         catch (InvalidKeyException | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e)
         {

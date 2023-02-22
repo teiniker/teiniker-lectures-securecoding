@@ -3,4 +3,4 @@
 /.classpath
 /.project
 /secure-data.bin
-/keystore.pfx
+/src/test/resources/keystore.pfx

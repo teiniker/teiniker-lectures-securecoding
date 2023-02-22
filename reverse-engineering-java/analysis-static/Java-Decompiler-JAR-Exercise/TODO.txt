@@ -21,7 +21,7 @@ How to extract a JAR file?
 
 $ mkdir tmp
 $ cd tmp
-$ jar -xvf Java-Decompiler-SecureWriter.jar
+$ jar -xvf ../dist/Java-Decompiler-SecureWriter.jar
 $ tree
 .
 ├── META-INF
@@ -41,6 +41,11 @@ $ cat META-INF/MANIFEST.MF
 Manifest-Version: 1.0
 Created-By: 1.8.0_144 (Oracle Corporation)
 
+
+Compile the de-compiled source code
+---------------------------------------------------------------------
+
+$ javac -cp ./ SecureWriter.java
 
 How to create a JAR file?
 ---------------------------------------------------------------------

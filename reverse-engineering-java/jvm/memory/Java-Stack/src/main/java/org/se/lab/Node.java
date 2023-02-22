@@ -10,8 +10,12 @@ public class Node
 		setValue(value);
 		setNext(next);
 	}
-	
-	
+
+	public Node(Integer value)
+	{
+		this(value, null);
+	}
+
 	/*
 	 * Properties:
 	 */
