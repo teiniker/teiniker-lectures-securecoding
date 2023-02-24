@@ -9,6 +9,8 @@ Based on these examples, an inductive learning approach to code review and secur
  
 * [Secure Coding](secure-coding/)
 
+* [Cryptography in Practice](cryptography-in-practice/)
+
 See also: 
 [Secure Design by Example](https://github.com/teiniker/teiniker-lectures-securedesign) and 
 [Secure Services by Example](https://github.com/teiniker/teiniker-lectures-secureservices) 
