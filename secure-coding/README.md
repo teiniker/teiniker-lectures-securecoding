@@ -10,7 +10,6 @@ Based on the taxonomy of coding errors defined by Gary McGraw, we can split the 
 
 * [Error Handling & Logging](ErrorHandling-Logging/)
 
-* [Cryprography in Practice](Cryptography/)
 
 ## References 
 * [SEI CERT C Coding Standard](https://wiki.sei.cmu.edu/confluence/display/c)
