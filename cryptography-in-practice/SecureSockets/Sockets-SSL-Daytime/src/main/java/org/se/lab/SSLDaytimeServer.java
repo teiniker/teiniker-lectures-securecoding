@@ -24,7 +24,7 @@ public class SSLDaytimeServer
 				try(SSLSocket connection = (SSLSocket) server.accept())
 				{
 					SSLSession sslSession = connection.getSession();
-					connection.setEnabledProtocols(new String[] {"TLSv1.2"});
+					connection.setEnabledProtocols(new String[] {"TLSv1.2", "TLSv1.3"});
 					String cipherSuite = sslSession.getCipherSuite();
 					System.out.println(cipherSuite);
 					System.out.println(Arrays.toString(connection.getEnabledCipherSuites()));

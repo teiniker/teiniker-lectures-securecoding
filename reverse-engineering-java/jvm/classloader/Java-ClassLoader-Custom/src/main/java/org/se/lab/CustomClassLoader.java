@@ -15,11 +15,9 @@ public class CustomClassLoader
 	{
 		super(CustomClassLoader.class.getClassLoader()); // set the parent class loader
 	}
-	
-	
+
 	@Override
 	public Class<?> loadClass(String name)
-		throws ClassNotFoundException
 	{
 		System.out.println("loadClass: " + name);
 		Class<?> klass;
