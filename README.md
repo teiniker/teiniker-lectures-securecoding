@@ -3,9 +3,7 @@
 This project collects examples, exercises and model solutions needed as an introduction to software security.
 Based on these examples, an inductive learning approach to code review and security testing can be used.
 
-* Reverse Engineering
-  * [C Applications](reverse-engineering-c/) 
-  * [Java Applications](reverse-engineering-java/)
+* [Reverse Engineering](reverse-engineering-java/)
  
 * [Secure Coding](secure-coding/)
 
