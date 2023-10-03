@@ -1,0 +1,24 @@
+Exercise: Cryptography - Asymmetric File Encryption
+-------------------------------------------------------------------------------
+
+Extend the given "EncryptedFile" class to support the handling of encrypted files:
+
+1) EncryptedFile(String publicKeyString, String privateKeyString)
+    Implement a constructor which initializes a asymmetric cipher: "RSA"
+
+2) public void saveEncrypted(String filename, byte[] data)
+    Encrypt the given data before they are written into the file.
+
+3) public byte[] loadEncrypted(String filename)
+    Decrypt the loaded data before they are returned by this method.
+
+Tip: Implement a simple input validation on all public operations (see test cases).
+Tip: Make sure that you wrap all checked exceptions into a IllegelStateException.
+
+Run the "EncryptedFileTest" to validate your implementations.
+
+Note that RSA encryption uses a random value as part of the encryption process
+to ensure that the ciphertext has a different value every time, even when the
+same plaintext is encrypted multiple times.
+
+

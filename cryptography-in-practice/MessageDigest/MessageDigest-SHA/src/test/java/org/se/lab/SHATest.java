@@ -2,7 +2,7 @@ package org.se.lab;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -15,10 +15,10 @@ public class SHATest
 {
 	@Test
 	public void testSHA256() 
-		throws NoSuchAlgorithmException, UnsupportedEncodingException
+		throws NoSuchAlgorithmException
 	{
 		String message = "My important message.";
-		byte[] inBytes = message.getBytes("UTF-8");
+		byte[] inBytes = message.getBytes(StandardCharsets.UTF_8);
 
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		algorithm.update(inBytes);
@@ -36,12 +36,12 @@ public class SHATest
 	
 	@Test
 	public void testSHA512() 
-		throws NoSuchAlgorithmException, UnsupportedEncodingException
+		throws NoSuchAlgorithmException
 	{
 		String message = "mypassword";
 
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-512");		
-		algorithm.update(message.getBytes("UTF-8"));
+		algorithm.update(message.getBytes(StandardCharsets.UTF_8));
 		byte[] bytes = algorithm.digest();
 
 		String hexString = Hex.encodeHexString(bytes);

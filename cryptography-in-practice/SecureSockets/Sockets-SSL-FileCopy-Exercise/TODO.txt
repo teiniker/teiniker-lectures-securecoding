@@ -14,7 +14,7 @@ file (e.g. "mytux.jpg"), and terminates.
 
 2. Secure Copy Client
 -------------------------------------------------------------------------------
-Implement a class called "ScpClient" that can be executed with the commond line:
+Implement a class called "ScpClient" that can be executed with the command line:
 
 $ java -cp ./target/classes -Djavax.net.ssl.trustStore=./SSLKeyStore -Djavax.net.ssl.trustStorePassword=student org.se.lab.ScpClient tux.jpg localhost 8010 
 
