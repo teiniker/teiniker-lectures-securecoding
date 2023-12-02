@@ -11,7 +11,7 @@ public class HelloWorld
 	{
 		for(int i=0; i<10; i++)
 		{
-			System.out.println("Hello KBerg!");
+			System.out.println("Hello Bremen!");
 		}
 	}
 }
@@ -45,9 +45,9 @@ $ tree
 
 ```
 $ java -cp target/classes/ org.se.lab.HelloWorld
-Hello KBerg!
+Hello Bremen!
 ...
-Hello KBerg!
+Hello Bremen!
 ```
 
 ## Use Maven as a Build Tool
@@ -110,7 +110,7 @@ public class org.se.lab.HelloWorld {
        3: bipush        10
        5: if_icmpge     22
        8: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
-      11: ldc           #13                 // String Hello World!
+      11: ldc           #13                 // String Hello Bremen!
       13: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
       16: iinc          1, 1
       19: goto          2
@@ -158,4 +158,4 @@ $ jar -tf target/Java-HelloWorld-0.0.1-SNAPSHOT.jar
 ## References
 * [The Java™ Tutorials](https://docs.oracle.com/javase/tutorial/)
 
-*Egon Teiniker, 2020-2022, GPL v3.0*
+*Egon Teiniker, 2020-2023, GPL v3.0*
