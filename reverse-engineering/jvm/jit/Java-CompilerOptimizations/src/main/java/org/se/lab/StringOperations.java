@@ -4,8 +4,7 @@ public class StringOperations
 {
 	private long id;
 	private String username;
-		
-	
+
 	public String toString1()
 	{
 		return "{" + id + "," + username + "}";

@@ -1,23 +1,31 @@
-Java Compiler Optimizations
----------------------------------------------------------------------
-In this project, we investigate optimizations that are performed by 
+# Java Compiler Optimizations
+
+In this example, we investigate optimizations that are performed by 
 the Java compiler javac and the Java Virtual Machine (JVM).
 
-Common compiler optimization techniques are method inlining, 
-constant propagation, constant folding and dead code elimination. 
+Compiler optimizations are techniques used by compilers to improve 
+the performance and efficiency of the generated code without altering 
+its functionality. 
+
+These optimizations include reducing code size, increasing execution 
+speed, and optimizing resource usage. Common strategies include **loop 
+unrolling** (to decrease loop overhead), **dead code elimination** (removing 
+code that doesn't affect the program's outcome), and **inline expansion** 
+(replacing function calls with the function's body). 
+
+By performing these optimizations, compilers help ensure that the final 
+executable program runs faster and more efficiently on the target hardware.
 
 
-Method Inlining
----------------
+## Method Inlining
 The javac compiler does not support method inlining. This optimization
 is done by the JVM at runtime. 
 
-Example: EmptyMethod.java
-
+_Example_: EmptyMethod.java
+```Java
 public class EmptyMethod
 {
 	public void emptyMethod() {}
-	
 	
 	public static void main(String... args)
 	{
@@ -28,11 +36,15 @@ public class EmptyMethod
 		{
 			obj.emptyMethod();
 			i++;
-		}
-		
+		}	
 	}
 }
+```
 
+From the compiled bytecode we can see that call to empty method `EmptyMethod()` 
+was not removed by the Java compiler (line 14).
+
+```
 $ javap -c target/classes/org/se/lab/EmptyMethod.class 
 
 Compiled from "EmptyMethod.java"
@@ -64,9 +76,13 @@ public class org.se.lab.EmptyMethod {
       23: if_icmplt     13
       26: return        
 }
+```
 
-Note that the JIT is addressing that problem:
+Note that the JIT is addressing that problem.
+At runtime, the empty method `EmptyMethod()` is compiled into 
+a single byte by the JIT - and thus eliminated.
 
+```
 $ java -XX:+PrintCompilation -cp build org.se.lab.EmptyMethod
      68    1             java.lang.String::hashCode (55 bytes)
      78    2             java.lang.String::indexOf (70 bytes)
@@ -76,89 +92,14 @@ $ java -XX:+PrintCompilation -cp build org.se.lab.EmptyMethod
     117    6             java.lang.Object::<init> (1 bytes)
     123    7             org.se.lab.EmptyMethod::emptyMethod (1 bytes)
     133    8 %           org.se.lab.EmptyMethod::main @ 13 (27 bytes)
+```
 
+## Dead Code Elimination
+This optimization allows a compiler to ignore code and 
+variables that are never used.
 
-
-
-Constant Propagation and Constant Folding
------------------------------------------
-Fixed-value variables in the source code are replaced by their values.
-Constant folding replaces expressions with fixed values.
-
-
-public class Constants
-{
-	public int doConstantFolding()
-	{
-		final int VERSION = 10 + 25 + 15;		
-		return VERSION;
-	}
-
-	public int doConstantPropagation()
-	{
-		final int A = 111;
-		final int B = 222;
-
-		int c = A+B;
-		return c + A; 
-	}
-
-	public int doSomething(int a, int b)
-	{
-		int c = a+b;
-		return c + a; 
-	}
-}
-
-
-$ javap -c target/classes/org/se/lab/Constants.class 
-
-Compiled from "Constants.java"
-public class org.se.lab.Constants {
-  public org.se.lab.Constants();
-    Code:
-       0: aload_0       
-       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
-       4: return        
-
-  public int doConstantFolding();
-    Code:
-       0: bipush        50  				// Constant Folding
-       2: istore_1      
-       3: bipush        50
-       5: ireturn       
-
-  public int doConstantPropagation();
-    Code:
-       0: bipush        111
-       2: istore_1      
-       3: sipush        222
-       6: istore_2      
-       7: sipush        333
-      10: istore_3      
-      11: iload_3       
-      12: bipush        111					// Constant Propagation
-      14: iadd          
-      15: ireturn       
-
-  public int doSomething(int, int);
-    Code:
-       0: iload_1       
-       1: iload_2       
-       2: iadd          
-       3: istore_3      
-       4: iload_3       
-       5: iload_1       
-       6: iadd          
-       7: ireturn       
-}
-
-
-
-Dead Code Elimination
----------------------
-Allows a compiler to ignore code and variables that are never used.
-
+_Example_: DeadCode.java
+```Java
 public class DeadCode
 {
 	private final static boolean DEBUG = false; 
@@ -173,7 +114,12 @@ public class DeadCode
 		// some code
 	}	
 }
+```
 
+From the bytecode it can be seen that the if block, which certainly cannot 
+be executed (the if condition is always `false`), has been eliminated.
+
+```
 $ javap -c target/classes/org/se/lab/DeadCode.class 
 
 Compiled from "DeadCode.java"
@@ -188,30 +134,48 @@ public class org.se.lab.DeadCode {
     Code:
        0: return 							// Dead code has been eliminated!!       
 }
+```
 
 
-
-String Operations
------------------
+## String Operations
 Concatenation of immutable String objects can be a serious performance
 problem, therefor the compiler addresses that problem:
 
+_Example_: StringOperations.java
+```Java
 public class StringOperations
 {
 	private long id;
 	private String username;
 		
-	
 	public String toString1()
 	{
 		return "{" + id + "," + username + "}";
 	}
-	
+    //...
+}
+```
+
+```
 $ javap -c target/classes/org.se.lab/StringOperations
 
 Compiled from "StringOperations.java"
 public class org.se.lab.StringOperations {
+    public java.lang.String toString1();
+    Code:
+        0: aload_0
+        1: getfield      #7                  // Field id:J
+        4: aload_0
+        5: getfield      #13                 // Field username:Ljava/lang/String;
+        8: invokedynamic #17,  0             // InvokeDynamic #0:makeConcatWithConstants:(JLjava/lang/String;)Ljava/lang/String;
+        13: areturn
+...
+}
+```
+Current Java compilers solve the problem by InvokeDynamic of makeConcatWithConstants().
 
+Older Java compilers replace string concatenation by using the StringBuilder class.
+```
   public java.lang.String toString1();
     Code:
        0: new           #20                 // class java/lang/StringBuilder
@@ -230,46 +194,7 @@ public class org.se.lab.StringOperations {
       30: invokevirtual #35                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
       33: invokevirtual #42                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
       36: areturn
-	
+```	
 
-	Note that this is no working across loops!
-	In the toString3() example, only the string inside the loop is 
-	concatenated using a StringBuilder. 
-	
-	public String toString3()
-	{
-		String s = "";		
-		for(int i = 0; i<10; i++)
-		{
-			s = s + "i = " + i + "\n"; 
-		}
-		return s;
-	}
-	
-    public java.lang.String toString3();
-    Code:
-       0: ldc           #50                 // String
-       2: astore_1
-       3: iconst_0
-       4: istore_2
-       5: goto          40
-       8: new           #20                 // class java/lang/StringBuilder
-      11: dup
-      12: aload_1
-      13: invokestatic  #52                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
-      16: invokespecial #24                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
-      19: ldc           #58                 // String i =
-      21: invokevirtual #35                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-      24: iload_2
-      25: invokevirtual #60                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
-      28: ldc           #63                 // String \n
-      30: invokevirtual #35                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-      33: invokevirtual #42                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
-      36: astore_1
-      37: iinc          2, 1
-      40: iload_2
-      41: bipush        10
-      43: if_icmplt     8
-      46: aload_1
-      47: areturn
-		 
+
+*Egon Teiniker, 2016-2023, GPL v3.0*

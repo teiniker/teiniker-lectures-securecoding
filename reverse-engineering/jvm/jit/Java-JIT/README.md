@@ -1,7 +1,18 @@
-JIT Compiler Monitoring
----------------------------------------------------------------------
-see Hunt2012 page 146, 565f
+# Java Just-In-Time (JIT) Compiler
 
+A Java Just-In-Time (JIT) compiler is a component of the Java Runtime Environment (JRE) 
+that improves the performance of Java applications by compiling bytecode into native 
+machine code at runtime. 
+
+Unlike a traditional compiler that compiles code before the application runs, a JIT 
+compiler does this during the execution of the program. 
+
+This allows for more optimized code because the compiler can make **decisions based on 
+real-time data and usage patterns**. The JIT-compiled code is usually faster and more 
+efficient, leading to improved performance of Java applications.
+
+_Example_: JIT monitoring for Loop.java
+```
 $ java -XX:+PrintCompilation -cp ./target/classes org.se.lab.Loop
     144    1             java.lang.String::hashCode (67 bytes)
     158    2             sun.nio.cs.UTF_8$Encoder::encode (361 bytes)
@@ -30,36 +41,24 @@ $ java -XX:+PrintCompilation -cp ./target/classes org.se.lab.Loop
     261   25             java.lang.StringBuilder::append (8 bytes)
     269   26             java.lang.AbstractStringBuilder::append (62 bytes)
    1625    1 %           org.se.lab.Loop::main @ 8 (31 bytes)
+```
 
- Output format:
- 
- Column	Meaning
- --------------------------------------------------------------------
- 1		Time (in ms) since the JVM started
- 2		Compilation ID  
- 3		Flags that indicate properties of the compiled method
- 		n ... wrapper to a native method
- 		s ... method is synchronized
- 		b ... compilation occured in blocking mode
- 		! ... method has an exception handler
- 		% ... compilation is OSR 
- 		
- 4		Qualified name of the method (number of bytes of bytecode
- 		contained in the method being compiled).
- 		
-An OSR compilation was triggered because the code was looping over a 
-large loop, and the VM determined that this code is hot. 
-So an OSR compilation was triggered, which would enable the VM to do an 
-On Stack Replacement and move over to the optimized code, once it is ready.
- 		
-With OSR, you just move to the compiled version right after it gets compiled, 
-unlike with JIT, where the compiled code gets called when the method is 
-called for the second time. 		
+The meaning of the individual columns can be seen in the following list:
+* column 1:	Time (in ms) since the JVM started
+* column 2: Compilation ID  
+* column 3: Flags that indicate properties of the compiled method
+  - n: wrapper to a native method
+  - s: method is synchronized
+  - b: compilation occured in blocking mode
+  - !: method has an exception handler
+  - %: compilation is OSR 
 
+* column 4: Qualified name of the method (number of bytes of bytecode
+contained in the method being compiled).
 
-Using the -XX:+CITime flag outputs various statistics about compilations:
- 		
- $ java -XX:+CITime -cp ./target/classes org.se.lab.Loop
+Using the `-XX:+CITime` flag outputs various statistics about compilations:
+```
+$ java -XX:+CITime -cp ./target/classes org.se.lab.Loop
  		
  Accumulated compiler times (for compiled methods only)
 ------------------------------------------------
@@ -89,5 +88,9 @@ Using the -XX:+CITime flag outputs various statistics about compilations:
 
   nmethod code size        :  10592 bytes
   nmethod total size       :  26792 bytes
- 		
- 		
+```
+
+## References
+* Charlie Hunt. **Java Performance**. Addison-Wesley Professional, 2011.
+
+*Egon Teiniker, 2016-2023, GPL v3.0*
