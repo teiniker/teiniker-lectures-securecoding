@@ -26,9 +26,10 @@ Attackers can use a **Java Decompiler** to analyze the compiled class file:
 
 Notice how easy it is to decompile Java class files (and also JAR files).
 This is due to the way Java optimizes the bytecode. 
-**Most optimizations are done just-in-time at runtime** of the program and not at compile time.
+**Most optimizations are done just-in-time at runtime** of the program and 
+not at compile time.
 
 ## References
 * [Java Decompiler](http://java-decompiler.github.io/)
 
-*Egon Teiniker, 2020-2022, GPL v3.0*
+*Egon Teiniker, 2020-2023, GPL v3.0*
