@@ -3,7 +3,7 @@ Exercise: Java Decompiler - Password
 
 Given the "Java-Decompiler-Password" file, we can run the application:
 
-$ java -cp Java-Decompiler-Password.jar org.se.lab.CheckPassword
+$ java -cp HardcodedPassword.jar org.se.lab.CheckPassword
 password> student
 Login rejected, invalid password!
 
