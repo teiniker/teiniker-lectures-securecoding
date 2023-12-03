@@ -10,6 +10,7 @@ A) Obfuscate the given JAR file
 $ proguard.sh @config.pro
 
 B) Decompile the generated Release File
+- Use https://www.decompiler.com/ for JDK21 code
 - CheckPassword.main() is not obfuscated, because it is the entry point
     of the application.
 - String literals are also not obfuscated (bad news for hardcoded passwords
