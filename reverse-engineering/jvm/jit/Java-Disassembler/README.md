@@ -149,6 +149,6 @@ SourceFile: "DataTypes.java"
 
 * [Oracle Java Documentation: javap](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javap.html)
 
-* [View Bytecode of a Class File in Java](https://www.baeldung.com/java-class-view-bytecode)
+* [Baeldung: View Bytecode of a Class File in Java](https://www.baeldung.com/java-class-view-bytecode)
 
 *Egon Teiniker, 2016-2023, GPL v3.0*

@@ -91,6 +91,7 @@ $ java -XX:+CITime -cp ./target/classes org.se.lab.Loop
 ```
 
 ## References
+* [Baeldung: Tiered Compilation in JVM](https://www.baeldung.com/jvm-tiered-compilation)
 * Charlie Hunt. **Java Performance**. Addison-Wesley Professional, 2011.
 
 *Egon Teiniker, 2016-2023, GPL v3.0*
