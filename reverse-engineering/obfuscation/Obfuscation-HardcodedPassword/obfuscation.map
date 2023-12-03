@@ -1,0 +1,5 @@
+org.se.lab.CheckPassword -> a:
+    void <init>() -> <init>
+org.se.lab.Main -> org.se.lab.Main:
+    void <init>() -> <init>
+    void main(java.lang.String[]) -> main
