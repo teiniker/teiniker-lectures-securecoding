@@ -1,4 +1,4 @@
-Exercise: Java Decompiler
+Exercise: Java Decompiler - Secure Writer
 ---------------------------------------------------------------------
 
 Given the JAR file dist/Java-Decompiler-SecureWriter.jar, remove the
@@ -18,7 +18,6 @@ repackage the jar file.
 
 How to extract a JAR file?
 ---------------------------------------------------------------------
-
 $ mkdir tmp
 $ cd tmp
 $ jar -xvf ../dist/Java-Decompiler-SecureWriter.jar
@@ -41,21 +40,12 @@ $ cat META-INF/MANIFEST.MF
 Manifest-Version: 1.0
 Created-By: 1.8.0_144 (Oracle Corporation)
 
-
-Compile the de-compiled source code
+How to compile the de-compiled source code?
 ---------------------------------------------------------------------
-
 $ javac -cp ./ SecureWriter.java
 
 How to create a JAR file?
 ---------------------------------------------------------------------
-
 $ jar -cvf Java-Decompiler-SecureWriter.jar ./
-
-
-References:
-> Java Decompiler
-    http://java-decompiler.github.io/
-
 
 
