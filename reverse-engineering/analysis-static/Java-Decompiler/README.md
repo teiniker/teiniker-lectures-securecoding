@@ -59,9 +59,18 @@ We can run JD-GUI by executing the JAR file:
 $ java -jar /opt/jd-gui/jd-gui-1.6.6.jar
 ```
 
+## Online Decompiler 
+
+While JD-GUI only supports JDK-17 code, online decompilers are up to date.
+
+You can simply [upload](https://www.decompiler.com/) a JAR file and the Java 
+source code will be displayed.
+
+
+
 ## References
 * [Java Decompiler](http://java-decompiler.github.io/)
 
-* [Online-Decompilers](http://www.javadecompilers.com/)
+* [Online-Decompilers](https://www.decompiler.com/)
 
 *Egon Teiniker, 2020-2023, GPL v3.0*
