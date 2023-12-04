@@ -2,7 +2,7 @@ Java methods used for byte-array processing
 -------------------------------------------------------------------------------
 
 java.util.Arrays
-public static String toString​(byte[] a)
+public static String toString(byte[] a)
 -------------------------------------------------------------------------------
 Returns a string representation of the contents of the specified array.
 The string representation consists of a list of the array's elements, enclosed
@@ -13,7 +13,7 @@ Returns "null" if a is null.
 
 
 java.util.Arrays
-public static boolean equals​(byte[] a, byte[] a2)
+public static boolean equals(byte[] a, byte[] a2)
 -------------------------------------------------------------------------------
 Returns true if the two specified arrays of bytes are equal to one another.
 Two arrays are considered equal if both arrays contain the same number of
@@ -24,13 +24,13 @@ same order. Also, two array references are considered equal if both are null.
 
 
 java.util.Arrays
-public static void fill​(byte[] a, byte val)
+public static void fill(byte[] a, byte val)
 -------------------------------------------------------------------------------
 Assigns the specified byte value to each element of the specified array of bytes.
 
 
 java.util.Arrays
-public static void fill​(boolean[] a, int fromIndex, int toIndex, boolean val)
+public static void fill(boolean[] a, int fromIndex, int toIndex, boolean val)
 -------------------------------------------------------------------------------
 Assigns the specified boolean value to each element of the specified range of
 the specified array of booleans. The range to be filled extends from index
@@ -39,7 +39,7 @@ the range to be filled is empty.)
 
 
 java.util.Arrays
-public static byte[] copyOf​(byte[] original, int newLength)
+public static byte[] copyOf(byte[] original, int newLength)
 -------------------------------------------------------------------------------
 Copies the specified array, truncating or padding with zeros (if necessary) so
 the copy has the specified length. For all indices that are valid in both the
@@ -51,7 +51,7 @@ of the original array.
 
 
 java.util.Arrays
-public static byte[] copyOfRange​(byte[] original, int from, int to)
+public static byte[] copyOfRange(byte[] original, int from, int to)
 -------------------------------------------------------------------------------
 Copies the specified range of the specified array into a new array.
 The initial index of the range (from) must lie between zero and original.length,
@@ -67,7 +67,7 @@ The length of the returned array will be to - from.
 
 
 java.lang.System
-public static void arraycopy​(Object src, int srcPos, Object dest, int destPos, int length)
+public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
 -------------------------------------------------------------------------------
 Copies an array from the specified source array, beginning at the specified
 position, to the  specified position of the destination array.
