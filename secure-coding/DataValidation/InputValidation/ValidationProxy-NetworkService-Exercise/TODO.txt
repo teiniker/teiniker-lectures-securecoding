@@ -1,0 +1,21 @@
+Exercise: Validation Proxy - Network Service
+-------------------------------------------------------------------------------
+
+Given the "NetworkService" interface and its fake implementation class named
+"NetworkServiceImpl".
+
+A) NetworkServiceValidator
+    Implement a validation Proxy "NetworkServiceValidator" which validates the
+    parameters "iface" and "ip" in both interface methods.
+    Use regular expressions to implement a whitelist validation strategy.
+
+    iface: lo, eth0 to eth9, wlan0 to wlan9
+    ip: 0.0.0.0 to 255.255.255.255
+
+B) NetworkkService.newInstance()
+    Put the "NetworkServiceValidator" instance in front of the implementation object.
+    [:JUnit Test] ---> [:NetworkServiceValidator] ---> [:NetworkServiceImpl]
+
+Verify your implementation with the class "NetworkServiceTest".
+
+Tip: Check the range of bytes as integer values (IP Address) using Integer.parseInt()
