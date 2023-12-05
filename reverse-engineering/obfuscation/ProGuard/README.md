@@ -4,7 +4,6 @@
 We can **download** [ProGuard](https://github.com/Guardsquare/proguard/releases) 
 and unzip the file into a local directory:
 ```
-$ sudo mkdir /opt/proguard
 $ sudo mv proguard-7.4.1 /opt/
 ```
 

@@ -1,5 +1,5 @@
--injars       ShoppingCart-1.0.0.jar
--outjars      ShoppingCart-1.0.0-out.jar
+-injars       ShoppingCart-Dev.jar
+-outjars      ShoppingCart-Release.jar
 #-libraryjars  <java.home>/jmods
 -libraryjars  <java.home>/jmods/java.base.jmod
 
@@ -13,7 +13,7 @@
 -repackageclasses ''
 -allowaccessmodification
 
--printmapping ShoppingCart.map
+-printmapping obfuscation.map
 
 
 
