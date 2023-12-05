@@ -4,6 +4,6 @@
 /build/
 /.classpath
 /.project
-/ShoppingCart.map
-/ShoppingCart-1.0.0.jar
-/ShoppingCart-1.0.0-out.jar
+/obfuscation.map
+/ShoppingCart-Dev.jar
+/ShoppingCart-Release.jar
