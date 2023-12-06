@@ -192,8 +192,9 @@ on the underlying cipher either.
 ## References
 * [Symmetric-Key Algorithm](https://en.wikipedia.org/wiki/Symmetric-key_algorithm)
 * [Block Cipher Mode of Operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
-* Jason Weiss. **Java Cryptography Extensions**. Morgan Kaufmann, 2004. Chapter 2: Working with Symmetric Ciphers.
+* Jason Weiss. **Java Cryptography Extensions**. Morgan Kaufmann, 2004. 
+  * Chapter 2: Working with Symmetric Ciphers.
 
 
 
-*Egon Teiniker, 2020 - 2021, GPL v3.0* 
+*Egon Teiniker, 2020 - 2023, GPL v3.0* 
