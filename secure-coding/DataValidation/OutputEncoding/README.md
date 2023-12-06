@@ -20,4 +20,8 @@ safely handled by these mechanisms.
     ([Model Solution](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/OutputEncoding/Base64-Encoding))
   * [Base64 + Padding](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/OutputEncoding/Base64-Padding)  
 
-*Egon Teiniker, 2020-2022, GPL v3.0*
+
+## References
+* [RFC4648: The Base16, Base32, and Base64 Data Encodings](https://datatracker.ietf.org/doc/html/rfc4648)
+
+*Egon Teiniker, 2020-2023, GPL v3.0*
