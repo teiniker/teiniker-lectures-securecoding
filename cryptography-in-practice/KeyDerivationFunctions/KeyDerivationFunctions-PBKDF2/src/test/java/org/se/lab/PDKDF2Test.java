@@ -18,29 +18,20 @@ public class PDKDF2Test
     public void testEncodePassword()
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
-        // Password
         String password = "student";
         char[] chars = password.toCharArray();
 
-        // Random salt
         SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
         random.nextBytes(salt);
 
-        // Number of iterations
         int iterations = 1024;
-
-        // Key length
         int keyLength = 64 * 8;
-
         PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, keyLength);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] hash = factory.generateSecret(spec).getEncoded();
 
-        String storedPassword = iterations + ":"
-                + Hex.encodeHexString(salt) + ":"
-                + Hex.encodeHexString(hash);
-
+        String storedPassword = iterations + ":" + Hex.encodeHexString(salt) + ":" + Hex.encodeHexString(hash);
         System.out.println(storedPassword);
     }
 
