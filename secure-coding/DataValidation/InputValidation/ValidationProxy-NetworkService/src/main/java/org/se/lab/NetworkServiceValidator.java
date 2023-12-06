@@ -6,11 +6,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class NetworkServiceValidator   // package private
-    implements NetworkkService
+    implements NetworkService
 {
-    private final NetworkkService service;
+    private final NetworkService service;
 
-    public NetworkServiceValidator(NetworkkService service)
+    public NetworkServiceValidator(NetworkService service)
     {
         this.service = service;
     }
@@ -48,7 +48,7 @@ class NetworkServiceValidator   // package private
     private final static Pattern interfacePattern = Pattern.compile("^(eth[0-9]|lo|wlan[0-9])$");
     private boolean isValidInterface(String iface)
     {
-        if(iface == null || iface.trim().isEmpty())
+        if(iface == null || iface.isBlank())
             return false;
 
         String normalizedIface = Normalizer.normalize(iface, Normalizer.Form.NFKC);
@@ -59,7 +59,7 @@ class NetworkServiceValidator   // package private
     private final static Pattern addressPattern = Pattern.compile("^([0-9]{1,3}\\.){3}[0-9]{1,3}$");
     private boolean isValidIpAddress(String ipAddress)
     {
-        if(ipAddress == null || ipAddress.trim().isEmpty())
+        if(ipAddress == null || ipAddress.isBlank())
             return false;
 
         String normalizedIp = Normalizer.normalize(ipAddress, Normalizer.Form.NFKC);

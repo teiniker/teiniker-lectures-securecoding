@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 class NetworkServiceImpl // package private
-    implements NetworkkService
+    implements NetworkService
 {
     private String iface = "0.0.0.0";
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class NetworkServiceImpl    // package private
-    implements NetworkkService
+    implements NetworkService
 {
     private String iface = "0.0.0.0";
 

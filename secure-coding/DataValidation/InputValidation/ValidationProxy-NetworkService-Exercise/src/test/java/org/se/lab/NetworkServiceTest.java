@@ -31,6 +31,7 @@ public class NetworkServiceTest
         Assert.assertEquals(expected,  history.toString());
     }
 
+    @Test
     public void testActivateInterface_ValidInterfaces()
     {
         service.getIPAddress("eth0");
@@ -112,6 +113,7 @@ public class NetworkServiceTest
     {
         service.assignIPAddress("eth0","127.256.21.7");
     }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void testIpAddress_InvalidThirdByte_TooBig()

@@ -2,10 +2,10 @@ package org.se.lab;
 
 import java.util.List;
 
-public interface NetworkkService
+public interface NetworkService
 {
     // Creation Method
-    static NetworkkService newInstance(List<String> history)
+    static NetworkService newInstance(List<String> history)
     {
         return new NetworkServiceValidator(new NetworkServiceImpl(history));
     }

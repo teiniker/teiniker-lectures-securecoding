@@ -12,7 +12,7 @@ A) NetworkServiceValidator
     iface: lo, eth0 to eth9, wlan0 to wlan9
     ip: 0.0.0.0 to 255.255.255.255
 
-B) NetworkkService.newInstance()
+B) NetworkService.newInstance()
     Put the "NetworkServiceValidator" instance in front of the implementation object.
     [:JUnit Test] ---> [:NetworkServiceValidator] ---> [:NetworkServiceImpl]
 
