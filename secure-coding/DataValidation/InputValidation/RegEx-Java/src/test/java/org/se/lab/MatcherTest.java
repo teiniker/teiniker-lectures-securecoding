@@ -14,9 +14,9 @@ public class MatcherTest
 	public void testMatches()
 	{
 		final String regex = "0[0-7]+";
-		final String input = "0715";
-							
 		Pattern pattern = Pattern.compile(regex);
+
+		final String input = "0715";
 		Matcher m = pattern.matcher(input);
 		boolean result = m.matches();
 

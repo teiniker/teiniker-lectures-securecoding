@@ -15,7 +15,7 @@ public final class ImmutableDate
 	public ImmutableDate(String dateString)
 	{
 		// check for null pointer
-		if(dateString == null || dateString.trim().length() == 0)
+		if(dateString == null || dateString.isBlank())
 			throw new IllegalArgumentException("Invalid date string!");
 		
 		// validate address format

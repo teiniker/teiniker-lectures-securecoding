@@ -24,8 +24,7 @@ public class HexTest
 	public void testHexStringToBinaryData() throws DecoderException
 	{
 		String hexString = "000102030405060708090a0b0c0d0e0f";
-		
-				
+
 		byte [] binaryData = Hex.decodeHex(hexString.toCharArray());
 		
 		final byte[] EXPECTED = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15	};
