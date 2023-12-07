@@ -4,3 +4,5 @@
 /.project
 /secure-data.bin
 /src/test/resources/keystore.pfx
+/src/test/resources/certificates.pfx
+/src/test/resources/testkey.cert

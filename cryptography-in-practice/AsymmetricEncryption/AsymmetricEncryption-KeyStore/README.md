@@ -106,11 +106,46 @@ keystore that contains only your public keys to share with the outside world.
 $ keytool -export -v -keystore keystore.pfx -alias testkey -file testkey.cert -storepass student -keypass student
 ```
 
+
 ## Import the Certificate into a Keystore
 ```
 $ keytool -import -v -keystore certificates.pfx -alias testkey-cert -file testkey.cert -storepass student -keypass student
 ```
 
+
+## Converting a Java Keystore Into PEM Format
+
+In this section, we will convert a Java KeyStore into **PEM (Privacy-Enhanced Mail)** format using a combination
+of `keytool` and `openssl`.
+
+PEM files are certificate containers — they encode binary data using Base64, which allows the content to be
+transmitted more easily through different systems. A PEM file may contain multiple instances, with each instance
+adhering to two rules:
+```
+A one-line header of -----BEGIN <label>-----
+A one-line footer of -----END <label>-----
+```
+`<label>` specifies the type of the encoded message, common values being `CERTIFICATE` and `PRIVATE KEY`.
+
+We **convert a keystore into a PEM file** with the following OpenSSL command:
+```
+$ openssl pkcs12 -in keystore.pfx -out keystore.pem
+```
+
+OpenSSL will prompt us for the `PKCS#12` KeyStore password and a PEM passphrase for each alias.
+The PEM passphrase is used to **encrypt the resulting private key**.
+
+If we don’t want to encrypt the resulting private key, we should instead use:
+```
+$ openssl pkcs12 -nodes -in keystore.pfx -out keystore.pem
+```
+`keystore.pem` will contain all of the keys and certificates from the KeyStore.
+
+We can export a single public key certificate out of a JKS and into PEM format using `keytool`
+alone:
+```
+$ keytool -exportcert -alias testkey -keystore keystore.pfx -rfc -file first-key-pair-cert.pem
+```
 
 ## References
 * David Hook. **Beginning Cryptography with Java**. Wrox, 2005. 
@@ -120,6 +155,7 @@ $ keytool -import -v -keystore certificates.pfx -alias testkey-cert -file testke
 * [Class KeyStore](https://docs.oracle.com/javase/7/docs/api/java/security/KeyStore.html)
 * [RSA Signing and Encryption in Java](https://niels.nu/blog/2016/java-rsa.html)
   
+* [Converting a Java Keystore Into PEM Format](https://www.baeldung.com/java-keystore-convert-to-pem-format)
 
-*Egon Teiniker, 2020 - 2021, GPL v3.0* 
+*Egon Teiniker, 2020 - 2023, GPL v3.0* 
 

@@ -47,5 +47,43 @@ Parameters:
 * **-pubout**: By default a private key is output: with this option a **public key** will be 
    output instead. This option is automatically set if the input is a public key.
 
+
+## Converting a PEM File to Java KeyStore Format
+
+We will start by generating two files, `key.pem` and `cert.pem`:
+
+```
+$ openssl req -newkey rsa:2048 -x509 -keyout key.pem -out cert.pem -days 365
+```
+
+Now, we can convert PEM into a PKCS12 format:
+```
+$ openssl pkcs12 -export -in cert.pem -inkey key.pem -out certificate.pfx -name "certificate"
+```
+
+To list the content of the KeyStore file, type:
+```
+$ keytool -list -v -keystore  certificate.pfx
+
+Enter keystore password: student
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: certificate
+Creation date: Dec 7, 2023
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: EMAILADDRESS=teini@hsb.de, CN=teini, OU=mks, O=hsb, L=bre, ST=bre, C=de
+Issuer: EMAILADDRESS=teini@hsb.de, CN=teini, OU=mks, O=hsb, L=bre, ST=bre, C=de
+Serial number: 7ab834bd16a76cb9ca73f4812e2d3df2d7c6fd17
+...
+```
+
+
+
 ## References
 * [openssl](https://www.openssl.org/docs/man1.1.1/man1/openssl.html)
+* [Converting a PEM File to Java KeyStore Format](https://www.baeldung.com/convert-pem-to-jks)
