@@ -27,9 +27,9 @@ public class SSLDaytimeServer
 					connection.setEnabledProtocols(new String[] {"TLSv1.2", "TLSv1.3"});
 					String cipherSuite = sslSession.getCipherSuite();
 					System.out.println(cipherSuite);
-					System.out.println(Arrays.toString(connection.getEnabledCipherSuites()));
-					System.out.println(Arrays.toString(connection.getEnabledProtocols()));
-					System.out.println(connection.getApplicationProtocol());
+					//System.out.println(Arrays.toString(connection.getEnabledCipherSuites()));
+					//System.out.println(Arrays.toString(connection.getEnabledProtocols()));
+					//System.out.println(connection.getApplicationProtocol());
 
 					Writer out = new OutputStreamWriter(connection.getOutputStream());
 					Date now = new Date();
