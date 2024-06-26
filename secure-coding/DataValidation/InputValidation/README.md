@@ -3,8 +3,8 @@
 **Unchecked input is the source of some of the worst vulnerabilities around**, including buffer overflow and SQL injection.
 
 * **Regular Expressions**
-    * [Regex grep](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/RegEx-grep)
-    * [Regex Java](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/Regex-Java)
+    * [Regex grep](RegEx-grep)
+    * [Regex Java](Regex-Java)
     
 * **Value Object**
   * [Exercise: Mail](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValueObject-EMail-Exercise)\
