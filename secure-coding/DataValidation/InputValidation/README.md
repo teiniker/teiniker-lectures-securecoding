@@ -4,7 +4,7 @@
 
 * **Regular Expressions**
     * [Regex grep](RegEx-grep)
-    * [Regex Java](Regex-Java)
+    * [Regex Java](RegEx-Java)
     
 * **Value Object**
   * [Exercise: Mail](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/InputValidation/ValueObject-EMail-Exercise)\
