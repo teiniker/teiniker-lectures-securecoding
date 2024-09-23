@@ -9,13 +9,13 @@ import java.util.List;
 
 public class NetworkServiceTest
 {
-    private NetworkkService service;
+    private NetworkService service;
     private List<String> history;
     @Before
     public void setup()
     {
         history = new ArrayList<String>();
-        service = NetworkkService.newInstance(history);
+        service = NetworkService.newInstance(history);
     }
 
     @Test
