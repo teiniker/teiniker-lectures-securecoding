@@ -174,7 +174,7 @@ public class org.se.lab.StringOperations {
 ```
 Current Java compilers solve the problem by InvokeDynamic of makeConcatWithConstants().
 
-Older Java compilers replace string concatenation by using the StringBuilder class.
+Older Java compilers replace string concatenation by using the `StringBuilder` class.
 ```
   public java.lang.String toString1();
     Code:
@@ -195,6 +195,5 @@ Older Java compilers replace string concatenation by using the StringBuilder cla
       33: invokevirtual #42                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
       36: areturn
 ```	
-
 
 *Egon Teiniker, 2016-2023, GPL v3.0*
