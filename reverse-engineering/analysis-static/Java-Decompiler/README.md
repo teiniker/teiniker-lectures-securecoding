@@ -39,7 +39,7 @@ These factors combine to make Java bytecode more amenable to decompilation
 compared to other compiled languages, where the original source structure 
 and high-level constructs are often lost during the compilation process.
 
-## JD-GUI
+## JD-GUI (JDK-17 only)
 
 JD-GUI is a standalone graphical utility that displays Java source codes 
 of `.class` files. 
@@ -66,11 +66,18 @@ While JD-GUI only supports JDK-17 code, online decompilers are up to date.
 You can simply [upload](https://www.decompiler.com/) a JAR file and the Java 
 source code will be displayed.
 
+## Intellij
 
+Intellij can decompile current class files just by double-click on them:
+
+![Decompiler HelloWorld](figures/Decompiler-HelloWorld.png)
+
+Note that the **decompiled source code is read-only** so we have to copy this 
+decompiled code into a new source file.
 
 ## References
 * [Java Decompiler](http://java-decompiler.github.io/)
 
 * [Online-Decompilers](https://www.decompiler.com/)
 
-*Egon Teiniker, 2020-2023, GPL v3.0*
+*Egon Teiniker, 2016-2024, GPL v3.0*
