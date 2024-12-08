@@ -74,7 +74,7 @@ $ mvn compile
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>17</release>
+					<release>21</release>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -120,6 +120,11 @@ public class org.se.lab.HelloWorld {
 
 ## Build a Java Library
 
+A Java library (**JAR file**) is a ZIP file with a defined directory 
+structure in which .class files (and other JAR files) are stored.
+
+With the help of **Maven** you can easily build a JAR file:
+
 ```
 $ mvn package
 .
@@ -140,6 +145,10 @@ $ mvn package
     ├── Java-HelloWorld-0.0.1-SNAPSHOT.jar
 ```
 
+With the command line tool **jar** we can also process JAR files.
+
+_Example:_ List the content of a JAR file
+
 ```
 $ jar -tf target/Java-HelloWorld-0.0.1-SNAPSHOT.jar
   META-INF/
@@ -155,6 +164,58 @@ $ jar -tf target/Java-HelloWorld-0.0.1-SNAPSHOT.jar
   META-INF/maven/org.se.lab/Java-HelloWorld/pom.properties
 ```
 
+_Example:_ Extract the content of a JAR file
+
+```
+$ mkdir tmp 
+$ cd tmp/
+$ jar -xvf ../target/Java-HelloWorld-0.0.1-SNAPSHOT.jar 
+  created: META-INF/
+ inflated: META-INF/MANIFEST.MF
+  created: org/
+  created: org/se/
+  created: org/se/lab/
+  created: META-INF/maven/
+  created: META-INF/maven/org.se.lab/
+  created: META-INF/maven/org.se.lab/Java-HelloWorld/
+ inflated: org/se/lab/HelloWorld.class
+ inflated: META-INF/maven/org.se.lab/Java-HelloWorld/pom.xml
+ inflated: META-INF/maven/org.se.lab/Java-HelloWorld/pom.properties
+```
+
+_Example:_ Create a JAR file from a given folder
+
+```
+$ jar -cvf Java-HelloWorld.jar .
+added manifest
+ignoring entry META-INF/
+ignoring entry META-INF/MANIFEST.MF
+adding: META-INF/maven/(in = 0) (out= 0)(stored 0%)
+adding: META-INF/maven/org.se.lab/(in = 0) (out= 0)(stored 0%)
+adding: META-INF/maven/org.se.lab/Java-HelloWorld/(in = 0) (out= 0)(stored 0%)
+adding: META-INF/maven/org.se.lab/Java-HelloWorld/pom.properties(in = 69) (out= 70)(deflated -1%)
+adding: META-INF/maven/org.se.lab/Java-HelloWorld/pom.xml(in = 886) (out= 394)(deflated 55%)
+adding: org/(in = 0) (out= 0)(stored 0%)
+adding: org/se/(in = 0) (out= 0)(stored 0%)
+adding: org/se/lab/(in = 0) (out= 0)(stored 0%)
+adding: org/se/lab/HelloWorld.class(in = 628) (out= 410)(deflated 34%)
+```
+
+_Example:_ Run a class file from a JAR file
+
+```
+$ $ java -cp Java-HelloWorld.jar org.se.lab.HelloWorld 
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+Hello Bremen!
+```
 ## References
 * [The Java™ Tutorials](https://docs.oracle.com/javase/tutorial/)
 
