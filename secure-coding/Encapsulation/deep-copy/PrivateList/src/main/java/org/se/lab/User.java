@@ -35,8 +35,8 @@ public class User
 	private List<EMail> mails = new ArrayList<EMail>();
 	public final List<EMail> getMails()
 	{
-// Vulnerability:		
-//		return mails; // Return the reference to a private mutable object!!!
+		// Vulnerability: Return the reference to a private mutable object!!!
+		//	return mails;
 
 		// Defensively copy mutable outputs.
 		List<EMail> list = new ArrayList<EMail>();
@@ -49,8 +49,9 @@ public class User
 	{
 		if(mails == null)
 			throw new IllegalArgumentException();
-// Vulnerability:
-//		this.mails = mails; // store an external reference in a private field!!!
+
+		// Vulnerability: Store an external reference in a private field!!!
+		// this.mails = mails;
 		
 		// Defensively copy mutable inputs.
 		this.mails = new ArrayList<EMail>(); 

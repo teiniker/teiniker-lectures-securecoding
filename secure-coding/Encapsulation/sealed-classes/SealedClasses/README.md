@@ -109,4 +109,4 @@ public final class Dependency
 * [JEP 409: Sealed Classes](https://openjdk.java.net/jeps/409)
 * [YouTube: Making Use of Sealed Classes in Java](https://youtu.be/Xkh5sa3vjTE)
 
-*Egon Teiniker, 2020-2022, GPL v3.0* 
+*Egon Teiniker, 2020-2024, GPL v3.0* 

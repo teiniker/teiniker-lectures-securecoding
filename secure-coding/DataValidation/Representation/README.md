@@ -16,4 +16,4 @@ All **built-in types in programming languages** have **limited capacity** becaus
 * **Characters and Strings**
   * [Java Strings](https://github.com/teiniker/teiniker-lectures-securecoding/tree/master/secure-coding/DataValidation/Representation/Java-Strings)
   
-*Egon Teiniker, 2020-2022, GPL v3.0*
+*Egon Teiniker, 2020-2024, GPL v3.0*
