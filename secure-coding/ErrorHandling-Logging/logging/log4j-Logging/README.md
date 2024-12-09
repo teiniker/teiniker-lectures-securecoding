@@ -9,39 +9,6 @@ to log various data within their application and it is part of the Apache
 Logging Services. 
 
 
-## Log4j Vulnerability  CVE-2021–44228 (also known as Log4Shell)
-
-The Log4Shell vulnerability, officially known as CVE-2021-44228, is a critical 
-security flaw in the Apache Log4j 2 library, a popular Java logging framework. 
-This vulnerability became widely known in December 2021 and posed a significant 
-threat to systems worldwide. 
-
-The Log4Shell vulnerability is a **remote code execution (RCE) flaw**. 
-It allows attackers to execute arbitrary code on a server or other computer 
-running the vulnerable Log4j version (2.0 to 2.14.1).
-
-Mechanism of Exploit:
-* Log4j supports message lookup substitution, where it can interpret 
-   and process special codes within log messages.
-* The vulnerability arises when an attacker sends a specially crafted 
-   string (like a username, header, etc.) that gets logged. 
-* This string includes a **JNDI (Java Naming and Directory Interface)** 
-   lookup request to a malicious LDAP (Lightweight Directory Access Protocol) 
-   server controlled by the attacker.
-* When Log4j processes this request, it inadvertently executes the code 
-   fetched from the attacker's LDAP server.
-
-Mitigation and Fixes:
-* The immediate recommendation was to **update Log4j to version 2.15.0 or 
-   later**, where this vulnerability was patched.
-* For those who couldn’t update immediately, certain configurations and 
-   JVM (Java Virtual Machine) parameters were suggested to mitigate the risk.
-
-
-In Log4j, **message lookup** is a feature that allows log messages to 
-include data from various sources, which are dynamically resolved at runtime. 
-
-
 ## Log File Analysis
 
 **less** is a program similar to `more`, but which allows backward movement 
@@ -84,8 +51,44 @@ $ egrep -n "WARN|ERROR" log/server.log
 ```
 
 
+## Log4j Vulnerability  CVE-2021–44228 (also known as Log4Shell)
+
+The Log4Shell vulnerability, officially known as CVE-2021-44228, is a critical 
+security flaw in the Apache Log4j 2 library, a popular Java logging framework. 
+This vulnerability became widely known in December 2021 and posed a significant 
+threat to systems worldwide. 
+
+The Log4Shell vulnerability is a **remote code execution (RCE) flaw**. 
+It allows attackers to execute arbitrary code on a server or other computer 
+running the vulnerable Log4j version (2.0 to 2.14.1).
+
+Mechanism of Exploit:
+* Log4j supports message lookup substitution, where it can interpret 
+   and process special codes within log messages.
+* The vulnerability arises when an attacker sends a specially crafted 
+   string (like a username, header, etc.) that gets logged. 
+* This string includes a **JNDI (Java Naming and Directory Interface)** 
+   lookup request to a malicious LDAP (Lightweight Directory Access Protocol) 
+   server controlled by the attacker.
+* When Log4j processes this request, it inadvertently executes the code 
+   fetched from the attacker's LDAP server.
+
+Mitigation and Fixes:
+* The immediate recommendation was to **update Log4j to version 2.15.0 or 
+   later**, where this vulnerability was patched.
+* For those who couldn’t update immediately, certain configurations and 
+   JVM (Java Virtual Machine) parameters were suggested to mitigate the risk.
+
+
+In Log4j, **message lookup** is a feature that allows log messages to 
+include data from various sources, which are dynamically resolved at runtime. 
+
+
+
 ## References
 * [Log4J Vulnerability (Log4Shell) Explained - for Java developers](https://youtu.be/uyq8yxWO1ls?si=N-A1ElYt5L3YFV_L)
 * [Baeldung: Intro to Log4j2 – Appenders, Layouts and Filters](https://www.baeldung.com/log4j2-appenders-layouts-filters)
 * [Baeldung: Log4j 2 Configuration Using a Properties File](https://www.baeldung.com/java-log4j2-config-with-prop-file)
 * [How to Get Started with Log4j for Logging in Java](https://betterstack.com/community/guides/logging/how-to-start-logging-with-log4j/)
+
+*Egon Teiniker, 2016-2024, GPL v3.0* 
