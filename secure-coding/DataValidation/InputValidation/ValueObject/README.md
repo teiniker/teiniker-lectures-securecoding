@@ -40,4 +40,4 @@ the validation rules as needed.
 * [Martin Fowler: ValueObject](https://martinfowler.com/bliki/ValueObject.html)
 * Eric Evans. **Domain-Driven Design: Tackling Complexity in the Heart of Software**. Pearson International, 2003.
 
-*Egon Teiniker, 2020-2023, GPL v3.0*
+*Egon Teiniker, 2016-2024, GPL v3.0*
