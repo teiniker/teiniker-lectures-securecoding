@@ -31,17 +31,18 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk18on</artifactId>
-			<version>1.79</version>
-		</dependency>
 
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.15</version>
 		</dependency>
+
+		<dependency>
+      		<groupId>org.bouncycastle</groupId>
+      		<artifactId>bcprov-jdk16</artifactId>
+      		<version>1.46</version>
+  		</dependency>
+
 	</dependencies>
 </project>
