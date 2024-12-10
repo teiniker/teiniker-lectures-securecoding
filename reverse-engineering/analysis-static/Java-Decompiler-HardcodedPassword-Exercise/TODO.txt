@@ -1,7 +1,7 @@
 Exercise: Java Decompiler - Password
 -------------------------------------------------------------------------------
 
-Given the "Java-Decompiler-Password" file, we can run the application:
+Given the "HardcodedPassword.jar" file, we can run the application:
 
 $ java -cp HardcodedPassword.jar org.se.lab.CheckPassword
 password> student
@@ -14,8 +14,12 @@ you have extracted the right password:
     "Welcome, you have entered a valid password!"
 
 TODO: <<found password>>
+hjHGzu&56nm;
 
 B) Storage Algorithm
 Describe the algorithm which has been used to build the password:
+
+VvnoWnioi8hjHGzu&56nm;:mkhjghfg
+0123456789012345678901234567890
 
 TODO: <<step by step description>>
