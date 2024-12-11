@@ -45,4 +45,4 @@ Tip: Use the following regular expressions:
 Change the static "createArticleService()" method of the "Factory"
 class to create a sequence of objects:
 
-		ArticleServiceValidation -> ArticleServiceImpl
+		ArticleServiceValidator -> ArticleServiceImpl
