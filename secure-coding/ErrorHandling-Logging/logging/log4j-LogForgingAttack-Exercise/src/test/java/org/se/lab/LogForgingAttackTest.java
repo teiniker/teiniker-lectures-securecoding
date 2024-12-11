@@ -21,7 +21,7 @@ public class LogForgingAttackTest
 	@Test
 	public void testLogForgingAttack()
 	{
-		logger.info("bart\n2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
+		logger.info("bart\n[INFO ] 2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
 	}
 
 	@Test
@@ -35,6 +35,6 @@ public class LogForgingAttackTest
 
 	protected void operation(String name)
 	{
-		//logger.info("Parameter:" + LogEncoder.encode(name));
+		logger.info("Parameter:" + name);
 	}
 }

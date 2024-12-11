@@ -10,7 +10,7 @@ import org.junit.Test;
  * Using Pseudo Random Number Generators (PRNG) from the Java standard library.
  * See: https://dzone.com/articles/java-mathrandom-examples
  */
-public class SecureRandomTest
+public class RandomTest
 {
 	@Test
 	public void testUtilRandomSelfSeed()
