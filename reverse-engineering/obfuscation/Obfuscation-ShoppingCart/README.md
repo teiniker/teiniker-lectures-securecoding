@@ -73,7 +73,7 @@ _Example:_ ProGuard configuration file `config.pro`
 - The `Main` class and its `main` method are kept intact to ensure the application remains functional.
 - Other classes, methods, and fields are aggressively obfuscated and optimized to enhance code security and reduce the JAR size.
 
-### Potential Considera[README.md](../../../secure-coding/README.md)tions:
+### Potential Considerations:
 - Ensure the mapping file (`obfuscation.map`) is securely stored because losing it makes debugging nearly impossible.
 - Use `-libraryjars` cautiously to include all dependencies; missing libraries can cause runtime errors.
 - Aggressive options like `-overloadaggressively` and `-allowaccessmodification` might introduce compatibility issues; test thoroughly after obfuscation.
