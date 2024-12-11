@@ -18,4 +18,4 @@ Based on the taxonomy of coding errors defined by Gary McGraw, we can split the 
 * Gary McGraw. **Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors**. IEEE Security, 2005
 
 
-*Egon Teiniker, 2016-2023, GPL v3.0*
+*Egon Teiniker, 2016-2024, GPL v3.0*
