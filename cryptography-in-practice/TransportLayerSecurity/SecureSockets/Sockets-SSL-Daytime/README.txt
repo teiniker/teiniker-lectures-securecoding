@@ -1,10 +1,7 @@
 How to Generate a Certificate?
 -------------------------------------------------------------------------------
 
-$ keytool -genkey -keystore SSLKeyStore -alias SSLCertificateWithRSA -keyalg RSA
-
-=> password: student
-
+$ keytool -genkey  -keyalg RSA -alias SSLCertificateWithRSA -storepass student -keystore SSLKeyStore
 
 
 How to Start the Server?
