@@ -74,9 +74,12 @@ Is CN=Egon Teiniker, OU=IMS, O=FHJ, L=KBerg, ST=Styria, C=AT correct?
   [no]:  yes
 ```
 Parameters:
-* **-genkeypair**: Generates a key pair (a public key and associated private key). Wraps the public key into an 
-    X.509 v3 self-signed certificate, which is stored as a single-element certificate chain. 
-    This certificate chain and the private key are stored in a new keystore entry identified by alias.
+* **-genkeypair**: Generates a key pair (a public key and associated private key). 
+  Wraps the public key into an X.509 v3 self-signed certificate, which is stored 
+  as a single-element certificate chain. 
+    
+  This certificate chain and the private key are stored in a new keystore entry 
+  identified by alias.
 * **-storetype**: Keystore type
 * **-alias**:  Alias name of the entry to process
 * **-storepass**:  Keystore password

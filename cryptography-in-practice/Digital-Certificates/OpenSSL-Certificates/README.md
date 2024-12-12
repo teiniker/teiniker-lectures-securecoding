@@ -2,8 +2,7 @@
 
 ## Generating Self-Signed Certificates
 
-A common server-side operation is to generate a self-signed certificate for testing or encrypting communications between 
-internal servers.
+A common server-side operation is to generate a self-signed certificate for testing or encrypting communications between internal servers.
 
 To **generate a private key and public certificate**, run the following command and answer the questions:
 ```
