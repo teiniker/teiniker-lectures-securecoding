@@ -1,3 +1,5 @@
 cert.pem
 certificate.pfx
 key.pem
+private-key.pem
+public-key.pem
