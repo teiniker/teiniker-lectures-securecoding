@@ -1,4 +1,4 @@
-# Apache Commons Codec Libryrary
+# Apache Commons Codec Library
 
 The Apache Commons Codec library is part of the Apache Commons project, 
 and it provides a set of high-level **encoding and decoding utilities** 

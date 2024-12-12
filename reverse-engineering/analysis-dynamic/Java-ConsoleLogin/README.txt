@@ -19,11 +19,11 @@ username > homer
 password > superhomer
 
 
-2. Start JVisualVM
+2. Start VisualVM
 ------------------
 While the target application is running, start:
 
-$ jvisualvm --fontsize 20
+$ visualvm --fontsize 20
 
 Double click on the right PID
 Tab Monitor -> Heap Dump

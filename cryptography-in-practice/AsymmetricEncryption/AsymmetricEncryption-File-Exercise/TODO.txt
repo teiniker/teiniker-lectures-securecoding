@@ -13,7 +13,7 @@ Extend the given "EncryptedFile" class to support the handling of encrypted file
     Decrypt the loaded data before they are returned by this method.
 
 Tip: Implement a simple input validation on all public operations (see test cases).
-Tip: Make sure that you wrap all checked exceptions into a IllegelStateException.
+Tip: Make sure that you wrap all checked exceptions into a "IllegelStateException".
 
 Run the "EncryptedFileTest" to validate your implementations.
 

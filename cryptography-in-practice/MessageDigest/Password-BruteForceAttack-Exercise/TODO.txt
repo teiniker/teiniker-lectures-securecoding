@@ -8,4 +8,4 @@ Read every line from the "wordlist.txt", calculate the hash value and compare
 it with the given one.
 If the hash values match, you have found the right string in the wordlist.
 
-
+Tipp: MessageDigest.getInstance("MD5");
