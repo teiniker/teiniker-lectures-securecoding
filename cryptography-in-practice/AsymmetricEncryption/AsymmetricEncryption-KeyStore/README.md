@@ -12,7 +12,7 @@ Three are three kinds of entries can be stored in a keystore depending on the ty
     It is usually used to verify the identity of a server. Sometimes it is also used to identify a
     client when requested.
 
-* **SecretKey**: A key entry which is sued in symmetric cryptography.
+* **SecretKey**: A key entry which is used in symmetric cryptography.
 
 
 Depending on what entries the keystore can store and how the keystore can store the entries, there are a few different 
