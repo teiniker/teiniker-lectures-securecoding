@@ -14,47 +14,35 @@ efficient, leading to improved performance of Java applications.
 _Example_: JIT monitoring for Loop.java
 ```
 $ java -XX:+PrintCompilation -cp ./target/classes org.se.lab.Loop
-    144    1             java.lang.String::hashCode (67 bytes)
-    158    2             sun.nio.cs.UTF_8$Encoder::encode (361 bytes)
-    167    3             java.lang.String::charAt (33 bytes)
-    169    4             java.lang.String::indexOf (87 bytes)
-    177    5             java.lang.Object::<init> (1 bytes)
-    199    6             java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)
-    202    7     n       java.lang.System::arraycopy (0 bytes)   (static)
-    203    8             java.lang.String::length (5 bytes)
-    204    9             java.lang.Integer::stringSize (21 bytes)
-    208   10             java.lang.Integer::getChars (131 bytes)
-    221   11             java.lang.Math::min (11 bytes)
-    232   12             java.lang.String::getChars (66 bytes)
-    234   13             java.lang.AbstractStringBuilder::append (48 bytes)
-    239   14             java.lang.StringBuilder::append (8 bytes)
-    240   15             java.lang.String::<init> (72 bytes)
-    245   16             java.util.Arrays::copyOfRange (63 bytes)
-    247   17             java.lang.AbstractStringBuilder::<init> (12 bytes)
-    248   18             java.lang.StringBuilder::toString (17 bytes)
-    249   19             java.lang.StringBuilder::append (8 bytes)
-    250   20             java.lang.AbstractStringBuilder::append (29 bytes)
-    252   21             java.lang.String::valueOf (14 bytes)
-    259   22             org.se.lab.Loop::add (24 bytes)
-    260   23             java.lang.String::toString (2 bytes)
-    261   24             java.lang.StringBuilder::<init> (18 bytes)
-    261   25             java.lang.StringBuilder::append (8 bytes)
-    269   26             java.lang.AbstractStringBuilder::append (62 bytes)
-   1625    1 %           org.se.lab.Loop::main @ 8 (31 bytes)
+     26    1       3       java.lang.Object::<init> (1 bytes)
+     27    2       3       java.lang.String::coder (15 bytes)
+     29    3       3       java.lang.String::isLatin1 (19 bytes)
+    ...
+    116  157       4       java.lang.StringConcatHelper::newString (67 bytes)
+    117  125       3       java.lang.StringConcatHelper::newString (67 bytes)   made not entrant
+    205  158       4       org.se.lab.Loop::add (8 bytes)
+    218  126       3       org.se.lab.Loop::add (8 bytes)   made not entrant
+    218  159       4       java.lang.StringConcatHelper::prepend (22 bytes)
+    219  144       3       java.lang.StringConcatHelper::prepend (22 bytes)   made not entrant
 ```
 
-The meaning of the individual columns can be seen in the following list:
-* column 1:	Time (in ms) since the JVM started
-* column 2: Compilation ID  
-* column 3: Flags that indicate properties of the compiled method
-  - n: wrapper to a native method
-  - s: method is synchronized
-  - b: compilation occured in blocking mode
-  - !: method has an exception handler
-  - %: compilation is OSR 
+The meaning of the individual columns can be seen in the following diagram:
+```
+  26    1       3       java.lang.Object::<init> (1 bytes)
+  ┬─────┘    ┬      ┬        └──────────── method (class::name, signature) + code size or “(native)”
+  │          │      │
+  │          │      └─── Compilation level / flags column
+  │          │            1..3 = C1 tiers (client compiler), 4 = C2 (server compiler)
+  │          │            %     = OSR (on-stack replacement) compile; number after it is the bci
+  │          │            n     = native method (no Java bytecodes)
+  │          │            s     = synchronized method (flag)
+  │          │            (others occur rarely: e.g., ! after a method shows a deopt/uncommon trap later)
+  │          │
+  │          └──────── Compilation ID (monotonic counter)
+  │
+  └────────── Time since JVM start in milliseconds
+```
 
-* column 4: Qualified name of the method (number of bytes of bytecode
-contained in the method being compiled).
 
 Using the `-XX:+CITime` flag outputs various statistics about compilations:
 ```
@@ -94,4 +82,4 @@ $ java -XX:+CITime -cp ./target/classes org.se.lab.Loop
 * [Baeldung: Tiered Compilation in JVM](https://www.baeldung.com/jvm-tiered-compilation)
 * Charlie Hunt. **Java Performance**. Addison-Wesley Professional, 2011.
 
-*Egon Teiniker, 2016-2023, GPL v3.0*
+*Egon Teiniker, 2016-2025, GPL v3.0*
