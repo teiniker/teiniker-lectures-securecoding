@@ -4,12 +4,12 @@
 We can **download** [ProGuard](https://github.com/Guardsquare/proguard/releases) 
 and unzip the file into a local directory:
 ```
-$ sudo mv proguard-7.6.0 /opt/
+$ sudo mv proguard-7.8.1 /opt/
 ```
 
 In order to execute `proguard.sh` in every directory, we have to extend the `~/.bashrc` file:
 ```
-export PROGUARD=/opt/proguard-7.6.0
+export PROGUARD=/opt/proguard-7.8.1
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin:/opt/bin:$PROGUARD/bin:$PATH
 ```
 
@@ -120,4 +120,4 @@ Here some major settings:
 * [ProGuard Manual](https://www.guardsquare.com/manual/home)
 * [ProGuard Download](https://github.com/Guardsquare/proguard/releases)
 
-*Egon Teiniker, 2016-2024, GPL v3.0* 
+*Egon Teiniker, 2016-2025, GPL v3.0* 

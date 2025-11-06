@@ -44,7 +44,7 @@ public class EmptyMethod
 From the compiled bytecode we can see that call to empty method `EmptyMethod()` 
 was not removed by the Java compiler (line 14).
 
-```
+```bash
 $ javap -c target/classes/org/se/lab/EmptyMethod.class 
 
 Compiled from "EmptyMethod.java"
@@ -82,7 +82,7 @@ Note that the JIT is addressing that problem.
 At runtime, the empty method `EmptyMethod()` is compiled into 
 a single byte by the JIT - and thus eliminated.
 
-```
+```bash
 $ java -XX:+PrintCompilation -cp build org.se.lab.EmptyMethod
      68    1             java.lang.String::hashCode (55 bytes)
      78    2             java.lang.String::indexOf (70 bytes)
@@ -119,7 +119,7 @@ public class DeadCode
 From the bytecode it can be seen that the if block, which certainly cannot 
 be executed (the if condition is always `false`), has been eliminated.
 
-```
+```bash
 $ javap -c target/classes/org/se/lab/DeadCode.class 
 
 Compiled from "DeadCode.java"
@@ -156,7 +156,7 @@ public class StringOperations
 }
 ```
 
-```
+```bash
 $ javap -c target/classes/org.se.lab/StringOperations
 
 Compiled from "StringOperations.java"
@@ -172,10 +172,10 @@ public class org.se.lab.StringOperations {
 ...
 }
 ```
-Current Java compilers solve the problem by InvokeDynamic of makeConcatWithConstants().
+Current Java compilers solve the problem by InvokeDynamic of `makeConcatWithConstants()`.
 
 Older Java compilers replace string concatenation by using the `StringBuilder` class.
-```
+```bash
   public java.lang.String toString1();
     Code:
        0: new           #20                 // class java/lang/StringBuilder
@@ -194,6 +194,6 @@ Older Java compilers replace string concatenation by using the `StringBuilder` c
       30: invokevirtual #35                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
       33: invokevirtual #42                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
       36: areturn
-```	
+```
 
-*Egon Teiniker, 2016-2023, GPL v3.0*
+_Egon Teiniker, 2016-2025, GPL v3.0_

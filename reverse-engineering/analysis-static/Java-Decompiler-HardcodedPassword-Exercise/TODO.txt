@@ -7,19 +7,16 @@ $ java -cp HardcodedPassword.jar org.se.lab.CheckPassword
 password> student
 Login rejected, invalid password!
 
-A) Extract Password
-Use static reverse engineering techniques to extract the hardcoded password.
+A) Analyze Storage Algorithm
+Describe the algorithm which has been used to build the password:
+
+TODO: <<step by step description>>
+
+B) Extract Password
+Based on the found algorithm, re-construct the stored password.
 Try to login with the found password - only when you see the following message,
 you have extracted the right password:
+
     "Welcome, you have entered a valid password!"
 
 TODO: <<found password>>
-hjHGzu&56nm;
-
-B) Storage Algorithm
-Describe the algorithm which has been used to build the password:
-
-VvnoWnioi8hjHGzu&56nm;:mkhjghfg
-0123456789012345678901234567890
-
-TODO: <<step by step description>>

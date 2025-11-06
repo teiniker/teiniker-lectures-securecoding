@@ -1,17 +1,15 @@
 Exercise: Obfuscation - Hardcoded Password
 -------------------------------------------------------------------------------
 
-Given a JAR file (HardcodedPassword-Dev.jar), we can run the example like:
-$ java -cp HardcodedPassword-Dev.jar org.se.lab.Main
+Given an obfuscated JAR file (HardcodedPassword-Dev.jar), we can run the example
+like:
+$ java -cp HardcodedPassword-Release.jar org.se.lab.Main
 password> xxxx
 Login rejected, invalid password!
 
-A) Obfuscate the given JAR file
-$ proguard.sh @config.pro
-
-B) Decompile the generated Release File
+A) Decompile the generated Release File
 - Use https://www.decompiler.com/ for JDK21 code
 
-C) Extract hardcoded password and try to login:
+B) Extract hardcoded password and try to login:
 $ java -cp HardcodedPassword-Dev.jar org.se.lab.Main
 password>

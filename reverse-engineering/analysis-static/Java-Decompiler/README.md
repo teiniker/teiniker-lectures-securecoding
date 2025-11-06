@@ -39,26 +39,6 @@ These factors combine to make Java bytecode more amenable to decompilation
 compared to other compiled languages, where the original source structure 
 and high-level constructs are often lost during the compilation process.
 
-## JD-GUI (JDK-17 only)
-
-JD-GUI is a standalone graphical utility that displays Java source codes 
-of `.class` files. 
-We can browse the reconstructed source code with the JD-GUI for instant 
-access to methods and fields.
-
-To setup JD-GUI, just [download](http://java-decompiler.github.io/) the
-JAR file and store it in the file system.
-```
-$ cd Downloads
-$ sudo mkdir /opt/jd-gui
-$ sudo mv jd-gui-1.6.6.jar /opt/jd-gui/
-```
-
-We can run JD-GUI by executing the JAR file:
-```
-$ java -jar /opt/jd-gui/jd-gui-1.6.6.jar
-```
-
 ## Online Decompiler 
 
 While JD-GUI only supports JDK-17 code, online decompilers are up to date.
@@ -80,4 +60,4 @@ decompiled code into a new source file.
 
 * [Online-Decompilers](https://www.decompiler.com/)
 
-*Egon Teiniker, 2016-2024, GPL v3.0*
+*Egon Teiniker, 2016-2025, GPL v3.0*
