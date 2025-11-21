@@ -7,7 +7,7 @@ to function correctly or fail gracefully.
 
 * [Java Exceptions](https://github.com/teiniker/teiniker-lectures-java/tree/main/java-basics/oop/exceptions)
 
-* [Exception Handling in Software Design](https://github.com/teiniker/teiniker-lectures-softwaredesign/tree/master/error-handling/exception-handling)
+* [Exception Handling in Software Architectures](https://github.com/teiniker/teiniker-lectures-softwarearchitectures/tree/master/layered/domain/error-handling/exception-handling)
 
 
 ## Exploiting Error Messages

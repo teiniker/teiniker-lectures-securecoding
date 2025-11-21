@@ -36,7 +36,7 @@ Regular expressions are a powerful tool in programming, text processing, and dat
 
 * [Introduction](README.md)
 * [grep Regex](RegEx/grep-regex/)
-* [Java Regex](RegEx/Java-RegEx/)
+* [Java Regex](RegEx/RegEx-Java/)
 
 
 ## Techniques Used Together With Regular Expressions

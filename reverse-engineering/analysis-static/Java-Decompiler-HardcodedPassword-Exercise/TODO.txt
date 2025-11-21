@@ -11,6 +11,7 @@ A) Analyze Storage Algorithm
 Describe the algorithm which has been used to build the password:
 
 TODO: <<step by step description>>
+"VvnoWnioi8hjHGzu&56nm;:mkhjghfg"
 
 B) Extract Password
 Based on the found algorithm, re-construct the stored password.
@@ -20,3 +21,4 @@ you have extracted the right password:
     "Welcome, you have entered a valid password!"
 
 TODO: <<found password>>
+hjHGzu&56nm;

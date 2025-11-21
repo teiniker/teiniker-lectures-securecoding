@@ -28,13 +28,13 @@ public class LogForgingAttackTest
 	@Test
 	public void testLogEncoder()
 	{
-        operation("2099-01-01 00:00:00,000 [main] \rINFO HACK!!!!");
-        operation("bart\n2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
-        operation("lisa");
+        log("2099-01-01 00:00:00,000 [main] \rINFO HACK!!!!");
+        log("bart\n2099-01-01 00:00:00,000 [main] INFO HACK!!!!");
+        log("lisa");
 	}
 
 
-	protected void operation(String name)
+	protected void log(String name)
 	{
 		logger.info("Parameter:" + LogEncoder.encode(name));
 	}
