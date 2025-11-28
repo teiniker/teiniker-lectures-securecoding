@@ -108,6 +108,8 @@ ECB mode describes the use of a symmetric cipher in its rawest form.
 The problem with ECB mode is that if there are patterns
 in the data, there will be patterns in the encrypted data as well.
 
+![ECB](figures/ECB_encryption.svg.png)
+
 Given a particular block of bytes on input, the cipher performs a
 set of deterministic calculations, looking up a virtual code book
 and returns a particular block of bytes as output. So given the same
@@ -124,6 +126,8 @@ block of cipher text.
 The `IvParameterSpec` object is used to carry the i**nitialization vector (IV)**
 It is the IV that provides the initial block of cipher text that is 
 XOR-ed with the first block of input.
+
+![CBC](figures/CBC_encryption.svg.png)
 
 Forgetting to set the IV (or setting it to the wrong value) is a very 
 common programming error. The indicator for this error is that the first 
@@ -143,6 +147,8 @@ with any length of data (like streaming cipher).
 
 _Example:_ "AES/CTR/NoPadding"
 
+![CTR](figures/CTR_encryption_2.svg.png)
+
 Advantages of the CTR mode:
 * It is a **streaming mode**, so we don't have to worry about padding.
 * It allows for **random access** to the encrypted data.
@@ -153,6 +159,8 @@ initialization vector (IV) and encrypted with a block cipher.
 The result of this encryption is then XORed with the plaintext to produce the ciphertext. 
 
 _Example:_ "AES/GCM/NoPadding"
+
+![GCM](figures/GCM-Galois_Counter_Mode_with_IV.svg.png)
 
 Advantages of the GCM mode:
 * Like all counter modes, this is essentially a **stream cipher**, and so it is essential that a different IV is used for 
