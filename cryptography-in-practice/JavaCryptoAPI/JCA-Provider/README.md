@@ -49,7 +49,8 @@ Adding Bouncy Castle as a additional provider needs the following steps:
 
 * Add a new line in the `conf/security/java.security` file of the JDK.
 ```
-$ vi /opt/java/jdk-17/conf/security/java.security
+$ vim /opt/java/conf/security/java.security
+
 #
 # List of providers and their preference orders (see above):
 #
