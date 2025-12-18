@@ -18,15 +18,18 @@ class NetworkServiceValidator   // package private
     @Override
     public String getIPAddress(String iface)
     {
+        // Validation
         if(!isValidInterface(iface))
             throw new IllegalArgumentException("Invalid network interface: " + iface);
 
+        // Delegation
         return service.getIPAddress(iface);
     }
 
     @Override
     public void assignIPAddress(String iface, String ipAddress)
     {
+        // Validation
         if(!isValidInterface(iface))
             throw new IllegalArgumentException("Invalid network interface: " + iface);
 
@@ -36,6 +39,7 @@ class NetworkServiceValidator   // package private
         if(!validBytes(ipAddress))
             throw new IllegalArgumentException("Invalid IP address bytes: " + ipAddress);
 
+        // Delegation
         service.assignIPAddress(iface, ipAddress);
     }
 

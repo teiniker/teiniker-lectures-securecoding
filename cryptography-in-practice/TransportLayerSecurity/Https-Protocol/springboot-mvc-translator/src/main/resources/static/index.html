@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Online Translator</title>
+</head>
+
+<body>
+<h2>Translator </h2>
+
+<form method="POST" action="translator" >
+    <table border="0" >
+        <colgroup>
+            <col width="100"> <col width="100">
+        </colgroup>
+        <tr>
+            <th align="left">
+                Word:
+            </th>
+            <th align="left">
+                <input type="text" name="word" maxlength="30" size="20"> <br>
+            </th>
+        </tr>
+
+        <tr>
+            <th align="left">
+                Language
+            </th>
+            <th>
+                <select name="language">
+                    <option> Deutsch
+                    <option> Francais
+                </select>
+            </th>
+        </tr>
+    </table>
+
+    <table >
+        <colgroup>
+            <col width="50"> <col width="50"> <col width="50">
+        </colgroup>
+        <tr>
+            <th>
+                <input type="reset"  name="action" value="Reset">
+            </th>
+            <th/>
+            <th>
+                <input type="submit" name="action" value="Translate">
+            </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
