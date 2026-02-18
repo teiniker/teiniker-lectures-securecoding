@@ -110,7 +110,7 @@ the interception proxy is recording the communication.
 
 ```
 URL: http://localhost:8080/index.html
-``
+```
 
 ## Resources
 
