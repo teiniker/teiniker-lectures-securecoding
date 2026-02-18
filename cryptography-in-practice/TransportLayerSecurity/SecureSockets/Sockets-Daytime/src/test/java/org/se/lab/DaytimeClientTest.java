@@ -17,7 +17,7 @@ public class DaytimeClientTest
 {
 
 	@Test
-	public void testInputStream() throws UnknownHostException, IOException
+	public void testInputStream() throws IOException
 	{
 		Socket socket = new Socket("localhost", 9013);
 		
