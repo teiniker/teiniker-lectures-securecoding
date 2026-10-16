@@ -7,15 +7,15 @@ profiling capabilities.
 
 ```
 $ cd Downloads
-$ unzip visualvm_217.zip 
-$ sudo mv visualvm_217 /opt/
+$ unzip visualvm_222.zip 
+$ sudo mv visualvm_222 /opt/
 
-$ /opt/visualvm_217/bin/visualvm
+$ /opt/visualvm_222/bin/visualvm
 ```
 
 We can start VisualVM from the command line:
 ```
-$ cd /opt/visualvm_217/
+$ cd /opt/visualvm_222/
 $ bin/visualvm --fontsize 20
 ```
 
@@ -40,4 +40,4 @@ To use the OQL, install the following plugins:
 ## References
 * [VisualVM - Documentation](https://visualvm.github.io/documentation.html)
 
-*Egon Teiniker, 2020-2023, GPL v3.0*
+*Egon Teiniker, 2020-2026, GPL v3.0*
