@@ -4,7 +4,7 @@
 
 We use ProGuard from the command line:
 ```
-$ cp  target/Obfuscation-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCard-Dev.jar
+$ cp  target/Obfuscation-ShoppingCart-0.0.1-SNAPSHOT.jar ShoppingCart-Dev.jar
 $ proguard.sh @config.pro
 ```
 
