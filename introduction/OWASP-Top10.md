@@ -39,7 +39,7 @@ critical security risks to web applications.
 ## History
 
 * [OWASP Top Ten 2017](https://owasp.org/www-project-top-ten/2017/)
-![2017 vs. 2021](figures/OWASP-2017-2021.png)
+![2017 vs. 2021](https://owasp.org/Top10/2021/assets/mapping.png)
 
 ## References
 

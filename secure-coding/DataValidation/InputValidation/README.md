@@ -35,7 +35,7 @@ if(age <= 0 || age > 120)
 Regular expressions are a powerful tool in programming, text processing, and data validation.
 
 * [Introduction](README.md)
-* [grep Regex](RegEx/grep-regex/)
+* [grep Regex](RegEx/regex-egrep/)
 * [Java Regex](RegEx/RegEx-Java/)
 
 

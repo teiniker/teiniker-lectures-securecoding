@@ -12,7 +12,7 @@ the fundamental principles of software design.
 The following techniques are used to encapsulate data and restrict the visibility of data and functionality:
 
 * [Deep Copy of Mutual Objects](deep-copy/)
-* [Immutable Classes](immutable-classes/)
+* [Immutable Classes](immutable-objects/)
 * [Java Reflection API](reflection/)
 * [Java Module System](modules/)
 * [Java Sealed Classes](sealed-classes/)
