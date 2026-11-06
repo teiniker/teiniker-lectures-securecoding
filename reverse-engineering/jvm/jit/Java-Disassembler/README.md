@@ -15,7 +15,7 @@ of compiled code, and understanding how high-level Java constructs are
 transformed into JVM bytecode.
 
 _Example_: Disassemble DataTypes.java (classes and method signatures)
-```
+```bash
 $ javap target/classes/org/se/lab/DataTypes.class
 Compiled from "DataTypes.java"
 
@@ -26,7 +26,7 @@ public class org.se.lab.DataTypes {
 ```
 
 _Example_: Disassemble DataTypes.java (bytecode instructions)
-```
+```bash
 $ javap -c target/classes/org/se/lab/DataTypes.class
 
 Compiled from "DataTypes.java"
@@ -53,7 +53,7 @@ public class org.se.lab.DataTypes {
 ```
 
 _Example_: Disassemble DataTypes.java (constant pool, stack sizes, bytecode instructions, and more metadata)
-```
+```bash
 $ javap -v target/classes/org/se/lab/DataTypes.class
 
 Classfile org/se/lab/DataTypes.class
@@ -151,4 +151,4 @@ SourceFile: "DataTypes.java"
 
 * [Baeldung: View Bytecode of a Class File in Java](https://www.baeldung.com/java-class-view-bytecode)
 
-*Egon Teiniker, 2016-2023, GPL v3.0*
+*Egon Teiniker, 2016-2026, GPL v3.0*
