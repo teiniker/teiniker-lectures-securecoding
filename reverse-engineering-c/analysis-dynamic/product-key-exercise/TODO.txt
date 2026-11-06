@@ -1,0 +1,48 @@
+Exercise: Reverse Engineering - Product Key 
+-------------------------------------------------------------------------------
+
+In the given binary, username and product key will be checkt before the program 
+goes on. 
+
+$ ./product <username> <key>
+
+If the correct username and product key are supplied, the program prints 
+"Welcome to your product."
+Otherwise it prints "Invalid product key or username!".
+
+A) Dynamic Analysis 
+Use the gdb to manipulate the control flow.
+Modify register values to bypass the username and key checks.
+
+$ gdb ./product
+
+(gdb) run homer xxxxxx
+...
+Welcome to your product.
+
+
+B) Patch Binary 
+
+Using the disassembly of the binary: 
+
+$ objdump -d product
+
+Use a hex editor (VS Code Extension) to modify the right bytes to bypass 
+the username and key checks permanently.
+
+Tip: There is a No Operation (NOP) command we can use for x86-64 CPUs 
+
+    90                ; 1-byte NOP 
+
+    In multi-byte NOPs, used for instruction alignment or padding, other encodings 
+    like the following are common:
+    66 90             ; 2-byte NOP
+    0F 1F 00          ; 3-byte NOP
+    0F 1F 40 00       ; 4-byte NOP
+    0F 1F 44 00 00    ; 5-byte NOP
+
+Save the file and run:
+
+$ ./product-hack homer xxxxxx
+Welcome to your product.
+

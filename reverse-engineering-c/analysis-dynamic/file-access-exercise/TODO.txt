@@ -1,0 +1,26 @@
+Exercise: Dynamic Analysis - File Access
+-------------------------------------------------------------------------------
+
+We build the provided "file_login.c" file using make.
+
+When we run the binary, we need to guess the correct password for the user 
+"student":
+
+$ ./file_login 
+username> student
+password> student
+Login rejected!
+
+Let's try a better approach...
+
+A) Analyze System Calls 
+Attach strace to the running file_login process (use ps -a to find the PID).
+Review the strace output—can you discover the access credentials?
+
+B) Analyze Library Calls 
+Start the application with ltrace.
+Review the ltrace output—can you discover the access credentials?
+
+Of course, we could simply read the "application-users.config" file, but 
+let's assume a scenario where these credentials are retrieved from 
+a remote server...

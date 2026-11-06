@@ -1,0 +1,25 @@
+Exercise: Reverse Engineering - Hardcoded Password
+-------------------------------------------------------------------------------
+
+Given the executable named "password_check".
+
+$ ./password_check 
+password> student
+Login rejected, invalid password!
+
+A) Extract Password 
+Use static reverse engineering techniques to extract the hardcoded password.
+Try to login with the found password - only when you see the following message, 
+you have extracted the right password:
+    "Welcome, you have entered a valid password!"   
+
+    TODO: Hardcoded password
+
+B) Storage Algorithm 
+Describe the algorithm which has been used to build the password:
+
+    TODO: Description
+
+C) Dynamic Analysis 
+Use a dynamic analysis technique to retrieve the password from the 
+binary.

@@ -1,0 +1,22 @@
+Exercise: Dynamic Analysis - Database Access
+-------------------------------------------------------------------------------
+
+In this exercise you should analyze the communication between a database server
+and its client.
+
+Start the DB server: Open a terminal and type:
+$ sudo systemctl start mariadb.service
+
+Start a command line client: Open another terminal and type:
+$ mysql -u student -p
+Enter password: student
+
+MariaDB [(none)]> use testdb;
+MariaDB [testdb]> source createTable.sql
+
+A) Analyze System Calls 
+Attach strace to the running client process (use ps -a to find the PID).
+In the mysql client execute the following SQL statement:
+    select * from User;
+Analyze the strace output, what information can we get from it?    
+
