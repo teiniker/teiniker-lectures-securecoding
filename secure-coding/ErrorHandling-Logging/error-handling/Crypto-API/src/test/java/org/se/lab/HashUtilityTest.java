@@ -1,17 +1,7 @@
 package org.se.lab;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.IllegalChannelGroupException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-import static org.junit.Assert.assertEquals;
-
 
 public class HashUtilityTest
 {
